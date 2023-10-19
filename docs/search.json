@@ -12,5 +12,12 @@
     "title": "About",
     "section": "",
     "text": "About this site"
+  },
+  {
+    "objectID": "index.html#hey-there-were-happy-youre-here",
+    "href": "index.html#hey-there-were-happy-youre-here",
+    "title": "warmup-rhys-tilford",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]
