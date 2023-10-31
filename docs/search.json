@@ -19,5 +19,19 @@
     "title": "warmup-rhys-tilford",
     "section": "",
     "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "articles/article_01.html",
+    "href": "articles/article_01.html",
+    "title": "Javascript Solution for Day 2 of the 2022 Advent of Code Challenge",
+    "section": "",
+    "text": "Javascript Solution for Day 2 of the 2022 Advent of Code Challenge\n\nRhys Tilford"
+  },
+  {
+    "objectID": "articles/index.html",
+    "href": "articles/index.html",
+    "title": "Articles",
+    "section": "",
+    "text": "This page includes several articles that document applications of javascript to real-world problems."
   }
 ]

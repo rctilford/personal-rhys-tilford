@@ -9,7 +9,21 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
-        text: trukdslajsd
+        text: About
+      - href: articles/index.qmd
+        text: Articles 
+
+sidebar:
+  - id: articles
+    title: "Articles"
+    style: "docked"
+    background: light
+    collapse-level: 2
+    contents: 
+      - text: "Advent of Code 2022"
+        href:  articles/article_01.qmd
+      - text: "Browser Implementation"
+        href:  articles/article_02.qmd
 
 format:
   html:
