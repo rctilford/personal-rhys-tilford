@@ -12,22 +12,23 @@ website:
         text: About
       - href: articles/index.qmd
         text: Articles 
-
-sidebar:
-  - id: articles
-    title: "Articles"
-    style: "docked"
-    background: light
-    collapse-level: 2
-    contents: 
-      - text: "Advent of Code 2022"
-        href:  articles/article_01.qmd
-      - text: "Browser Implementation"
-        href:  articles/article_02.qmd
+  sidebar:
+    - id: articles
+      title: "Articles"
+      style: "docked"
+      collapse-level: 2
+      contents: 
+        - text: "Advent of Code 2022"
+          href:  articles/article_01.qmd
+        - text: "Browser Implementation"
+          href:  articles/article_02.qmd
+  favicon: images/glamourshot.png
 
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: cosmo
+      dark: [cosmo, theme-dark.scss]
     css: styles.css
     toc: true
 

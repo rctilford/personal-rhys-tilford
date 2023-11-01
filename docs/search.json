@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "warmup-rhys-tilford",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "If you want to learn a little more about me and my personal life click here.\nIf you want to see some of the computer programming projects I’ve built, click here.\nIf you get bored, try singing a song or making up a story."
   },
   {
     "objectID": "about.html",
@@ -33,5 +33,12 @@
     "title": "Articles",
     "section": "",
     "text": "This page includes several articles that document applications of javascript to real-world problems."
+  },
+  {
+    "objectID": "index.html#hey-there-im-happy-youre-here",
+    "href": "index.html#hey-there-im-happy-youre-here",
+    "title": "warmup-rhys-tilford",
+    "section": "",
+    "text": "If you want to learn a little more about me and my personal life click here.\nIf you want to see some of the computer programming projects I’ve built, click here.\nIf you get bored, try singing a song or making up a story."
   }
 ]
