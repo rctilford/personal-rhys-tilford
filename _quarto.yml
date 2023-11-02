@@ -27,8 +27,8 @@ website:
 format:
   html:
     theme: 
-      light: cosmo
-      dark: [cosmo, theme-dark.scss]
+      dark: [vapor, theme-dark.scss, custom.scss]
+      light: [quartz, custom.scss]
     css: styles.css
     toc: true
 
