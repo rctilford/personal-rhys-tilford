@@ -10,8 +10,7 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - href: articles/index.qmd
-        text: Articles 
+      - sidebar:articles
   sidebar:
     - id: articles
       title: "Articles"
@@ -23,12 +22,16 @@ website:
         - text: "Browser Implementation"
           href:  articles/article_02.qmd
   favicon: images/glamourshot.png
+  back-to-top-navigation: true
+  reader-mode: true
+  repo-url: https://github.com/rctilford/warmup-rhys-tilford
+  repo-actions: issue
 
 format:
   html:
     theme: 
-      dark: [vapor, theme-dark.scss, custom.scss]
-      light: [quartz, custom.scss]
+      dark: vapor
+      light: lux
     css: styles.css
     toc: true
 

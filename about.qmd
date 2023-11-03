@@ -1,5 +1,33 @@
 ---
-title: "About"
+title: "Rhys Tilford"
+about:
+  template: jolla
+  image: images/glamourshot.png
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/rctilford
+      target: _blank
+    - icon: linkedin
+      text: Linkedin
+      href: https://www.linkedin.com/in/rhystilford
+      target: _blank
+    - icon: instagram
+      text: Instagram
+      href: https://www.instagram.com/rctilford
+      target: _blank
+    - icon: stack-overflow
+      text: Stack-Overflow
+      href: https://stackoverflow.com/users/21231931/rhys-tilford
+      target: _blank
+
 ---
 
-About this site
+
+
+## Education
+
+
+
+## Experience
+

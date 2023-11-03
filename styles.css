@@ -2,7 +2,7 @@
 
 /* Animation 
 / Underline - Inside Out */
-a {
+ a {
 	position: relative;
 	&:before {
 		content: "";
@@ -11,7 +11,7 @@ a {
 		height: 2px;
 		bottom: 0;
 		margin: -5px 0;
-		background-color: white;
+		background-color: var(--bs-body-color);
 		visibility: hidden;
 		transform: scaleX(0);
 		transition: all 0.4s ease-in-out 0s;

@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -37,11 +71,11 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,13 +126,29 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../articles/index.html" rel="" target="">
- <span class="menu-text">Articles</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../articles/article_01.html" rel="" target="">
+ <span class="dropdown-text">Advent of Code 2022</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/article_02.html" rel="" target="">
+ <span class="dropdown-text">Browser Implementation</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -138,17 +188,109 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#day-2-solution" id="toc-day-2-solution" class="nav-link active" data-scroll-target="#day-2-solution">Day 2 Solution</a>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#javascript-solution" id="toc-javascript-solution" class="nav-link" data-scroll-target="#javascript-solution">Javascript Solution</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/warmup-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
+<section id="day-2-solution" class="level1">
+<h1>Day 2 Solution</h1>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<section id="below-are-some-instructions-from-the-advent-of-code-website-for-day-2-of-the-2022-challenge" class="level5">
+<h5 class="anchored" data-anchor-id="below-are-some-instructions-from-the-advent-of-code-website-for-day-2-of-the-2022-challenge">Below are some instructions from the <a href="https://adventofcode.com/2022/day/2">Advent of Code Website for Day 2 of the 2022 Challenge</a></h5>
+<blockquote class="blockquote">
+<p>The Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a giant Rock Paper Scissors tournament is already in progress.</p>
+<p>Rock Paper Scissors is a game between two players. Each game contains many rounds; in each round, the players each simultaneously choose one of Rock, Paper, or Scissors using a hand shape. Then, a winner for that round is selected: Rock defeats Scissors, Scissors defeats Paper, and Paper defeats Rock. If both players choose the same shape, the round instead ends in a draw.</p>
+<p>Appreciative of your help yesterday, one Elf gives you an encrypted strategy guide (your puzzle input) that they say will be sure to help you win. “The first column is what your opponent is going to play: A for Rock, B for Paper, and C for Scissors. The second column–” Suddenly, the Elf is called away to help with someone’s tent.</p>
+<p>The second column, you reason, must be what you should play in response: X for Rock, Y for Paper, and Z for Scissors. Winning every time would be suspicious, so the responses must have been carefully chosen.</p>
+<p>The winner of the whole tournament is the player with the highest score. Your total score is the sum of your scores for each round. The score for a single round is the score for the shape you selected (1 for Rock, 2 for Paper, and 3 for Scissors) plus the score for the outcome of the round (0 if you lost, 3 if the round was a draw, and 6 if you won).</p>
+<p>Since you can’t be sure if the Elf is trying to help you or trick you, you should calculate the score you would get if you were to follow the strategy guide. For example, suppose you were given the following strategy guide:</p>
+<ul>
+<li>A &lt;-&gt; Y</li>
+<li>B &lt;-&gt; X</li>
+<li>C &lt;-&gt; Z</li>
+</ul>
+<p>This strategy guide predicts and recommends the following:</p>
+<ul>
+<li>In the first round, your opponent will choose Rock (A), and you should choose Paper (Y). This ends in a win for you with a score of 8 (2 because you chose Paper + 6 because you won).</li>
+<li>In the second round, your opponent will choose Paper (B), and you should choose Rock (X). This ends in a loss for you with a score of 1 (1 + 0).</li>
+<li>The third round is a draw with both players choosing Scissors, giving you a score of 3 + 3 = 6. In this example, if you were to follow the strategy guide, you would get a total score of 15 (8 + 1 + 6).</li>
+</ul>
+<p>What would your total score be if everything goes exactly according to your strategy guide?</p>
+</blockquote>
+</section>
+</section>
+<section id="javascript-solution" class="level2">
+<h2 class="anchored" data-anchor-id="javascript-solution">Javascript Solution</h2>
+<section id="step-1.-read-in-the-puzzle-input" class="level4">
+<h4 class="anchored" data-anchor-id="step-1.-read-in-the-puzzle-input">Step 1. Read in the puzzle input:</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fs <span class="op">=</span> <span class="pp">require</span>(<span class="st">'fs'</span>)<span class="op">;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Input <span class="op">=</span> fs<span class="op">.</span><span class="fu">readFileSync</span>(<span class="st">'Day2Input.txt'</span><span class="op">,</span> <span class="st">'utf8'</span>)<span class="op">.</span><span class="fu">split</span>(<span class="st">'</span><span class="sc">\r\n</span><span class="st">'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>Day2Input.txt</em> is the path to the file I used to store my puzzle input. Depending How you store your puzzle input, you may need to change this field.</p>
+</div>
+</div>
+</section>
+<section id="step-2.-find-the-match-points-for-each-outcome" class="level4">
+<h4 class="anchored" data-anchor-id="step-2.-find-the-match-points-for-each-outcome">Step 2. Find the match points for each outcome:</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">getAllIndexes</span>(arr<span class="op">,</span> val) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">var</span> indexes <span class="op">=</span> []<span class="op">,</span> i<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> arr<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (arr[i] <span class="op">===</span> val)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>            indexes<span class="op">.</span><span class="fu">push</span>(i)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> indexes<span class="op">;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> cx <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'C X'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> ay <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'A Y'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> bz <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'B Z'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> ax <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'A X'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> by <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'B Y'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> cz <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'C Z'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> bx <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'B X'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> cy <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'C Y'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> az <span class="op">=</span> <span class="fu">getAllIndexes</span>(Input<span class="op">,</span> <span class="st">'A Z'</span>)<span class="op">.</span><span class="at">length</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3.-multiply-the-match-outcomes-by-there-respective-point-values" class="level4">
+<h4 class="anchored" data-anchor-id="step-3.-multiply-the-match-outcomes-by-there-respective-point-values">Step 3. Multiply the match outcomes by there respective point values:</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> sum <span class="op">=</span> (cx<span class="op">*</span><span class="dv">7</span>)<span class="op">+</span>(ay<span class="op">*</span><span class="dv">8</span>)<span class="op">+</span>(bz<span class="op">*</span><span class="dv">9</span>)<span class="op">+</span>(ax<span class="op">*</span><span class="dv">4</span>)<span class="op">+</span>(by<span class="op">*</span><span class="dv">5</span>)<span class="op">+</span>(cz<span class="op">*</span><span class="dv">6</span>)<span class="op">+</span>(bx)<span class="op">+</span>(cy<span class="op">*</span><span class="dv">2</span>)<span class="op">+</span>(az<span class="op">*</span><span class="dv">3</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
+</section>
+</section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -258,7 +400,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return localAlternateSentinel;
     }
   }
-  let localAlternateSentinel = 'default';
+  let localAlternateSentinel = 'alternate';
   // Dark / light mode switch
   window.quartoToggleColorScheme = () => {
     // Read the current dark / light value 
