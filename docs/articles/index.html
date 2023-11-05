@@ -92,10 +92,21 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../articles/index.html" rel="" target="" aria-current="page">
- <span class="menu-text">Articles</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../articles/article_01.html" rel="" target="">
+ <span class="dropdown-text">Advent of Code 2022</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/article_02.html" rel="" target="">
+ <span class="dropdown-text">Data Presentation</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -134,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../articles/article_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Browser Implementation</span></a>
+ <span class="menu-text">Data Presentation</span></a>
   </div>
 </li>
     </ul>

@@ -1,0 +1,9 @@
+
+
+
+
+
+
+
+
+<script src="/js/wordle.js"></script>

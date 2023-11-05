@@ -19,7 +19,7 @@ website:
       contents: 
         - text: "Advent of Code 2022"
           href:  articles/article_01.qmd
-        - text: "Browser Implementation"
+        - text: "Data Presentation"
           href:  articles/article_02.qmd
   favicon: images/glamourshot.png
   back-to-top-navigation: true
