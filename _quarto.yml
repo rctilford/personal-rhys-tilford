@@ -16,7 +16,7 @@ website:
       title: "Articles"
       style: "docked"
       collapse-level: 2
-      contents: 
+      contents:
         - text: "Advent of Code 2022"
           href:  articles/article_01.qmd
         - text: "Sorting HTML Tables"

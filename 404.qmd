@@ -2,4 +2,4 @@
 title: Go Fish...
 ---
 
-Hmmm... I can't find what you're looking for. Perhaps there's something useful in the taskbar?
+I can't find what you're looking for. Perhaps there's something useful in the taskbar?
