@@ -4,7 +4,7 @@ project:
 
 website:
   title: "warmup-rhys-tilford"
-  site-url: "https://rctilford.github.io/rctilford/warmup-rhys-tilford/"
+  site-url: "https://rctilford.github.io/warmup-rhys-tilford/"
   navbar:
     left:
       - href: index.qmd
