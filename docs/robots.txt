@@ -1,1 +1,1 @@
-Sitemap: https://rctilford.github.io/rctilford/warmup-rhys-tilford/sitemap.xml
+Sitemap: https://rctilford.github.io/rctilford/warmup-rhys-tilford/index.html/sitemap.xml
