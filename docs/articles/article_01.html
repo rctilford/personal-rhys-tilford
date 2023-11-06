@@ -137,7 +137,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../articles/article_02.html" rel="" target="">
- <span class="dropdown-text">Browser Implementation</span></a>
+ <span class="dropdown-text">Data Presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../articles/article_02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Browser Implementation</span></a>
+ <span class="menu-text">Data Presentation</span></a>
   </div>
 </li>
     </ul>
@@ -249,7 +249,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><em>Day2Input.txt</em> is the path to the file I used to store my puzzle input. Depending How you store your puzzle input, you may need to change this field.</p>
+<p><em>Day2Input.txt</em> is the path to the file I used to store my puzzle input. This code may need to be changed if the puzzle input file is stored in a different location.</p>
 </div>
 </div>
 </section>
@@ -283,6 +283,7 @@ Note
 </section>
 <section id="step-3.-multiply-the-match-outcomes-by-there-respective-point-values" class="level4">
 <h4 class="anchored" data-anchor-id="step-3.-multiply-the-match-outcomes-by-there-respective-point-values">Step 3. Multiply the match outcomes by there respective point values:</h4>
+<p>Using the point values from the <a href="#instructions">instructions</a> we take the sum of the product of each match outcome and its point value.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> sum <span class="op">=</span> (cx<span class="op">*</span><span class="dv">7</span>)<span class="op">+</span>(ay<span class="op">*</span><span class="dv">8</span>)<span class="op">+</span>(bz<span class="op">*</span><span class="dv">9</span>)<span class="op">+</span>(ax<span class="op">*</span><span class="dv">4</span>)<span class="op">+</span>(by<span class="op">*</span><span class="dv">5</span>)<span class="op">+</span>(cz<span class="op">*</span><span class="dv">6</span>)<span class="op">+</span>(bx)<span class="op">+</span>(cy<span class="op">*</span><span class="dv">2</span>)<span class="op">+</span>(az<span class="op">*</span><span class="dv">3</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 

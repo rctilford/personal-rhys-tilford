@@ -6,24 +6,11 @@ $body-color: white;
 // Code blocks
 $code-block-bg-alpha: -.8;
 
-// Animation 1
-// Underline - Inside Out
-a {
-	position: relative;
-	&:before {
-		content: "";
-		position: absolute;
-		width: 100%;
-		height: 2px;
-		bottom: 0;
-		margin: -5px 0;
-		background-color: white;
-		visibility: hidden;
-		transform: scaleX(0);
-		transition: all 0.4s ease-in-out 0s;
-	}
-	&:hover:before {
-		visibility: visible;
-		transform: scaleX(1);
-	}
+
+div.callout-note.callout {
+    border-left-color: white;
+}
+
+div.callout-note.callout-style-default>.callout-header {
+    background-color: rgba(0,0,0,0.025);
 }

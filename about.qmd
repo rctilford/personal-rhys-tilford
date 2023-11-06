@@ -4,30 +4,37 @@ about:
   template: jolla
   image: images/glamourshot.png
   links:
-    - icon: github
-      text: Github
-      href: https://github.com/rctilford
-      target: _blank
     - icon: linkedin
       text: Linkedin
       href: https://www.linkedin.com/in/rhystilford
+      target: _blank
+    - icon: github
+      text: Github
+      href: https://github.com/rctilford
       target: _blank
     - icon: instagram
       text: Instagram
       href: https://www.instagram.com/rctilford
       target: _blank
-    - icon: stack-overflow
-      text: Stack-Overflow
-      href: https://stackoverflow.com/users/21231931/rhys-tilford
+    - icon: spotify
+      text: Spotify
+      href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
       target: _blank
 
 ---
 
+### About Me
 
+I am a proud nerd as evidenced by my adoration for the show Doctor Who. In my spare time, I love catching up with my friends and hearing about their lives on long meandering walks around town. I also enjoy practicing my many hobbies. Ask me about my record player refurbishment project if we ever get to meet.
 
-## Education
+### Education
 
+I was homeschooled in grades K-12 by my parents who have both worked in higher-education. (*2009-2022*)
 
+I study Mathematics, Computer Science, and Communication at Georgetown College in Kentucky. (*2022-2025*)
 
-## Experience
+### Experience
 
+I work as a Resident Advisor at Georgetown College. In this role, I facilitate a smooth transition to college life for all residents. (*2023-present*)
+
+I have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (*2022-2023*)

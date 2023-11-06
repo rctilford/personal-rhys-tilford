@@ -19,7 +19,7 @@ website:
       contents: 
         - text: "Advent of Code 2022"
           href:  articles/article_01.qmd
-        - text: "Data Presentation"
+        - text: "Sorting HTML Tables"
           href:  articles/article_02.qmd
   favicon: images/glamourshot.png
   back-to-top-navigation: true
@@ -30,7 +30,6 @@ website:
 format:
   html:
     theme: 
-      dark: vapor
       light: lux
     css: styles.css
     toc: true
