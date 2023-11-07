@@ -1,7 +1,13 @@
 // Read in the input.
-const fs = require('fs');
-const Input = fs.readFileSync('Day2Input.txt', 'utf8').split('\r\n');
- 
+const fileInputElement = document.getElementById('fileInput');
+fileInputElement.addEventListener('change', handleFileSelect);
+
+function handleFileSelect(event) {
+  const reader = new FileReader();
+  reader.addEventListener("load", handleFileLoad);
+  reader.readAsText(event.target.files[0]).split('\r\n');
+}
+
 // Find the match points for each outcome.
 function getAllIndexes(arr, val) {
     var indexes = [], i;
@@ -33,5 +39,6 @@ let az = getAllIndexes(Input, 'A Z').length;
 let sum = (cx*7)+(ay*8)+(bz*9)+(ax*4)+(by*5)+(cz*6)+(bx)+(cy*2)+(az*3);
 
 // Part 1 answer
-console.log(sum);
+let resultsReport = `The total point value is: ${sum}.`;
+document.getElementById('result').textContent = resultsReport;
 

@@ -174,10 +174,6 @@ function shuffle() {
 };
 ```
 
-
-
-
 *Some parts of the above code were adapted from suggestions by Github Copilot.*
 
-<!-- 
-<script src="/js/wordle.js"></script> -->
+### If you would like to see the code in action click [here](https://rctilford.github.io/CSC324/).
