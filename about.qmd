@@ -20,7 +20,11 @@ about:
       text: Spotify
       href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
       target: _blank
-
+    - icon: pinterest
+      text: Pinterest
+      href: https://www.pinterest.com/rhystilford/
+      target: _blank
+      
 ---
 
 ### About Me

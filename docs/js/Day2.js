@@ -17,7 +17,7 @@ function handleFileLoad(event) {
   // and the result is the file read
   // in, as a string:
 
-const Input = event.target.result.split('\r\n');
+const Input = event.target.result.replace(/\r/g, '').split('\r\n');
 
 // Find the match points for each outcome.
 function getAllIndexes(arr, val) {
