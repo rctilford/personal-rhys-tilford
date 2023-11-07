@@ -1,3 +1,8 @@
+---
+title: Day 2 Solution
+author: Rhys Tilford
+
+---
 # Day 2 Solution
 
 ## Instructions
@@ -94,6 +99,6 @@ The JavaScript file is [here](/js/Day2.js).
 *Sections of the browser implementation were adapted from my professor's browser implementation of the challenge from Advent Of Code 2022 Day 1*
 
 ```{=html}
-<script src="/js/Day2.js"></script>
+<script src="Day2.js"></script>
 ```
 

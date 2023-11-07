@@ -1,9 +1,21 @@
 ---
 title: "Articles"
-lang: en
+listing: 
+  id: articles
+  contents: "/article*/index.qmd"
+  type: grid
+  sort: 
+    - "date"
+    - "title desc"
+  categories: numbered
+  feed: true
 ---
 
 This page includes several articles that document applications of javascript to real-world problems.
+
+:::{#articles}
+:::
+
 
 #
 :::{.card}

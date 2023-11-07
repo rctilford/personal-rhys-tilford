@@ -22,6 +22,26 @@ website:
           href:  articles/article_01.qmd
         - text: "Sorting HTML Tables"
           href:  articles/article_02.qmd
+  page-footer:
+    background: light
+    center:
+      - icon: linkedin
+        text: Linkedin
+        href: https://www.linkedin.com/in/rhystilford
+        target: _blank
+      - icon: github
+        text: Github
+        href: https://github.com/rctilford
+        target: _blank
+      - icon: instagram
+        text: Instagram
+        href: https://www.instagram.com/rctilford
+        target: _blank
+      - icon: spotify
+        text: Spotify
+        href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
+        target: _blank
+
   favicon: images/glamourshot.png
   back-to-top-navigation: true
   reader-mode: true
@@ -31,7 +51,7 @@ website:
 format:
   html:
     theme: 
-      light: lux
+      light: pulse
     css: styles.css
     toc: true
 
