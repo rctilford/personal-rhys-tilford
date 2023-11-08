@@ -10,7 +10,7 @@
 <atom:link href="https://rctilford.github.io/warmup-rhys-tilford/articles/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.3.450</generator>
-<lastBuildDate>Wed, 08 Nov 2023 02:00:19 GMT</lastBuildDate>
+<lastBuildDate>Wed, 08 Nov 2023 02:17:10 GMT</lastBuildDate>
 <item>
   <title>Sorting an HTML Table with JavaScript</title>
   <dc:creator>Rhys Tilford</dc:creator>
@@ -862,7 +862,7 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <guid>https://rctilford.github.io/warmup-rhys-tilford/articles/article_02/index.html</guid>
-  <pubDate>Wed, 08 Nov 2023 02:00:19 GMT</pubDate>
+  <pubDate>Wed, 08 Nov 2023 02:17:10 GMT</pubDate>
 </item>
 <item>
   <title>Day 2 Solution</title>
@@ -872,8 +872,6 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 
-<section id="day-2-solution" class="level1">
-<h1>Day 2 Solution</h1>
 <section id="instructions" class="level2">
 <h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
 <section id="below-are-some-instructions-from-the-advent-of-code-website-for-day-2-of-the-2022-challenge" class="level5">
@@ -1245,11 +1243,10 @@ font-style: inherit;">;</span></span></code></pre></div>
 
 
 </section>
-</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <guid>https://rctilford.github.io/warmup-rhys-tilford/articles/article_01/index.html</guid>
-  <pubDate>Wed, 08 Nov 2023 02:00:19 GMT</pubDate>
+  <pubDate>Wed, 08 Nov 2023 02:17:10 GMT</pubDate>
 </item>
 </channel>
 </rss>
