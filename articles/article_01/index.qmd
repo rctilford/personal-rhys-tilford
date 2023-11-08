@@ -92,7 +92,7 @@ let sum = (cx*7)+(ay*8)+(bz*9)+(ax*4)+(by*5)+(cz*6)+(bx)+(cy*2)+(az*3);
 
 <p id = "result">After you select your text file, the total point value will appear here!<p>
 ```
-The JavaScript file is [here](/js/Day2.js).
+The JavaScript file is [here](Day2.js).
 
 *Sections of the browser implementation were adapted from my professor's browser implementation of the challenge from Advent Of Code 2022 Day 1*
 
