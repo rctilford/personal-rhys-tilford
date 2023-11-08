@@ -11,18 +11,7 @@ listing:
   feed: true
 ---
 
-This page includes several articles that document applications of javascript to real-world problems.
+This page includes several articles that document applications of JavaScript to real-world problems.
 
 :::{#articles}
-:::
-
-
-#
-:::{.card}
-Click [here](article_01.qmd) if you want to read about my solution to Day 2 of the 2022 Advent of Code Challenge.
-:::
-
-#
-:::{.card}
-Click [here](article_02.qmd) if you want to read about how I used javascript to populate and sort an HTML table.
 :::

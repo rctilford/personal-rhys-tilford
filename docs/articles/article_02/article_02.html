@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>warmup-rhys-tilford</title>
+<title>warmup-rhys-tilford - Solution for creating a datatable and sorting it.</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +23,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/glamourshot.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/glamourshot.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +62,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">warmup-rhys-tilford</span>
     </a>
   </div>
@@ -84,17 +84,28 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./articles/index.html" rel="" target="">
- <span class="menu-text">Articles</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../../articles/article_01.qmd" rel="" target="">
+ <span class="dropdown-text">Advent of Code 2022</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../../articles/article_02.qmd" rel="" target="">
+ <span class="dropdown-text">Sorting HTML Tables</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
@@ -111,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">warmup-rhys-tilford</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Solution for creating a datatable and sorting it.</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -125,13 +136,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./articles/article_01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_01.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Advent of Code 2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./articles/article_02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_02.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sorting HTML Tables</span></a>
   </div>
 </li>
@@ -145,10 +156,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hey-there-im-happy-youre-here" id="toc-hey-there-im-happy-youre-here" class="nav-link active" data-scroll-target="#hey-there-im-happy-youre-here">Hey there! I’m happy you’re here!</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"></a></li>
+  <li><a href="#the-data-input" id="toc-the-data-input" class="nav-link active" data-scroll-target="#the-data-input">The Data Input</a></li>
+  <li><a href="#making-the-table" id="toc-making-the-table" class="nav-link" data-scroll-target="#making-the-table">Making the Table</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/warmup-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -157,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">warmup-rhys-tilford</h1>
+<h1 class="title">Solution for creating a datatable and sorting it.</h1>
 </div>
 
 
@@ -172,31 +181,87 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="hey-there-im-happy-youre-here" class="level2">
-<h2 class="anchored" data-anchor-id="hey-there-im-happy-youre-here">Hey there! I’m happy you’re here!</h2>
-<section id="there-is-plenty-for-you-to-see-and-do-on-here-so-feel-free-to-use-the-descriptive-links-below-to-find-what-youre-looking-for." class="level4">
-<h4 class="anchored" data-anchor-id="there-is-plenty-for-you-to-see-and-do-on-here-so-feel-free-to-use-the-descriptive-links-below-to-find-what-youre-looking-for.">There is plenty for you to see and do on here so feel free to use the descriptive links below to find what you’re looking for.</h4>
+<section id="the-data-input" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-input">The Data Input</h3>
+<p>For this challenge, students recieved an array of objects that contained metadata about artists who perform a music genre known as bhangra. Each object contained the three attributes:</p>
+<ul>
+<li><em>name</em> referring to the name of each artist.</li>
+<li><em>birthYear</em> referring to the year each artist was born.</li>
+<li><em>link</em> referring to a youtube link for a video of that artist’s work.</li>
+</ul>
+<section id="this-is-the-array-students-were-given." class="level5">
+<h5 class="anchored" data-anchor-id="this-is-the-array-students-were-given.">This is the array students were given.</h5>
+<pre class="{javascript}"><code>const artists = [
+  {
+    name: "Ms Scandalous",
+    birthYear: 1985,
+    link: "https://www.youtube.com/watch?v=2FPivlfvxu0"
+  },
+  {
+    name: "Juggy D",
+    birthYear: 1981,
+    link: "https://www.youtube.com/watch?v=1jAc_-FVjdI"
+  },
+  {
+    name: "Sukhbir Singh",
+    birthYear: 1969,
+    link: "https://www.youtube.com/watch?v=HiprNF9Jad0"
+  },
+  {
+    name: "Abrar-ul-Haq",
+    birthYear: 1989,
+    link: "https://www.youtube.com/watch?v=-lnnVIP7FEc"
+  },
+  {
+    name: "Rishi Rich",
+    birthYear: 1970,
+    link: "https://www.youtube.com/watch?v=O95-w2gACuA"
+  }
+]</code></pre>
 </section>
 </section>
-<section id="section" class="level1">
-<h1></h1>
-<div class="card">
-<p>If you want to learn a little more about me and my personal life click <a href="./about.html">here</a>.</p>
-</div>
-</section>
-<section id="section-1" class="level1">
-<h1></h1>
-<div class="card">
-<p>If you want to see some of the computer programming projects I’ve built, click <a href="./articles/index.html">here</a>.</p>
-</div>
-</section>
-<section id="section-2" class="level1">
-<h1></h1>
-<div class="card">
-<p>If you get bored, try singing a song or making up a story.</p>
-</div>
+<section id="making-the-table" class="level3">
+<h3 class="anchored" data-anchor-id="making-the-table">Making the Table</h3>
+<p>First, the students must populate a given table element to hold the data. We chose to accomplish this by systematically accumulating HTML tags as string surrounding metadata from the array and inserting the accumulation into the table element.</p>
+<section id="here-is-the-code-we-used" class="level5">
+<h5 class="anchored" data-anchor-id="here-is-the-code-we-used">Here is the code we used</h5>
+<pre class="{javascript}"><code>function populateTable(array) {
+
+  let table = document.getElementById('bhangra'); // this code selects the table
+
+  // declare a string to hold the inner HTML code for the table
+  let contents = "&lt;tbody&gt;";
+
+  // add the header row
+  contents += `&lt;tr&gt;&lt;th&gt;name&lt;/th&gt;`;
+  contents += `&lt;th&gt;birthyear&lt;/th&gt;`;
+  contents += `&lt;th&gt;link&lt;/th&gt;&lt;/tr&gt;`;
 
 
+  array.forEach(function (artist) {
+    contents += `&lt;tr&gt;`; // open the row
+    contents += `&lt;td&gt;${artist.name}&lt;/td&gt;`;
+    contents += `&lt;td&gt;${artist.birthYear}&lt;/td&gt;`;
+    contents += `&lt;td&gt;&lt;a href= "${artist.link}" target="_blank"&gt;${artist.link}&lt;/a&gt;&lt;/td&gt;`;
+    contents += `&lt;/tr&gt;`; // close the row
+  })
+
+
+  // close out the body of the table
+  contents += "&lt;/tbody&gt;";
+
+  table.innerHTML = contents; // this code populates the table with the contents string
+
+};
+
+// call the function to populate the table
+populateTable(artists);</code></pre>
+<p><strong>Some parts of the above code were adapted from suggestions by Github Copilot.</strong></p>
+<!-- 
+<script src="/js/wordle.js"></script> -->
+
+
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->

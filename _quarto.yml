@@ -11,7 +11,8 @@ website:
         text: Home
       - href: about.qmd
         text: About
-      - sidebar:articles
+      - href: articles/index.qmd
+        text: Articles
   sidebar:
     - id: articles
       title: "Articles"
@@ -19,9 +20,9 @@ website:
       collapse-level: 2
       contents:
         - text: "Advent of Code 2022"
-          href:  articles/article_01.qmd
+          href:  articles/article_01/index.qmd
         - text: "Sorting HTML Tables"
-          href:  articles/article_02.qmd
+          href:  articles/article_02/index.qmd
   page-footer:
     background: light
     center:
