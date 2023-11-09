@@ -4,7 +4,7 @@ project:
 
 website:
   title: "personal-rhys-tilford"
-  site-url: "https://rctilford.github.io/warmup-rhys-tilford/"
+  site-url: "https://rctilford.github.io/personal-rhys-tilford/"
   navbar:
     left:
       - href: index.qmd
@@ -46,7 +46,7 @@ website:
   favicon: images/glamourshot.png
   back-to-top-navigation: true
   reader-mode: true
-  repo-url: https://github.com/rctilford/warmup-rhys-tilford
+  repo-url: https://github.com/rctilford/personal-rhys-tilford
   repo-actions: issue
 
 format:

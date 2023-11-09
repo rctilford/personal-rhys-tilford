@@ -1,3 +1,3 @@
-# Website Warmup
+# Website Final Project
 
-A project for my CSC324 class.
+Final project for my CSC324 class.
