@@ -1,0 +1,17 @@
+
+div.callout-note.callout {
+    border-left-color: #1a1a1a;
+}
+
+div.callout-note.callout-style-default > .callout-header {
+    background-color: rgba(0,0,0,0.025);
+}
+
+#listing-homeTiles > div.list.grid.quarto-listing-cols-3 {
+transition: 0.25s;
+}
+
+#listing-articles > div.list.grid.quarto-listing-cols-3 {
+    @extend div.list.grid.quarto-listing-cols-3;
+}
+
