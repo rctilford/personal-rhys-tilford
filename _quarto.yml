@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "warmup-rhys-tilford"
+  title: "personal-rhys-tilford"
   site-url: "https://rctilford.github.io/warmup-rhys-tilford/"
   navbar:
     left:
