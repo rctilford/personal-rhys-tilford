@@ -59,9 +59,9 @@
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Education</category>
   <category>Math</category>
   <category>Topology</category>
-  <category>Education</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_03/index.html</guid>
   <pubDate>Wed, 08 Nov 2023 05:00:00 GMT</pubDate>
 </item>
@@ -915,9 +915,9 @@ font-style: inherit;">;</span></span></code></pre></div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Programming</category>
-  <category>JS</category>
   <category>HTML</category>
+  <category>JS</category>
+  <category>Programming</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_02/index.html</guid>
   <pubDate>Sun, 05 Nov 2023 04:00:00 GMT</pubDate>
 </item>
@@ -1302,9 +1302,9 @@ font-style: inherit;">;</span></span></code></pre></div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
-  <category>Programming</category>
   <category>JS</category>
   <category>Just For Fun</category>
+  <category>Programming</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_01/index.html</guid>
   <pubDate>Sat, 04 Nov 2023 04:00:00 GMT</pubDate>
 </item>

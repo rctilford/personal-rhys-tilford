@@ -3,7 +3,7 @@ title: Cantor Set Presentation
 author: Rhys Tilford
 description: Read my presentation of everything I have learned about the Cantor Set.
 date: 11/8/2023
-categories: [Math, Topology, Education]
+categories: [Education, Math, Topology]
 ---
 
 ### The Definition
