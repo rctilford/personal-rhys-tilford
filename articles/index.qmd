@@ -5,8 +5,8 @@ listing:
   contents: "/article*/index.qmd"
   type: grid
   sort: 
-    - "date"
-    - "title desc"
+    - "date desc"
+    - "title"
   categories: numbered
   feed: true
 ---

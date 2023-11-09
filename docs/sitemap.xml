@@ -1,27 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/index.html</loc>
-    <lastmod>2023-11-09T00:21:46.356Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/index.html</loc>
+    <lastmod>2023-11-09T03:36:06.378Z</lastmod>
   </url>
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/articles/article_02/index.html</loc>
-    <lastmod>2023-11-08T02:17:10.102Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/articles/article_03/index.html</loc>
+    <lastmod>2023-11-09T03:36:04.854Z</lastmod>
   </url>
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/articles/article_01/index.html</loc>
-    <lastmod>2023-11-09T00:21:42.807Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/articles/article_02/article_02.html</loc>
+    <lastmod>2023-11-09T03:36:03.046Z</lastmod>
   </url>
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/about.html</loc>
-    <lastmod>2023-11-08T02:17:07.540Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/about.html</loc>
+    <lastmod>2023-11-09T03:36:00.982Z</lastmod>
   </url>
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/articles/article_02/article_02.html</loc>
-    <lastmod>2023-11-08T02:17:09.223Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/articles/article_01/index.html</loc>
+    <lastmod>2023-11-09T03:36:02.132Z</lastmod>
   </url>
   <url>
-    <loc>https://rctilford.github.io/warmup-rhys-tilford/articles/index.html</loc>
-    <lastmod>2023-11-09T00:21:44.072Z</lastmod>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/articles/article_02/index.html</loc>
+    <lastmod>2023-11-09T03:36:04.215Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rctilford.github.io/personal-rhys-tilford/articles/index.html</loc>
+    <lastmod>2023-11-09T03:36:05.833Z</lastmod>
   </url>
 </urlset>

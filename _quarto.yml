@@ -14,7 +14,7 @@ website:
       - href: articles/index.qmd
         text: Articles
   sidebar:
-    - id: articles
+    - id: links
       title: "Articles"
       style: "docked"
       collapse-level: 2
@@ -23,6 +23,8 @@ website:
           href:  articles/article_01/index.qmd
         - text: "Sorting HTML Tables"
           href:  articles/article_02/index.qmd
+        - text: "Cantor Set Presentation"
+          href: articles/article_03/index.qmd
   page-footer:
     background: light
     center:

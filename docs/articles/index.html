@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -168,6 +168,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Sorting HTML Tables</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../articles/article_03/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cantor Set Presentation</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -175,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -199,7 +205,30 @@ ul.task-list li input[type="checkbox"] {
 <p>This page includes several articles that document applications of JavaScript to real-world problems.</p>
 <div id="listing-articles" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1699408572636" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1699419600000" data-listing-file-modified-sort="1699500615943" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="../articles/article_03/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Cantor Set Presentation
+</h5>
+<div class="card-text listing-description">
+Read my presentation of everything I have learned about the Cantor Set.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 8, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-date-sort="1699156800000" data-listing-file-modified-sort="1699500562961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <a href="../articles/article_02/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -210,16 +239,19 @@ Sorting an HTML Table with JavaScript
 <div class="card-text listing-description">
 Read about how I used javascript to populate and sort an HTML table.
 </div>
-<div class="card-attribution card-text-small start">
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 5, 2023
 </div>
 </div>
 </div>
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1699410007490" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="2" data-listing-date-sort="1699070400000" data-listing-file-modified-sort="1699500591401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <a href="../articles/article_01/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -230,9 +262,12 @@ Day 2 Solution
 <div class="card-text listing-description">
 Read about my solution to Day 2 of the 2022 Advent of Code Challenge.
 </div>
-<div class="card-attribution card-text-small start">
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 4, 2023
 </div>
 </div>
 </div>
@@ -503,7 +538,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <a class="nav-link" href="https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10">Spotify</a>
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/warmup-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

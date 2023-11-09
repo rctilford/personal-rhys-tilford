@@ -6,8 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rhys Tilford">
+<meta name="dcterms.date" content="2023-11-08">
+<meta name="description" content="Read my presentation of everything I have learned about the Cantor Set.">
 
-<title>personal-rhys-tilford - Go Fish…</title>
+<title>personal-rhys-tilford - Cantor Set Presentation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="/personal-rhys-tilford/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-nav/headroom.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/clipboard/clipboard.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/fuse.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="/personal-rhys-tilford/">
-<link href="/personal-rhys-tilford/./images/glamourshot.png" rel="icon" type="image/png">
-<script src="/personal-rhys-tilford/site_libs/quarto-html/quarto.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/popper.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/anchor.min.js"></script>
-<link href="/personal-rhys-tilford/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="/personal-rhys-tilford/site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="/personal-rhys-tilford/site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="/personal-rhys-tilford/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/personal-rhys-tilford/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/glamourshot.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +65,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="/personal-rhys-tilford/styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -73,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="/personal-rhys-tilford/index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">personal-rhys-tilford</span>
     </a>
   </div>
@@ -84,15 +87,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
 </ul>
@@ -111,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Go Fish…</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../articles/article_03/index.html">Cantor Set Presentation</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -125,19 +128,19 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Advent of Code 2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sorting HTML Tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_03/index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Cantor Set Presentation</span></a>
   </div>
 </li>
@@ -147,21 +150,46 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-definition" id="toc-the-definition" class="nav-link active" data-scroll-target="#the-definition">The Definition</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#proof-of-key-attribute" id="toc-proof-of-key-attribute" class="nav-link" data-scroll-target="#proof-of-key-attribute">Proof of Key Attribute</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Go Fish…</h1>
+<h1 class="title">Cantor Set Presentation</h1>
 </div>
 
+<div>
+  <div class="description">
+    Read my presentation of everything I have learned about the Cantor Set.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rhys Tilford </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 8, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -169,9 +197,17 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>I can’t find what you’re looking for. Perhaps there’s something useful in the taskbar?</p>
+<section id="the-definition" class="level3">
+<h3 class="anchored" data-anchor-id="the-definition">The Definition</h3>
+</section>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+</section>
+<section id="proof-of-key-attribute" class="level3">
+<h3 class="anchored" data-anchor-id="proof-of-key-attribute">Proof of Key Attribute</h3>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -428,7 +464,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <a class="nav-link" href="https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10">Spotify</a>
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
