@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Education">Education <span class="quarto-category-count">(1)</span></div><div class="category" data-category="HTML">HTML <span class="quarto-category-count">(1)</span></div><div class="category" data-category="JS">JS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Just For Fun">Just For Fun <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Math">Math <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Programming">Programming <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Topology">Topology <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -202,10 +202,31 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This page includes several articles that document applications of JavaScript to real-world problems.</p>
+<p>This page includes several articles that document various projects I’ve made and presentations I’ve given.</p>
 <div id="listing-articles" class="quarto-listing quarto-listing-container-grid">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-articles-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-articles'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
+  </div>
+</div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1699419600000" data-listing-file-modified-sort="1699500615943" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<div class="g-col-1" data-index="0" data-categories="Math,Topology,Education" data-listing-date-sort="1699419600000" data-listing-file-modified-sort="1699507329712" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
 <a href="../articles/article_03/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -213,6 +234,17 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="no-anchor card-title listing-title">
 Cantor Set Presentation
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Math'); return false;">
+Math
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Topology'); return false;">
+Topology
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Education'); return false;">
+Education
+</div>
+</div>
 <div class="card-text listing-description">
 Read my presentation of everything I have learned about the Cantor Set.
 </div>
@@ -228,30 +260,7 @@ Nov 8, 2023
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-listing-date-sort="1699156800000" data-listing-file-modified-sort="1699500562961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<a href="../articles/article_02/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sorting an HTML Table with JavaScript
-</h5>
-<div class="card-text listing-description">
-Read about how I used javascript to populate and sort an HTML table.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Rhys Tilford
-</div>
-<div class="listing-date">
-Nov 5, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-date-sort="1699070400000" data-listing-file-modified-sort="1699500591401" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<div class="g-col-1" data-index="1" data-categories="Programming,JS,Just For Fun" data-listing-date-sort="1699070400000" data-listing-file-modified-sort="1699504020964" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
 <a href="../articles/article_01/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -259,6 +268,17 @@ Nov 5, 2023
 <h5 class="no-anchor card-title listing-title">
 Day 2 Solution
 </h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Programming'); return false;">
+Programming
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('JS'); return false;">
+JS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Just For Fun'); return false;">
+Just For Fun
+</div>
+</div>
 <div class="card-text listing-description">
 Read about my solution to Day 2 of the 2022 Advent of Code Challenge.
 </div>
@@ -268,6 +288,40 @@ Rhys Tilford
 </div>
 <div class="listing-date">
 Nov 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="Programming,JS,HTML" data-listing-date-sort="1699156800000" data-listing-file-modified-sort="1699504177658" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="../articles/article_02/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Sorting an HTML Table
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Programming'); return false;">
+Programming
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('JS'); return false;">
+JS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('HTML'); return false;">
+HTML
+</div>
+</div>
+<div class="card-text listing-description">
+Read about how I used javascript to populate and sort an HTML table.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 5, 2023
 </div>
 </div>
 </div>

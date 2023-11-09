@@ -21,22 +21,52 @@
 
 <section id="the-definition" class="level3">
 <h3 class="anchored" data-anchor-id="the-definition">The Definition</h3>
+<blockquote class="blockquote">
+<p><strong>11.1.10 Definition</strong> The <strong>Cantor set</strong> <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BF%7D"> is the intersection of the sets <img src="https://latex.codecogs.com/png.latex?F_n,n%5Cin%5Cmathbb%7BN%7D">, obtained by successive removal of open middle thirds, starting with <img src="https://latex.codecogs.com/png.latex?%5B0,1%5D">.</p>
+<p>– <cite>Bartle and Sherbert (p.&nbsp;331)</cite></p>
+</blockquote>
 </section>
 <section id="visualization" class="level3">
 <h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<script crossorigin="" src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script>
+<div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437">
+
+</div>
+<script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
 </section>
-<section id="proof-of-key-attribute" class="level3">
-<h3 class="anchored" data-anchor-id="proof-of-key-attribute">Proof of Key Attribute</h3>
+<section id="proving-key-properties" class="level3">
+<h3 class="anchored" data-anchor-id="proving-key-properties">Proving Key Properties</h3>
+<section id="property-1-the-total-length-of-the-removed-intervals-is-1" class="level5">
+<h5 class="anchored" data-anchor-id="property-1-the-total-length-of-the-removed-intervals-is-1">Property 1: The total length of the removed intervals is 1</h5>
+<section id="proof" class="level6">
+<h6 class="anchored" data-anchor-id="proof">Proof:</h6>
+</section>
+</section>
+<section id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset" class="level5">
+<h5 class="anchored" data-anchor-id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset">Property 2: The Cantor set <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BF%7D"> contains no nonempty open interval as a subset</h5>
+<section id="proof-1" class="level6">
+<h6 class="anchored" data-anchor-id="proof-1">Proof:</h6>
+</section>
+</section>
+<section id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points" class="level5">
+<h5 class="anchored" data-anchor-id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points">Property 3: The Cantor set <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BF%7D"> has infinitely (even uncountably) many points</h5>
+<section id="proof-2" class="level6">
+<h6 class="anchored" data-anchor-id="proof-2">Proof:</h6>
 
 
+</section>
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Math</category>
+  <category>Topology</category>
+  <category>Education</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_03/index.html</guid>
   <pubDate>Wed, 08 Nov 2023 05:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>Sorting an HTML Table with JavaScript</title>
+  <title>Sorting an HTML Table</title>
   <dc:creator>Rhys Tilford</dc:creator>
   <link>https://rctilford.github.io/personal-rhys-tilford/articles/article_02/index.html</link>
   <description><![CDATA[ 
@@ -885,6 +915,9 @@ font-style: inherit;">;</span></span></code></pre></div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Programming</category>
+  <category>JS</category>
+  <category>HTML</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_02/index.html</guid>
   <pubDate>Sun, 05 Nov 2023 04:00:00 GMT</pubDate>
 </item>
@@ -1269,6 +1302,9 @@ font-style: inherit;">;</span></span></code></pre></div>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Programming</category>
+  <category>JS</category>
+  <category>Just For Fun</category>
   <guid>https://rctilford.github.io/personal-rhys-tilford/articles/article_01/index.html</guid>
   <pubDate>Sat, 04 Nov 2023 04:00:00 GMT</pubDate>
 </item>

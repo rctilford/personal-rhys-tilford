@@ -1,8 +1,9 @@
 ---
-title: Sorting an HTML Table with JavaScript
+title: Sorting an HTML Table
 author: Rhys Tilford
 description: Read about how I used javascript to populate and sort an HTML table.
 date: 11/5/2023
+categories: [Programming, JS, HTML]
 ---
 
 ### The Data Input

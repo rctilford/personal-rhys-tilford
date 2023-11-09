@@ -3,12 +3,30 @@ title: Cantor Set Presentation
 author: Rhys Tilford
 description: Read my presentation of everything I have learned about the Cantor Set.
 date: 11/8/2023
+categories: [Math, Topology, Education]
 ---
 
 ### The Definition
 
+> **11.1.10 Definition** The **Cantor set** $\mathbb{F}$ is the intersection of the sets $F_n,n\in\mathbb{N}$, obtained by successive removal of open middle thirds, starting with $[0,1]$.
+>
+> -- <cite>Bartle and Sherbert (p. 331)</cite>
 
 ### Visualization
 
+<script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script><div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"></div><script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
 
-### Proof of Key Attribute
+### Proving Key Properties
+
+##### Property 1: The total length of the removed intervals is 1
+
+###### Proof:
+
+##### Property 2: The Cantor set $\mathbb{F}$ contains no nonempty open interval as a subset
+
+###### Proof:
+
+##### Property 3: The Cantor set $\mathbb{F}$ has infinitely (even uncountably) many points
+
+###### Proof:
+

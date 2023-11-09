@@ -4,14 +4,12 @@ listing:
   id: articles
   contents: "/article*/index.qmd"
   type: grid
-  sort: 
-    - "date desc"
-    - "title"
+  sort-ui: true 
   categories: numbered
   feed: true
 ---
 
-This page includes several articles that document applications of JavaScript to real-world problems.
+This page includes several articles that document various projects I've made and presentations I've given.
 
 :::{#articles}
 :::
