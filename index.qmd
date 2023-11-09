@@ -1,19 +1,25 @@
 ---
 title: "personal-rhys-tilford"
+listing: 
+  id: homeTiles
+  contents: 
+    - "/articles/index.qmd"
+    - "about.qmd"
+  type: grid
 ---
 
 ## Hey there! I'm happy you're here!
 
 #### There is plenty for you to see and do on here so feel free to use the descriptive links below to find what you're looking for.
 
-#
-::: {.card}
-If you want to learn a little more about me and my personal life click [here](about.qmd).
+
+::: {#homeTiles}
 :::
+
 
 #
 ::: {.card}
-If you want to see some of the computer programming projects I've built, click [here](articles/index.qmd).
+If you want to learn a little more about me and my personal life click [here](about.qmd).
 :::
 
 #

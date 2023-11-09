@@ -1,11 +1,14 @@
 ---
-title: "Rhys Tilford"
+title-meta: About Me
 about:
   template: solana
   image-shape: round
   image: images/glamourshot.png
-
 ---
+
+
+
+# Rhys Tilford
 
 ### About Me
 

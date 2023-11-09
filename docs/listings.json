@@ -1,5 +1,12 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/articles/index.html",
+      "/about.html"
+    ]
+  },
+  {
     "listing": "/articles/index.html",
     "items": [
       "/articles/article_03/index.html",
