@@ -1,8 +1,1 @@
 /* css styles */
-div.callout-note.callout {
-    border-left-color: #1a1a1a;
-}
-
-div.callout-note.callout-style-default>.callout-header {
-    background-color: rgba(0,0,0,0.025);
-}
