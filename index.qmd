@@ -12,17 +12,5 @@ listing:
 
 #### There is plenty for you to see and do on here so feel free to use the descriptive links below to find what you're looking for.
 
-
 ::: {#homeTiles}
-:::
-
-
-#
-::: {.card}
-If you want to learn a little more about me and my personal life click [here](about.qmd).
-:::
-
-#
-::: {.card}
-If you get bored, try singing a song or making up a story.
 :::
