@@ -7,14 +7,14 @@ categories: [Data Analysis, Programming, R]
 ---
 
 ```{r}
-#| echo: false
+#| include: false
+### load necessary packages
 library(tidyverse)
 library(rvest)
 library(magrittr)
 library(rlang)
 library(stats)
 ```
-
 
 ### The Data
 
@@ -41,8 +41,14 @@ Much to my dismay the data was riddled with miscellaneous junk. Here is the data
 #| warning: false
 #| echo: false
 MetroList %>% 
-  DT::datatable(options = list(scrollX = TRUE))
+  DT::datatable(options = list(scrollX = TRUE,
+                               pageLength = 5))
 ```
+
+Here are the problems I see in MetroList:
+
+ - The name of the column that holds the number of stations on each system has a long and irrelevent name.
+ - Several of the columns have units and footnote links in them.
 
 I decided to import it to Rstudio and take a crack at cleaning it.
 
@@ -55,9 +61,15 @@ Optimistically, I decided to call this new table TidyMetroList.
 The following code renames the columns with a unified naming system:
 
 ```{r}
-TidyishMetroList <-
-  MetroList %>% 
+#| eval: false
+MetroList %>% 
   set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions"))
 ```
 
-
+```{r}
+#| echo: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  DT::datatable(options = list(scrollX = TRUE,
+                               pageLength = 5))
+```
