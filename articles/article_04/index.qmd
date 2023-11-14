@@ -41,8 +41,9 @@ Much to my dismay the data was riddled with miscellaneous junk. Here is the data
 #| warning: false
 #| echo: false
 MetroList %>% 
-  DT::datatable(options = list(scrollX = TRUE,
-                               pageLength = 5))
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
 ```
 
 Here are the problems I see in MetroList:
@@ -70,6 +71,14 @@ MetroList %>%
 #| echo: false
 MetroList %>% 
   set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
-  DT::datatable(options = list(scrollX = TRUE,
-                               pageLength = 5))
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
 ```
+
+##### 
+
+
+
+
+
