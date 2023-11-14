@@ -12,6 +12,8 @@ categories: [Education, Math, Topology]
 >
 > -- <cite>Bartle and Sherbert (p. 331)</cite>
 
+
+
 ### Visualization
 
 <script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script><div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"></div><script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
@@ -21,6 +23,15 @@ categories: [Education, Math, Topology]
 ##### Property 1: The total length of the removed intervals is 1
 
 ###### Proof:
+
+We will construct a convergent geometric series of the lengths of the removed open middle thirds.
+
+For example we see from the visual that the length of the first open middle third is: 
+
+
+
+
+From the definition of the Cantor set $\mathbb{F}$, we see that the first open middle third 
 
 ##### Property 2: The Cantor set $\mathbb{F}$ contains no nonempty open interval as a subset
 

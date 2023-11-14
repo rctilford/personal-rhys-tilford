@@ -1,0 +1,63 @@
+---
+title: Tidying Unkempt Data
+author: Rhys Tilford
+description: Read about how I used R to tidy and display urban transport data
+date: 11/13/2023
+categories: [Data Analysis, Programming, R]
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(rvest)
+library(magrittr)
+library(rlang)
+library(stats)
+```
+
+
+### The Data
+
+I found a fascinating data table on [this](https://en.wikipedia.org/wiki/List_of_metro_systems) Wikipedia page so I decided to pull it and analize it. Here is the code I used to pull it:
+
+```{r}
+#| warning: false
+web_page <- "https://en.wikipedia.org/wiki/List_of_metro_systems"
+
+Tables <-
+  web_page %>%
+  read_html() %>%
+  html_elements("table")
+
+MetroList <- 
+  Tables %>% 
+  purrr::pluck(1) %>%
+  html_table()
+```
+
+Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
+
+```{r}
+#| warning: false
+#| echo: false
+MetroList %>% 
+  DT::datatable(options = list(scrollX = TRUE))
+```
+
+I decided to import it to Rstudio and take a crack at cleaning it.
+
+### Tidying
+
+Optimistically, I decided to call this new table TidyMetroList.
+
+##### Renaming Columns
+
+The following code renames the columns with a unified naming system:
+
+```{r}
+TidyishMetroList <-
+  MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions"))
+```
+
+
