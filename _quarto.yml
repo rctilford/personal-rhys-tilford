@@ -5,6 +5,7 @@ project:
 website:
   title: "personal-rhys-tilford"
   site-url: "https://rctilford.github.io/personal-rhys-tilford/"
+  google-analytics: G-5R6TTB9D5X
   navbar:
     left:
       - href: index.qmd
