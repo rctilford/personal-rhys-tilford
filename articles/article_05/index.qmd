@@ -12,11 +12,6 @@ Operating a website is a fascinating endeavor that opens new options for sharing
 
 ### Setting Up Google Analytics
 
-:::{.callout-note}
-The following webpage taught me how to set up the property.
-[How to Set Up a Google Analytics 4 Property](https://www.clickinsight.ca/blog/how-to-set-up-a-google-analytics-4-property)
-:::
-
 ##### Account Setup
 
 
@@ -24,12 +19,19 @@ The following webpage taught me how to set up the property.
 
 ##### Property Setup
 
+:::{.callout-note}
+The following webpage taught me how to set up the property.
+[How to Set Up a Google Analytics 4 Property](https://www.clickinsight.ca/blog/how-to-set-up-a-google-analytics-4-property)
+:::
+
+
+
 
 ### Setting up Quarto YAML
 
 This step is likely the most straightforward of the whole process. In the `_quarto.yml` file, one merely needs to add their Google Analytics tracking ID (`UA-XXXXXXXX`) Google Tag measurement ID (`G-xxxxxxx`) as shown below.
 
-```{code}
+```{.code}
 website:
   google-analytics: "UA-XXXXXXXX"
 ```
