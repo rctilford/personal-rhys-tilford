@@ -18,6 +18,10 @@ categories: [Education, Math, Topology]
 
 <script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script><div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"></div><script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
 
+:::{.callout-note}
+This visual is generated from the Wolfram Cloud: Use [this](https://www.wolframcloud.com/objects/demonstrations/CantorSet-source.nb) link to access it.
+:::
+
 ### Proving Key Properties
 
 ##### Property 1: The total length of the removed intervals is 1

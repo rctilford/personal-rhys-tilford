@@ -1,0 +1,37 @@
+---
+title: Google Analytics Integration
+author: Rhys Tilford
+description: Read about how I set up Google Analytics for Quarto
+date: 11/15/2023
+categories: [Data Analysis, Programming, Tutorial]
+---
+
+### Introduction
+
+Operating a website is a fascinating endeavor that opens new options for sharing information with people anywhere. With the knowledge that the site is available to anyone with a web browser, it's only natural to wonder what kinds of people are viewing the site. In this tutorial I will show you how to connect a quarto website to Google Analytics 4.
+
+### Setting Up Google Analytics
+
+:::{.callout-note}
+The following webpage taught me how to set up the property.
+[How to Set Up a Google Analytics 4 Property](https://www.clickinsight.ca/blog/how-to-set-up-a-google-analytics-4-property)
+:::
+
+##### Account Setup
+
+
+
+
+##### Property Setup
+
+
+### Setting up Quarto YAML
+
+This step is likely the most straightforward of the whole process. In the `_quarto.yml` file, one merely needs to add their Google Analytics tracking ID (`UA-XXXXXXXX`) Google Tag measurement ID (`G-xxxxxxx`) as shown below.
+
+```{code}
+website:
+  google-analytics: "UA-XXXXXXXX"
+```
+
+After this change is deployed, It may take some time for Google Analytics to link with the site. I didn't notice any changes for about a half hour.
