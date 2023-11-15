@@ -18,7 +18,9 @@ library(stats)
 
 ### Introduction
 
+Transport has always been a passion of mine. I have always adored Trains, Planes, Cars, Boats, and any other type of vehicle. As I matured I began to see transit through a new lens. The sights and sounds of large transport-oriented machinary no longer held my attention like they once did. A more humanistic view of transport caught my fancy and I began to take interest in transport equity for people from all socio-economic backgrounds.
 
+It is well known that the automobile is a focal point in American society. That said, I was well into my teens before I noticed the consequences our car-centric culture causes for people who either can't afford to own a car or choose not to own a car. This realization invigorated my interest in public transport and walkable infrastructure. In this data exploration, I hope to shed some light on the state of urban rail transport systems in America and compare them to that of other first world countries.
 
 ### The Data
 
@@ -89,8 +91,11 @@ MetroList %>%
                 options = list(pageLength = 5))
 ```
 
+Much better! There's still a long way to go though. Next we should tackle the extra gunk in the columns.
+
 ##### Isolating the Data
 
+This code uses regular expresssions to remove all of the gunk in the columns:
 ```{r}
 #| eval: false
 TidyMetroList <-
@@ -119,8 +124,11 @@ MetroList %>%
                 options = list(pageLength = 5))
 ```
 
+Lovely! Now there's only one problem. Notice that the `RidershipMillions` column still was not dealt with in the last command. That's because the parenthetical statements in that column show the timeframe in which the ridership data was collected. We'd rather not get rid of this data so hastily.
+
 ##### A Special Case
 
+The following code will snatch the data from the parenthesis and drop it in a new column called `RidershipMillionsDataFrom`. Then it will remove the excess information from `RidershipMillions` like we did above.
 ```{r}
 #| eval: false
 TidyMetroList <-
@@ -144,8 +152,20 @@ MetroList %>%
          RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", ""))) %>%
   DT::datatable(class = "table table-hover",
                 style = "bootstrap",
-                options = list(pageLength = 5))
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
 ```
+
+### Data Analysis
+
+
+
+
+### Data Visualization
+
+
+
 
 
 
