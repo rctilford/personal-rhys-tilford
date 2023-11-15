@@ -16,6 +16,10 @@ library(rlang)
 library(stats)
 ```
 
+### Introduction
+
+
+
 ### The Data
 
 I found a fascinating data table on [this](https://en.wikipedia.org/wiki/List_of_metro_systems) Wikipedia page so I decided to pull it and analize it. Here is the code I used to pull it:
@@ -63,8 +67,17 @@ The following code renames the columns with a unified naming system:
 
 ```{r}
 #| eval: false
-MetroList %>% 
-  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions"))
+TidyMetroList <-
+  MetroList %>%
+  set_names(c("City",
+              "Country",
+              "Name",
+              "ServiceOpened",
+              "LastExpanded",
+              "StationCount",
+              "Lines",
+              "SystemLength",
+              "RidershipMillions"))
 ```
 
 ```{r}
@@ -76,7 +89,64 @@ MetroList %>%
                 options = list(pageLength = 5))
 ```
 
-##### 
+##### Isolating the Data
+
+```{r}
+#| eval: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+##### A Special Case
+
+```{r}
+#| eval: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", ""))) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
 
 
 
