@@ -15,6 +15,7 @@ Operating a website is a fascinating endeavor that opens new options for sharing
 ##### Account Setup
 
 The first time a person opens [Google Analytics](https://analytics.google.com/analytics) it will ask them to log in with their Google account. Once the user has done that, they will be greeted by a demo data report. Now they need to create a Google Analytics account. *This is an account for Google Analytics which is nested within their Google Account.* Here are the steps to set up that account:
+
  - On the lower left side of the home page there should be a settings cog. When it is clicked, it reveals a popout menu showing the names of the options on the left side. Click the cog again to enter the *Admin* menu.
  - Now there should be a pill-shaped *create* button in the upper left side of the admin menu. Click this button and select *Account* from the drop down menu.
  - Now there should be a text box where the user can put their account name. Do this.

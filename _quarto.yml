@@ -25,7 +25,11 @@ website:
         - text: "Sorting HTML Tables"
           href:  articles/article_02/index.qmd
         - text: "Cantor Set Presentation"
-          href: articles/article_03/index.qmd
+          href:  articles/article_03/index.qmd
+        - text: "Tidying Unkempt Data"
+          href:  articles/article_04/index.qmd
+        - text: "Google Analytics Integration"
+          href:  articles/article_05/index.qmd
   page-footer:
     background: light
     center:
