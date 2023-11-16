@@ -165,7 +165,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#setting-up-google-analytics" id="toc-setting-up-google-analytics" class="nav-link" data-scroll-target="#setting-up-google-analytics">Setting Up Google Analytics</a></li>
-  <li><a href="#setting-up-quarto-yaml" id="toc-setting-up-quarto-yaml" class="nav-link" data-scroll-target="#setting-up-quarto-yaml">Setting up Quarto YAML</a></li>
+  <li><a href="#setting-up-quarto-yaml-to-link-a-data-stream" id="toc-setting-up-quarto-yaml-to-link-a-data-stream" class="nav-link" data-scroll-target="#setting-up-quarto-yaml-to-link-a-data-stream">Setting up Quarto YAML to Link a Data Stream</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -219,6 +219,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 <h3 class="anchored" data-anchor-id="setting-up-google-analytics">Setting Up Google Analytics</h3>
 <section id="account-setup" class="level5">
 <h5 class="anchored" data-anchor-id="account-setup">Account Setup</h5>
+<p>The first time a person opens <a href="https://analytics.google.com/analytics">Google Analytics</a> it will ask them to log in with their Google account. Once the user has done that, they will be greeted by a demo data report. Now they need to create a Google Analytics account. <em>This is an account for Google Analytics which is nested within their Google Account.</em> Here are the steps to set up that account: - On the lower left side of the home page there should be a settings cog. When it is clicked, it reveals a popout menu showing the names of the options on the left side. Click the cog again to enter the <em>Admin</em> menu. - Now there should be a pill-shaped <em>create</em> button in the upper left side of the admin menu. Click this button and select <em>Account</em> from the drop down menu. - Now there should be a text box where the user can put their account name. Do this. - Finally, the user is asked to decide what data-sharing permissions to grant Google. Once the preffered settings are chosen, click the next button and procede to Property Setup.</p>
 </section>
 <section id="property-setup" class="level5">
 <h5 class="anchored" data-anchor-id="property-setup">Property Setup</h5>
@@ -235,10 +236,25 @@ Note
 <p>The following webpage taught me how to set up the property. <a href="https://www.clickinsight.ca/blog/how-to-set-up-a-google-analytics-4-property">How to Set Up a Google Analytics 4 Property</a></p>
 </div>
 </div>
+<ul>
+<li>Now the user should be asked to name their property.</li>
+<li>Next, the user must configure the timezone and currency.</li>
+<li>Then the user needs to select their industry category and size. <em>If the user’s website is not a business this form can be completed randomly (I won’t tell Google if you won’t)</em></li>
+<li>Now the user is asked how they will use Google Analytics. This affects the types of default data reports that show up automatically.</li>
+<li>Click <em>create</em> and then accept the Google Analytics terms of service.</li>
+<li>Now click <em>add a data stream</em> and procede to the next section.</li>
+</ul>
 </section>
 </section>
-<section id="setting-up-quarto-yaml" class="level3">
-<h3 class="anchored" data-anchor-id="setting-up-quarto-yaml">Setting up Quarto YAML</h3>
+<section id="setting-up-quarto-yaml-to-link-a-data-stream" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-quarto-yaml-to-link-a-data-stream">Setting up Quarto YAML to Link a Data Stream</h3>
+<p>Follow these steps to set up tracking in Google Analytics.</p>
+<ul>
+<li>Now the user can select <em>Web</em> to indicate that they are linking a webpage.</li>
+<li>Next the User can enter their webpage’s URL.</li>
+<li>Then click <em>create stream</em>.</li>
+<li>Now procede to the next step.</li>
+</ul>
 <p>This step is likely the most straightforward of the whole process. In the <code>_quarto.yml</code> file, one merely needs to add their Google Analytics tracking ID (<code>UA-XXXXXXXX</code>) Google Tag measurement ID (<code>G-xxxxxxx</code>) as shown below.</p>
 <pre class="code"><code>website:
   google-analytics: "UA-XXXXXXXX"</code></pre>
