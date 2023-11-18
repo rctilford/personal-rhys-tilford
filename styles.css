@@ -4,3 +4,21 @@ footer {
     background-color: var(--bs-primary);
 }
 
+/* Make card images zoom on hover*/
+ .card-img-top{
+    overflow: hidden;
+}
+
+.card-img-top img {
+    transition: transform 0.8s;
+}
+
+.g-col-1:hover img {
+    transform: scale(1.25);
+}
+
+.post-contents {
+    max-height: 170.27px;
+}
+/*  */
+/* end section */
