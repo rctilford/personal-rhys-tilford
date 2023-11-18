@@ -1,16 +1,14 @@
 ---
 title: "personal-rhys-tilford"
-listing: 
-  id: homeTiles
-  contents: 
-    - "/articles/index.qmd"
-    - "about.qmd"
-  type: grid
+
 ---
 
 ## Hey there! I'm happy you're here!
 
 #### There is plenty for you to see and do on here so feel free to use the descriptive links below to find what you're looking for.
 
-::: {#homeTiles}
-:::
+
+
+
+
+

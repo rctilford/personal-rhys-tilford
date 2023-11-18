@@ -1,13 +1,13 @@
 ---
 title-meta: About Me
 about:
+  id: AboutMe
   template: solana
   image-shape: round
   image: images/glamourshot.png
 ---
 
-
-
+:::{#AboutMe}
 # Rhys Tilford
 
 ### About Me
@@ -25,3 +25,4 @@ I study Mathematics, Computer Science, and Communication at Georgetown College i
 I work as a Resident Advisor at Georgetown College. In this role, I facilitate a smooth transition to college life for all residents. (*2023-present*)
 
 I have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (*2022-2023*)
+:::

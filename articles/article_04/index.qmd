@@ -4,6 +4,7 @@ author: Rhys Tilford
 description: Read about how I used R to tidy and display urban transport data
 date: 11/13/2023
 categories: [Data Analysis, Programming, R]
+image: MBTA_Platform.jpg
 ---
 
 ```{r}

@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "personal-rhys-tilford",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
-    "objectID": "index.html#hey-there-im-happy-youre-here",
-    "href": "index.html#hey-there-im-happy-youre-here",
-    "title": "personal-rhys-tilford",
-    "section": "",
-    "text": "No matching items"
-  },
-  {
     "objectID": "articles/article_05/index.html",
     "href": "articles/article_05/index.html",
     "title": "Google Analytics Integration",
@@ -39,7 +25,7 @@
     "href": "about.html",
     "title": "Rhys Tilford",
     "section": "",
-    "text": "Rhys Tilford\n\nAbout Me\nI am a proud nerd as evidenced by my adoration for the show Doctor Who. In my spare time, I love catching up with my friends and hearing about their lives on long meandering walks around town. I also enjoy practicing my many hobbies. Ask me about my record player refurbishment project if we ever get to meet.\n\n\nEducation\nI was homeschooled in grades K-12 by my parents who have both worked in higher-education. (2009-2022)\nI study Mathematics, Computer Science, and Communication at Georgetown College in Kentucky. (2022-2025)\n\n\nExperience\nI work as a Resident Advisor at Georgetown College. In this role, I facilitate a smooth transition to college life for all residents. (2023-present)\nI have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (2022-2023)\n\n\n\n\n Back to top"
+    "text": "Rhys Tilford\n\nAbout Me\nI am a proud nerd as evidenced by my adoration for the show Doctor Who. In my spare time, I love catching up with my friends and hearing about their lives on long meandering walks around town. I also enjoy practicing my many hobbies. Ask me about my record player refurbishment project if we ever get to meet.\n\n\nEducation\nI was homeschooled in grades K-12 by my parents who have both worked in higher-education. (2009-2022)\nI study Mathematics, Computer Science, and Communication at Georgetown College in Kentucky. (2022-2025)\n\n\nExperience\nI work as a Resident Advisor at Georgetown College. In this role, I facilitate a smooth transition to college life for all residents. (2023-present)\nI have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (2022-2023)\n\n\n\n    \n    \n  \n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "articles/article_01/index.html",
@@ -88,6 +74,6 @@
     "href": "articles/index.html",
     "title": "Articles",
     "section": "",
-    "text": "This page includes several articles that document various projects I’ve made and presentations I’ve given.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n\n\n\n\n\n\n\n\nCantor Set Presentation\n\n\n\nEducation\n\n\nMath\n\n\nTopology\n\n\n\nRead my presentation of everything I have learned about the Cantor Set.\n\n\n\nRhys Tilford\n\n\nNov 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 Solution\n\n\n\nJS\n\n\nJust For Fun\n\n\nProgramming\n\n\n\nRead about my solution to Day 2 of the 2022 Advent of Code Challenge.\n\n\n\nRhys Tilford\n\n\nNov 4, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Analytics Integration\n\n\n\nData Analysis\n\n\nProgramming\n\n\nTutorial\n\n\n\nRead about how I set up Google Analytics for Quarto\n\n\n\nRhys Tilford\n\n\nNov 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nSorting an HTML Table\n\n\n\nHTML\n\n\nJS\n\n\nProgramming\n\n\n\nRead about how I used javascript to populate and sort an HTML table.\n\n\n\nRhys Tilford\n\n\nNov 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nTidying Unkempt Data\n\n\n\nData Analysis\n\n\nProgramming\n\n\nR\n\n\n\nRead about how I used R to tidy and display urban transport data\n\n\n\nRhys Tilford\n\n\nNov 13, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
+    "text": "This page includes several articles that document various projects I’ve made and presentations I’ve given.\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n\n\n\n\n\n\n\n\nCantor Set Presentation\n\n\n\nEducation\n\n\nMath\n\n\nTopology\n\n\n\nRead my presentation of everything I have learned about the Cantor Set.\n\n\n\nRhys Tilford\n\n\nNov 8, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 Solution\n\n\n\nJS\n\n\nJust For Fun\n\n\nProgramming\n\n\n\nRead about my solution to Day 2 of the 2022 Advent of Code Challenge.\n\n\n\nRhys Tilford\n\n\nNov 4, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGoogle Analytics Integration\n\n\n\nData Analysis\n\n\nProgramming\n\n\nTutorial\n\n\n\nRead about how I set up Google Analytics for Quarto\n\n\n\nRhys Tilford\n\n\nNov 15, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nSorting an HTML Table\n\n\n\nHTML\n\n\nJS\n\n\nProgramming\n\n\n\nRead about how I used javascript to populate and sort an HTML table.\n\n\n\nRhys Tilford\n\n\nNov 5, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidying Unkempt Data\n\n\n\nData Analysis\n\n\nProgramming\n\n\nR\n\n\n\nRead about how I used R to tidy and display urban transport data\n\n\n\nRhys Tilford\n\n\nNov 13, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   }
 ]

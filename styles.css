@@ -1,1 +1,6 @@
 /* css styles */
+
+footer {
+    background-color: var(--bs-primary);
+}
+

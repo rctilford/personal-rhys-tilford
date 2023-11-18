@@ -4,6 +4,7 @@ author: Rhys Tilford
 description: Read about how I set up Google Analytics for Quarto
 date: 11/15/2023
 categories: [Data Analysis, Programming, Tutorial]
+image: Data_Pages.jpg
 ---
 
 ### Introduction
