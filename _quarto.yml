@@ -7,6 +7,7 @@ website:
   site-url: "https://rctilford.github.io/personal-rhys-tilford/"
   google-analytics: G-5R6TTB9D5X
   navbar:
+    title: "<svg class='logo'><path stroke-width='3'></path></svg>"
     left:
       - href: index.qmd
         text: Home
