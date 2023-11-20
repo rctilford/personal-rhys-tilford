@@ -237,7 +237,7 @@ Plot.plot({
   marks: [
     Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
       x: "Country",
-      y: "SystemLengthAvg",
+      y: "Average System Length",
       fill: "Country",
       tip: true
     }),
@@ -254,7 +254,7 @@ Plot.plot({
   marks: [
     Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
       x: "Country",
-      y: "StationCountAvg",
+      y: "Average Number of Stations",
       fill: "Country",
       tip: true
     }),

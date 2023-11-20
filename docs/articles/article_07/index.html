@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Rhys Tilford">
+<meta name="dcterms.date" content="2023-11-19">
 
-<title>personal-rhys-tilford - Go Fish…</title>
+<title>personal-rhys-tilford - Animating an SVG Path for a Logo</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +25,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="/personal-rhys-tilford/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-nav/headroom.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/clipboard/clipboard.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/fuse.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="/personal-rhys-tilford/">
-<link href="/personal-rhys-tilford/./images/glamourshot.png" rel="icon" type="image/png">
-<script src="/personal-rhys-tilford/site_libs/quarto-html/quarto.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/popper.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="/personal-rhys-tilford/site_libs/quarto-html/anchor.min.js"></script>
-<link href="/personal-rhys-tilford/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="/personal-rhys-tilford/site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="/personal-rhys-tilford/site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="/personal-rhys-tilford/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/personal-rhys-tilford/site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/glamourshot.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +73,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="/personal-rhys-tilford/styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -82,7 +84,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="/personal-rhys-tilford/index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><svg class="logo"><path stroke-width="3"></path></svg></span>
     </a>
   </div>
@@ -93,15 +95,15 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/index.html" rel="" target="">
+    <a class="nav-link" href="../../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/personal-rhys-tilford/articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
 </ul>
@@ -120,7 +122,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Go Fish…</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Animating an SVG Path for a Logo</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -134,31 +136,31 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_01/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_01/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Advent of Code 2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_02/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_02/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sorting HTML Tables</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_03/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_03/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cantor Set Presentation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_04/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_04/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tidying Unkempt Data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/personal-rhys-tilford/articles/article_05/index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../articles/article_05/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Google Analytics Integration</span></a>
   </div>
 </li>
@@ -168,21 +170,44 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#ill-fill-this-in-once-i-actually-figure-out-how-to-complete-this-project--" id="toc-ill-fill-this-in-once-i-actually-figure-out-how-to-complete-this-project--" class="nav-link active" data-scroll-target="#ill-fill-this-in-once-i-actually-figure-out-how-to-complete-this-project--">I’ll fill this in once I actually figure out how to complete this project :-)</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Go Fish…</h1>
-</div>
+<h1 class="title">Animating an SVG Path for a Logo</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">CSS</div>
+    <div class="quarto-category">HTML</div>
+    <div class="quarto-category">Quarto</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rhys Tilford </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 19, 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -190,9 +215,11 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 </header>
 
-<p>I can’t find what you’re looking for. Perhaps there’s something useful in the taskbar?</p>
+<section id="ill-fill-this-in-once-i-actually-figure-out-how-to-complete-this-project--" class="level3">
+<h3 class="anchored" data-anchor-id="ill-fill-this-in-once-i-actually-figure-out-how-to-complete-this-project--">I’ll fill this in once I actually figure out how to complete this project :-)</h3>
 
 
+</section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -449,7 +476,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <a class="nav-link" href="https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10">Spotify</a>
   </li>  
 </ul>
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    </div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

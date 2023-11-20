@@ -1,5 +1,9 @@
-
-# CSS Image Zoom on Hover
+---
+title: CSS Image Zoom on Hover
+author: Rhys Tilford
+date: 11/18/2023
+categories: [CSS, HTML, Quarto]
+---
 
 ### Introduction
 
