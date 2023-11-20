@@ -7,6 +7,10 @@ categories: [Data Analysis, Programming, R]
 image: MBTA_Platform.jpg
 ---
 
+```{ojs}
+Plot = import("https://esm.run/@observablehq/plot@0.6.11")
+```
+
 ```{r}
 #| include: false
 ### load necessary packages
@@ -165,11 +169,96 @@ MetroList %>%
 
 ### Data Visualization
 
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Transit System Maturity",
+  subtitle: "Urban Rail System Maturity in 5 Major Countries",
+  y: { label: "Years" },
+  marks: [
+    Plot.frame({ strokeOpacity: 0.1 }),
+    Plot.barY(await FileAttachment("MetroMaturity.csv").csv({ typed: "auto" }), {
+      fx: " ",
+      x: "Country",
+      y: "Values",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
 
 
 
 
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Ridership in 5 Major Countries",
+  y: { label: "Millions of Riders" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroRidership.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Ridership (Millions)",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Distance Between Stations",
+  y: { label: "Kilometers per Station" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Station Density",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
 
 
 
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average System Length",
+  y: { label: "Kilometers of Rail Service" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "SystemLengthAvg",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
 
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Number of Stations per System",
+  y: { label: "Stations" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "StationCountAvg",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
