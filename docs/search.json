@@ -18,7 +18,7 @@
     "href": "posts/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n\n\n\n\n\n\n\n\nAnimating an SVG Path for a Logo\n\n\n\nCSS\n\n\nHTML\n\n\nQuarto\n\n\n\n\n\n\n\nRhys Tilford\n\n\nNov 19, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nCSS Image Zoom on Hover\n\n\n\nCSS\n\n\nHTML\n\n\nQuarto\n\n\n\n\n\n\n\nRhys Tilford\n\n\nNov 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 Solution\n\n\n\nJS\n\n\nJust For Fun\n\n\nProgramming\n\n\n\nRead about my solution to Day 2 of the 2022 Advent of Code Challenge.\n\n\n\nRhys Tilford\n\n\nNov 4, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidying Unkempt Data\n\n\n\nData Analysis\n\n\nProgramming\n\n\nR\n\n\n\nRead about how I used R to tidy and display urban transport data\n\n\n\nRhys Tilford\n\n\nNov 13, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "Order By\n       Default\n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Title\n        \n     \n  \n\n\n\n\n\n\n\n\nAnimating an SVG Path for a Logo\n\n\n\nCSS\n\n\nHTML\n\n\nQuarto\n\n\n\n\n\n\n\nRhys Tilford\n\n\nNov 19, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nCSS Image Zoom on Hover\n\n\n\nCSS\n\n\nHTML\n\n\nQuarto\n\n\n\n\n\n\n\nRhys Tilford\n\n\nNov 18, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDay 2 Solution\n\n\n\nJS\n\n\nJust For Fun\n\n\nProgramming\n\n\n\nRead about my solution to Day 2 of the 2022 Advent of Code Challenge.\n\n\n\nRhys Tilford\n\n\nNov 4, 2023\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTidying Unkempt Data\n\n\n\nData Analysis\n\n\nProgramming\n\n\nR\n\n\n\nRead about how I used R to tidy and display urban transport data\n\n\n\nRhys Tilford\n\n\nNov 13, 2023\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "articles/index.html",
@@ -109,7 +109,7 @@
     "href": "articles/article_07/index.html",
     "title": "Animating an SVG Path for a Logo",
     "section": "",
-    "text": "I’ll fill this in once I actually figure out how to complete this project :-)\n\n\nCitations\nThese sites were very helpful while I was working on this project:\n\nVisual SVG Path Editor\npath() Documentation\n&lt;path&gt; Documentation\nQuarto Logo SVG Input\nStyling the Path\nGeneral Info About Paths\n\n\n\n\n\n Back to top"
+    "text": "I’ll fill this in once I actually figure out how to complete this project :-)\n\n\nCitations\nThese sites were very helpful while I was working on this project:\n\nVisual SVG Path Editor\npath() Documentation\n&lt;path&gt; Documentation\nQuarto Logo SVG Input\nStyling the Path\nGeneral Info About Paths\nAnimation Implementation\n\n\n\n\n\n Back to top"
   },
   {
     "objectID": "posts/post_01/index.html",

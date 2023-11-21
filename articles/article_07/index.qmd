@@ -18,3 +18,4 @@ These sites were very helpful while I was working on this project:
  - [Quarto Logo SVG Input](https://ellakaye.co.uk/posts/2023-04-11_animated-logo/)
  - [Styling the Path](https://svgwg.org/svg2-draft/painting.html)
  - [General Info About Paths](https://svgwg.org/svg2-draft/paths.html#PathElement)
+ - [Animation Implementation](https://www.cassie.codes/posts/creating-my-logo-animation/#heading-svg-stroke-dasharray)
