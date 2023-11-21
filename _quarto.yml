@@ -7,7 +7,7 @@ website:
   site-url: "https://rctilford.github.io/personal-rhys-tilford/"
   google-analytics: G-5R6TTB9D5X
   navbar:
-    title: "<svg class='logo'><path stroke-width='3'></path></svg>"
+    title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
     left:
       - href: index.qmd
         text: Home
@@ -28,22 +28,6 @@ website:
       - icon: spotify
         href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
         target: _blank
-  sidebar:
-    - id: links
-      title: "Articles"
-      style: "docked"
-      collapse-level: 2
-      contents:
-        - text: "Advent of Code 2022"
-          href:  articles/article_01/index.qmd
-        - text: "Sorting HTML Tables"
-          href:  articles/article_02/index.qmd
-        - text: "Cantor Set Presentation"
-          href:  articles/article_03/index.qmd
-        - text: "Tidying Unkempt Data"
-          href:  articles/article_04/index.qmd
-        - text: "Google Analytics Integration"
-          href:  articles/article_05/index.qmd
   page-footer:
     background: light
 
