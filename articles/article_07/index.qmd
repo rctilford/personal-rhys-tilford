@@ -6,3 +6,15 @@ categories: [CSS, HTML, Quarto]
 ---
 
 ### I'll fill this in once I actually figure out how to complete this project :-)
+
+
+### Citations
+
+These sites were very helpful while I was working on this project:
+
+ - [Visual SVG Path Editor](https://yqnn.github.io/svg-path-editor/)
+ - [`path()` Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/path)
+ - [`<path>` Documentation](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path)
+ - [Quarto Logo SVG Input](https://ellakaye.co.uk/posts/2023-04-11_animated-logo/)
+ - [Styling the Path](https://svgwg.org/svg2-draft/painting.html)
+ - [General Info About Paths](https://svgwg.org/svg2-draft/paths.html#PathElement)
