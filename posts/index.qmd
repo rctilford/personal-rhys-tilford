@@ -1,0 +1,10 @@
+---
+title: "Blog"
+listing: 
+  id: blog
+  contents: "/post*/index.qmd"
+  type: grid
+  sort-ui: [date, title] 
+  categories: numbered
+  feed: true
+---

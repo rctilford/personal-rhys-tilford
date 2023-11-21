@@ -1,7 +1,7 @@
 /* css styles */
 
 /* Make card images zoom on hover*/
- .card-img-top{
+  .card-img-top{
     overflow: hidden;
 }
 
@@ -13,9 +13,9 @@
     transform: scale(1.25);
 }
 
-.post-contents {
+ /* .post-contents {
     max-height: 170.27px;
-}
+}  */
 /* code adapted from:  */
 /* end section */
 

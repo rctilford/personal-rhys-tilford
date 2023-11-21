@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Rhys Tilford">
-<meta name="dcterms.date" content="2023-11-18">
 
-<title>personal-rhys-tilford - CSS Image Zoom on Hover</title>
+<title>personal-rhys-tilford - Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,23 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../../images/glamourshot.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/glamourshot.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,6 +62,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-blog .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-blog'] = new List('listing-blog', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-5R6TTB9D5X"></script>
 
 <script type="text/javascript">
@@ -72,9 +101,11 @@ gtag('js', new Date());
 gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="../../styles.css">
-</head>
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="personal-rhys-tilford" href="index.xml"></head>
 
 <body class="nav-fixed">
 
@@ -83,7 +114,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title"><svg class="logo" viewbox="65 55 100 10"><path></path></svg></span>
     </a>
   </div>
@@ -94,19 +125,19 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
+    <a class="nav-link" href="../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../articles/index.html" rel="" target="">
+    <a class="nav-link" href="../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../posts/index.html" rel="" target="">
+    <a class="nav-link active" href="../posts/index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
@@ -148,46 +179,21 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#finding-the-element" id="toc-finding-the-element" class="nav-link" data-scroll-target="#finding-the-element">Finding the Element</a></li>
-  <li><a href="#citation" id="toc-citation" class="nav-link" data-scroll-target="#citation">Citation</a></li>
-  </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
-    </div>
+        
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="CSS">CSS <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Data Analysis">Data Analysis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="HTML">HTML <span class="quarto-category-count">(2)</span></div><div class="category" data-category="JS">JS <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Just For Fun">Just For Fun <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Programming">Programming <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Quarto">Quarto <span class="quarto-category-count">(2)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">CSS Image Zoom on Hover</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">CSS</div>
-    <div class="quarto-category">HTML</div>
-    <div class="quarto-category">Quarto</div>
-  </div>
-  </div>
+<h1 class="title">Blog</h1>
+</div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Rhys Tilford </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 18, 2023</p>
-    </div>
-  </div>
   
     
   </div>
@@ -195,22 +201,175 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 </header>
 
-<section id="introduction" class="level3">
-<h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
-<p>I wanted to make some slick effects for the website so it looks more professional. I found a tutorial on pinterest for a zoom effect on hover. However, I ran into several problems when I applied the code so I will show how I fixed those problems here.</p>
-</section>
-<section id="finding-the-element" class="level3">
-<h3 class="anchored" data-anchor-id="finding-the-element">Finding the Element</h3>
-<p>In order to make any changes to the element we have to find it’s container. To do this we need to open the developer tools our browser while we are viewing the webpage we want to modify.</p>
-</section>
-<section id="citation" class="level3">
-<h3 class="anchored" data-anchor-id="citation">Citation</h3>
-<iframe src="https://assets.pinterest.com/ext/embed.html?id=984318062294243327" height="520" width="236" frameborder="0" scrolling="no"></iframe>
 
 
-</section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-blog">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-blog-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-blog'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+     </select>
+  </div>
+</div>
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="CSS,HTML,Quarto" data-listing-date-sort="1700370000000" data-listing-file-modified-sort="1700540043855" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="../posts/post_04/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Animating an SVG Path for a Logo
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('CSS'); return false;">
+CSS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('HTML'); return false;">
+HTML
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
+Quarto
+</div>
+</div>
+<div class="card-text listing-description">
+These sites were very helpful while I was working on this project:
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 19, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="CSS,HTML,Quarto" data-listing-date-sort="1700283600000" data-listing-file-modified-sort="1700457322914" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="../posts/post_03/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+CSS Image Zoom on Hover
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('CSS'); return false;">
+CSS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('HTML'); return false;">
+HTML
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Quarto'); return false;">
+Quarto
+</div>
+</div>
+<div class="card-text listing-description">
+I wanted to make some slick effects for the website so it looks more…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 18, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="JS,Just For Fun,Programming" data-listing-date-sort="1699070400000" data-listing-file-modified-sort="1700336409728" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
+<a href="../posts/post_01/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../posts/post_01/Advent_Of_Code.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Day 2 Solution
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('JS'); return false;">
+JS
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Just For Fun'); return false;">
+Just For Fun
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Programming'); return false;">
+Programming
+</div>
+</div>
+<div class="card-text listing-description">
+Read about my solution to Day 2 of the 2022 Advent of Code Challenge.
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 4, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="Data Analysis,Programming,R" data-listing-date-sort="1699851600000" data-listing-file-modified-sort="1700457065583" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8">
+<a href="../posts/post_02/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="../posts/post_02/MBTA_Platform.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Tidying Unkempt Data
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Data Analysis'); return false;">
+Data Analysis
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Programming'); return false;">
+Programming
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+</div>
+<div class="card-text listing-description">
+Read about how I used R to tidy and display urban transport data
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Rhys Tilford
+</div>
+<div class="listing-date">
+Nov 13, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -448,4 +607,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>

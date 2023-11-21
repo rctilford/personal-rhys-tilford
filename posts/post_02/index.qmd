@@ -1,0 +1,264 @@
+---
+title: Tidying Unkempt Data
+author: Rhys Tilford
+description: Read about how I used R to tidy and display urban transport data
+date: 11/13/2023
+categories: [Data Analysis, Programming, R]
+image: MBTA_Platform.jpg
+---
+
+```{ojs}
+Plot = import("https://esm.run/@observablehq/plot@0.6.11")
+```
+
+```{r}
+#| include: false
+### load necessary packages
+library(tidyverse)
+library(rvest)
+library(magrittr)
+library(rlang)
+library(stats)
+```
+
+### Introduction
+
+Transport has always been a passion of mine. I have always adored Trains, Planes, Cars, Boats, and any other type of vehicle. As I matured I began to see transit through a new lens. The sights and sounds of large transport-oriented machinary no longer held my attention like they once did. A more humanistic view of transport caught my fancy and I began to take interest in transport equity for people from all socio-economic backgrounds.
+
+It is well known that the automobile is a focal point in American society. That said, I was well into my teens before I noticed the consequences our car-centric culture causes for people who either can't afford to own a car or choose not to own a car. This realization invigorated my interest in public transport and walkable infrastructure. In this data exploration, I hope to shed some light on the state of urban rail transport systems in America and compare them to that of other first world countries.
+
+### The Data
+
+I found a fascinating data table on [this](https://en.wikipedia.org/wiki/List_of_metro_systems) Wikipedia page so I decided to pull it and analize it. Here is the code I used to pull it:
+
+```{r}
+#| warning: false
+web_page <- "https://en.wikipedia.org/wiki/List_of_metro_systems"
+
+Tables <-
+  web_page %>%
+  read_html() %>%
+  html_elements("table")
+
+MetroList <- 
+  Tables %>% 
+  purrr::pluck(1) %>%
+  html_table()
+```
+
+Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
+
+```{r}
+#| warning: false
+#| echo: false
+MetroList %>% 
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+Here are the problems I see in MetroList:
+
+ - The name of the column that holds the number of stations on each system has a long and irrelevent name.
+ - Several of the columns have units and footnote links in them.
+
+I decided to import it to Rstudio and take a crack at cleaning it.
+
+### Tidying
+
+Optimistically, I decided to call this new table TidyMetroList.
+
+##### Renaming Columns
+
+The following code renames the columns with a unified naming system:
+
+```{r}
+#| eval: false
+TidyMetroList <-
+  MetroList %>%
+  set_names(c("City",
+              "Country",
+              "Name",
+              "ServiceOpened",
+              "LastExpanded",
+              "StationCount",
+              "Lines",
+              "SystemLength",
+              "RidershipMillions"))
+```
+
+```{r}
+#| echo: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+Much better! There's still a long way to go though. Next we should tackle the extra gunk in the columns.
+
+##### Isolating the Data
+
+This code uses regular expresssions to remove all of the gunk in the columns:
+```{r}
+#| eval: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+Lovely! Now there's only one problem. Notice that the `RidershipMillions` column still was not dealt with in the last command. That's because the parenthetical statements in that column show the timeframe in which the ridership data was collected. We'd rather not get rid of this data so hastily.
+
+##### A Special Case
+
+The following code will snatch the data from the parenthesis and drop it in a new column called `RidershipMillionsDataFrom`. Then it will remove the excess information from `RidershipMillions` like we did above.
+```{r}
+#| eval: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
+
+```{r}
+#| echo: false
+#| warning: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", ""))) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
+
+### Data Analysis
+
+
+
+
+### Data Visualization
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Transit System Maturity",
+  subtitle: "Urban Rail System Maturity in 5 Major Countries",
+  y: { label: "Years" },
+  marks: [
+    Plot.frame({ strokeOpacity: 0.1 }),
+    Plot.barY(await FileAttachment("MetroMaturity.csv").csv({ typed: "auto" }), {
+      fx: " ",
+      x: "Country",
+      y: "Values",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
+
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Ridership in 5 Major Countries",
+  y: { label: "Millions of Riders" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroRidership.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Ridership (Millions)",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Distance Between Stations",
+  y: { label: "Kilometers per Station" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Station Density",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average System Length",
+  y: { label: "Kilometers of Rail Service" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average System Length",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Number of Stations per System",
+  y: { label: "Stations" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Number of Stations",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
