@@ -15,6 +15,19 @@ website:
         text: About
       - href: articles/index.qmd
         text: Articles
+    right: 
+      - icon: linkedin
+        href: https://www.linkedin.com/in/rhystilford
+        target: _blank
+      - icon: github
+        href: https://github.com/rctilford
+        target: _blank
+      - icon: instagram
+        href: https://www.instagram.com/rctilford
+        target: _blank
+      - icon: spotify
+        href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
+        target: _blank
   sidebar:
     - id: links
       title: "Articles"
@@ -33,23 +46,6 @@ website:
           href:  articles/article_05/index.qmd
   page-footer:
     background: light
-    center:
-      - icon: linkedin
-        text: Linkedin
-        href: https://www.linkedin.com/in/rhystilford
-        target: _blank
-      - icon: github
-        text: Github
-        href: https://github.com/rctilford
-        target: _blank
-      - icon: instagram
-        text: Instagram
-        href: https://www.instagram.com/rctilford
-        target: _blank
-      - icon: spotify
-        text: Spotify
-        href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
-        target: _blank
 
   favicon: images/glamourshot.png
   back-to-top-navigation: true

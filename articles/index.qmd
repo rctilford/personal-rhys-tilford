@@ -4,7 +4,7 @@ listing:
   id: articles
   contents: "/article*/index.qmd"
   type: grid
-  sort-ui: true 
+  sort-ui: [date, title] 
   categories: numbered
   feed: true
 ---
