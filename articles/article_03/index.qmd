@@ -12,13 +12,18 @@ categories: [Education, Math, Topology]
 >
 > -- <cite>Bartle and Sherbert (p. 331)</cite>
 
-
-
 ### Visualization
 
-<script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script><div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"></div><script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
+```{=html}
+<script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script>
+```
+::: {#WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437}
+:::
 
-:::{.callout-note}
+```{=html}
+<script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
+```
+::: callout-note
 This visual is generated from the Wolfram Cloud: Use [this](https://www.wolframcloud.com/objects/demonstrations/CantorSet-source.nb) link to access it.
 :::
 
@@ -30,12 +35,39 @@ This visual is generated from the Wolfram Cloud: Use [this](https://www.wolframc
 
 We will construct a convergent geometric series of the lengths of the removed open middle thirds.
 
-For example we see from the visual that the length of the first open middle third is: 
+We see from the visual that the length of the removed open middle thirds is the series:
 
+$$
+\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...
+$$ First, Let's work with the denominator: $$
+=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...
+$$
 
+Now we can tackle the numerator: $$
+=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...
+$$
 
+Now we have what we need to build a series: $$
+=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}
+$$
 
-From the definition of the Cantor set $\mathbb{F}$, we see that the first open middle third 
+This isn't quite a geometric series though. We'll do some quick mathematical yassification to remedy this. We start by rewriting the denominator with exponent rules: $$
+=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}
+$$
+
+Now we can pull the constant multiple outside the sum: $$
+=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}
+$$
+
+Next we will apply the formula for the sum of a geometric series: $$
+=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}
+$$
+
+With some simplification we find that the sum is infact $1$: $$
+=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1
+$$
+
+😀
 
 ##### Property 2: The Cantor set $\mathbb{F}$ contains no nonempty open interval as a subset
 
@@ -44,4 +76,3 @@ From the definition of the Cantor set $\mathbb{F}$, we see that the first open m
 ##### Property 3: The Cantor set $\mathbb{F}$ has infinitely (even uncountably) many points
 
 ###### Proof:
-

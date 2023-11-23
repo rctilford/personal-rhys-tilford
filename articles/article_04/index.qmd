@@ -19,6 +19,7 @@ library(rvest)
 library(magrittr)
 library(rlang)
 library(stats)
+library(readr)
 ```
 
 ### Introduction
@@ -32,7 +33,7 @@ It is well known that the automobile is a focal point in American society. That 
 I found a fascinating data table on [this](https://en.wikipedia.org/wiki/List_of_metro_systems) Wikipedia page so I decided to pull it and analize it. Here is the code I used to pull it:
 
 ```{r}
-#| warning: false
+#| eval: false
 web_page <- "https://en.wikipedia.org/wiki/List_of_metro_systems"
 
 Tables <-
@@ -44,6 +45,12 @@ MetroList <-
   Tables %>% 
   purrr::pluck(1) %>%
   html_table()
+```
+
+```{r}
+#| echo: false
+#| warning: false
+MetroList <- read.csv(file = "MetroData.csv") %>% select(1:9)
 ```
 
 Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
