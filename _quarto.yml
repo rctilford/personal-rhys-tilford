@@ -9,7 +9,7 @@ website:
   navbar:
     title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
     left:
-      - href: about.qmd
+      - href: index.qmd
         text: Lore
       - href: articles/index.qmd
         text: Articles
