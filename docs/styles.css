@@ -21,10 +21,9 @@
 
 svg.logo path {
     fill: none;
-    stroke-width: 4px;
     overflow: visible;
-    stroke: var(--quarto-text-muted);
-    stroke-width: 3;
+    stroke: rgba(255,255,255,.7);
+    stroke-width: 2;
     stroke-dasharray: 1800;
     stroke-dashoffset: 1800;
     animation: draw 1.5s linear forwards;
@@ -35,6 +34,10 @@ svg.logo path {
     to  {
         stroke-dashoffset: 0;
     }
+}
+
+div.navbar-brand-container:hover path {
+    stroke: rgba(255,255,255,.85);
 }
 
 svg.logo{
