@@ -170,7 +170,6 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
   <div class="quarto-categories">
     <div class="quarto-category">Education</div>
     <div class="quarto-category">Math</div>
-    <div class="quarto-category">Topology</div>
   </div>
   </div>
 
@@ -241,40 +240,50 @@ Note
 <p>We see from the visual that the length of the removed open middle thirds is the series:</p>
 <p><span class="math display">\[
 \frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...
-\]</span> First, Let’s work with the denominator: <span class="math display">\[
+\]</span></p>
+<p>First, Let’s work with the denominator:</p>
+<p><span class="math display">\[
 =\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...
 \]</span></p>
-<p>Now we can tackle the numerator: <span class="math display">\[
+<p>Now we can tackle the numerator:</p>
+<p><span class="math display">\[
 =\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...
 \]</span></p>
-<p>Now we have what we need to build a series: <span class="math display">\[
+<p>Now we have what we need to build a series:</p>
+<p><span class="math display">\[
 =\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}
 \]</span></p>
-<p>This isn’t quite a geometric series though. We’ll do some quick mathematical yassification to remedy this. We start by rewriting the denominator with exponent rules: <span class="math display">\[
+<p>This isn’t quite a geometric series though. We’ll do some quick mathematical yassification to remedy this. We start by rewriting the denominator with exponent rules:</p>
+<p><span class="math display">\[
 =\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}
 \]</span></p>
-<p>Now we can pull the constant multiple outside the sum: <span class="math display">\[
+<p>Now we can pull the constant multiple outside the sum:</p>
+<p><span class="math display">\[
 =\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}
 \]</span></p>
-<p>Next we will apply the formula for the sum of a geometric series: <span class="math display">\[
+<p>Next we will apply the formula for the sum of a geometric series:</p>
+<p><span class="math display">\[
 =\frac{1}{3}*\frac{1}{1-\frac{2}{3}}
 \]</span></p>
-<p>With some simplification we find that the sum is infact <span class="math inline">\(1\)</span>: <span class="math display">\[
+<p>With some simplification we find that the sum is infact <span class="math inline">\(1\)</span>:</p>
+<p><span class="math display">\[
 =\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1
 \]</span></p>
-<p>😀</p>
+<p><span class="math inline">\(\mathfrak{Here}\)</span> <span class="math inline">\(\mathfrak{Endeth}\)</span> <span class="math inline">\(\mathfrak{The}\)</span> <span class="math inline">\(\mathfrak{Proofeth}\)</span></p>
 </section>
 </section>
 <section id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset" class="level5">
 <h5 class="anchored" data-anchor-id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset">Property 2: The Cantor set <span class="math inline">\(\mathbb{F}\)</span> contains no nonempty open interval as a subset</h5>
 <section id="proof-1" class="level6">
 <h6 class="anchored" data-anchor-id="proof-1">Proof:</h6>
+<p>For this proof we will use contradiction. We assume <span class="math inline">\(\mathbb{F}\)</span> contains a nonempty open interval. Well, we obtain each element in <span class="math inline">\(\mathbb{F}\)</span> by removing <em>open</em> intervals. This means that the remaining intervals in each element of <span class="math inline">\(\mathbb{F}\)</span> must be <em>closed</em>. So there can never be a nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span>.</p>
 </section>
 </section>
 <section id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points" class="level5">
 <h5 class="anchored" data-anchor-id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points">Property 3: The Cantor set <span class="math inline">\(\mathbb{F}\)</span> has infinitely (even uncountably) many points</h5>
 <section id="proof-2" class="level6">
 <h6 class="anchored" data-anchor-id="proof-2">Proof:</h6>
+<p>Q.E.D. (Queer Educational Demonstration)</p>
 
 
 </section>
