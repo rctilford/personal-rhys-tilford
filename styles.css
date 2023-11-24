@@ -19,16 +19,6 @@
 /* code adapted from:  */
 /* end section */
 
-
-span.navbar-title {
-    transition: transform 0.8s;
-    overflow: visible;
-}
-
-span.navbar-title:hover {
-    transform: scale(1.5);
-}
-
 svg.logo path {
     fill: none;
     stroke-width: 4px;
@@ -45,10 +35,6 @@ svg.logo path {
     to  {
         stroke-dashoffset: 0;
     }
-}
-
-path {
-    overflow: visible;
 }
 
 svg.logo{
@@ -69,17 +55,9 @@ svg.logo{
     padding: 25px;
 }
 
-div path {
-    overflow: visible;
-}
 
-nav path{
-    overflow: visible;
-}
 
-header path {
-    overflow: visible;
-}
+
 
 
 

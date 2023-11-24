@@ -1,5 +1,4 @@
 ---
-title-meta: About Me
 about:
   id: AboutMe
   template: solana

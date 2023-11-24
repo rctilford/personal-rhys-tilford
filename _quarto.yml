@@ -9,15 +9,13 @@ website:
   navbar:
     title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
     left:
-      - href: index.qmd
-        text: Home
       - href: about.qmd
-        text: About
+        text: Lore
       - href: articles/index.qmd
         text: Articles
       - href: posts/index.qmd
         text: Blog
-    right: 
+    right:
       - icon: linkedin
         href: https://www.linkedin.com/in/rhystilford
         target: _blank

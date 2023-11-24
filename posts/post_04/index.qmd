@@ -2,11 +2,18 @@
 title: Animating an SVG Path for a Logo
 author: Rhys Tilford
 date: 11/19/2023
-categories: [CSS, HTML, Quarto]
+categories: [CSS, HTML, Quarto, Substantive]
 ---
 
-### I'll fill this in once I actually figure out how to complete this project :-)
+### Introduction
 
+### Creating the SVG Logo
+
+### Replacing the Default Logo with the Custom SVG
+
+### Adjusting the Sizing and Location
+
+### Creating the Animation
 
 ### Citations
 
