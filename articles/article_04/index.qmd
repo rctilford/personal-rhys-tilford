@@ -103,7 +103,7 @@ MetroList %>%
                 options = list(pageLength = 5))
 ```
 
-Much better! There's still a long way to go though. Next we should tackle the extra gunk in the columns.
+Much better! There's still more to go though. Next we should tackle the extra gunk in the columns.
 
 ##### Isolating the Data
 
@@ -152,16 +152,19 @@ TidyMetroList <-
 ```{r}
 #| echo: false
 #| warning: false
-MetroList %>% 
+TidyMetroList <- 
+  MetroList %>% 
   set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
   mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
          LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
          Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
          Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
          StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
-         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))) %>%
   mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
-         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", ""))) %>%
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+
+TidyMetroList  %>%
   DT::datatable(class = "table table-hover",
                 style = "bootstrap",
                 options = list(pageLength = 5,
@@ -169,10 +172,85 @@ MetroList %>%
                                PagingTag = "button"))
 ```
 
-### Data Analysis
+### Ridership Data Analysis
 
+```{r}
+#| output: false
+MetroRidershipGraphInput <-
+  TidyMetroList %>% 
+  na.omit() %>% 
+  group_by(Country) %>% 
+  mutate(RidershipMillionsAvg = mean(RidershipMillions)) %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
+  select(Country, RidershipMillionsAvg) %>% 
+  distinct()
+```
 
+```{r}
+#| echo: false
+MetroRidershipGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
 
+### System Size Data Analysis
+```{r}
+#| output: false
+MetroSizeGraphInput <- 
+  TidyMetroList %>% 
+  na.omit() %>% 
+  mutate(StationDensity = StationCount/SystemLength) %>% 
+  group_by(Country) %>% 
+  mutate(StationCountAvg = mean(StationCount),
+         LinesAvg = mean(Lines),
+         SystemLengthAvg = mean(SystemLength),
+         StationDensityAvg = mean(StationDensity)) %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
+  select(Country, StationCountAvg, LinesAvg, SystemLengthAvg, StationDensityAvg) %>% 
+  distinct()
+```
+
+```{r}
+#| echo: false
+MetroSizeGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
+
+### System Maturity Data Analysis
+
+```{r}
+#| output: false
+MetroMaturityGraphInput <- 
+  TidyMetroList %>% 
+  mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),
+         YearsSinceExpansion = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - LastExpanded)) %>% 
+  select(Country, SystemAge, YearsSinceExpansion) %>%
+  na.omit() %>% 
+  group_by(Country) %>% 
+  mutate(AverageSystemAge = mean(SystemAge),
+         AverageYearsSinceExpansion = mean(YearsSinceExpansion)) %>% 
+  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>% 
+  distinct() %>%
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
+  pivot_longer(cols = !Country, names_to = "Types", values_to = "Values")
+```
+
+```{r}
+#| echo: false
+MetroMaturityGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
 
 ### Data Visualization
 
