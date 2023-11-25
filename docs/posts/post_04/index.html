@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -153,7 +187,9 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
   <li><a href="#replacing-the-default-logo-with-the-custom-svg" id="toc-replacing-the-default-logo-with-the-custom-svg" class="nav-link" data-scroll-target="#replacing-the-default-logo-with-the-custom-svg">Replacing the Default Logo with the Custom SVG</a></li>
   <li><a href="#adjusting-the-sizing-and-location" id="toc-adjusting-the-sizing-and-location" class="nav-link" data-scroll-target="#adjusting-the-sizing-and-location">Adjusting the Sizing and Location</a></li>
   <li><a href="#creating-the-animation" id="toc-creating-the-animation" class="nav-link" data-scroll-target="#creating-the-animation">Creating the Animation</a></li>
-  <li><a href="#citations" id="toc-citations" class="nav-link" data-scroll-target="#citations">Citations</a></li>
+  <li><a href="#brighten-on-hover" id="toc-brighten-on-hover" class="nav-link" data-scroll-target="#brighten-on-hover">Brighten on Hover</a></li>
+  <li><a href="#css-code" id="toc-css-code" class="nav-link" data-scroll-target="#css-code">CSS Code</a></li>
+  <li><a href="#yaml-code" id="toc-yaml-code" class="nav-link" data-scroll-target="#yaml-code">Yaml Code</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/rctilford/personal-rhys-tilford/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -197,30 +233,101 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 <section id="introduction" class="level3">
 <h3 class="anchored" data-anchor-id="introduction">Introduction</h3>
+<p>In the spring of 2018, I decided that I needed to create a unique signature that I could write quickly. This all came about becuase I was taking a dual credit art course at Georgetown College and I needed a symbol to sign my work. I wanted that this signature to be my initials to help make the symbol swifter to reproduce. After much trial and error I created a style that I liked and began to apply it in my drawings for the college course.</p>
+<p>Sometime later, I began to see use for the symbol in new venues. I used the symbol when writing letters, signing for purchases, and even as a substitute for <em>Q.E.D.</em> at the end of Mathematical proofs. It was then that I began to see the symbol as an accessory of my identity and an increasingly important part of my brand.</p>
+<p>Recently, I decided it would be useful to create a version of my signature in a digital form so I could apply it digital mediums of communication. This project is the product of that decision.</p>
 </section>
 <section id="creating-the-svg-logo" class="level3">
 <h3 class="anchored" data-anchor-id="creating-the-svg-logo">Creating the SVG Logo</h3>
+<p>After debating between different types of images, I decided to make the signature as an SVG path. This format is especially versatile because it can be resized without degrading the image it self. This is accomplished with an elaborate list of vectors which can be resized as needed. In fact, the acronym <em>SVG</em> stands for <em>Scaleable Vector Graphic</em>.</p>
+<p>The language used to create an SVG is very complicated so for the sake of time I decided to build my signiture in a <a href="https://yqnn.github.io/svg-path-editor/">visual SVG path editor</a>. This free interface makes it very easy to build a path by dragging the points of each line segment to the desired location.</p>
 </section>
 <section id="replacing-the-default-logo-with-the-custom-svg" class="level3">
 <h3 class="anchored" data-anchor-id="replacing-the-default-logo-with-the-custom-svg">Replacing the Default Logo with the Custom SVG</h3>
+<p>To replace the default branding with my signiture, I needed to find out where quarto found the title for the site in the <code>_quarto.yml</code> file. Luckily, someone else has tried changing the logo of their quarto website as well. This <a href="https://ellakaye.co.uk/posts/2023-04-11_animated-logo/">site</a> developed by Ella Kaye has a lovely tutorial on putting a custom logo in the yaml setup material. The key is to place the html reference in the navbar title reference as depicted here.</p>
+<p>Notice that the HTML code in <a href="#yaml-code">this yaml chunk</a> does not include any styling options for the path. These will be added in the CSS file. This is why it is very important that the svg tag have a specific class. If it did not the styling rules we will use in our CSS file would apply to all svg tags in the website.</p>
+<p>Immediately, I ran into some issues. The default title was gone but my signiture was nowhere to be seen. After trial, error, blood, sweat, and tears, I found one setting that hid the signature from me.</p>
+<section id="overflow" class="level5">
+<h5 class="anchored" data-anchor-id="overflow">Overflow</h5>
+<p>The problem was with the overflow settings. By default the parent tags of the path were set to keep the overflow hidden. All I had to add a reference to each parent tag in the CSS file with the contents <code>overflow: visible;</code> as shown in <a href="#css-code">this code chunk</a>.</p>
+</section>
 </section>
 <section id="adjusting-the-sizing-and-location" class="level3">
 <h3 class="anchored" data-anchor-id="adjusting-the-sizing-and-location">Adjusting the Sizing and Location</h3>
+<p>The HTML code does include use the viewbox attribute in the SVG tag. The path is a child of the SVG element but the path only holds data and styling information. The SVG tag is the one that holds all the sizing and location information. That is stored in the <code>viewbox</code> attribute. It is a list of four entries:</p>
+<ul>
+<li><code>Min-x</code>: The x-coordinate of the top left corner.</li>
+<li><code>Min-y</code>: The y-coordinate of the top left corner.</li>
+<li><code>Width</code> of the viewport.</li>
+<li><code>Height</code> of the viewport.</li>
+</ul>
+<p>The <code>Width</code> and <code>Height</code> variables are fairly self-explanatory but <code>Min-x</code> and <code>Min-y</code> are worth discussing in more depth. These two coodinates set the position of the view port. We can imagine the viewport as our screen when we’ve zoomed in really close in the <a href="https://yqnn.github.io/svg-path-editor/">svg path editor</a> and maneuvered the graph so that the point we see in the top left corner of our screen has the coordinates (Min-x, Min-y).</p>
 </section>
 <section id="creating-the-animation" class="level3">
 <h3 class="anchored" data-anchor-id="creating-the-animation">Creating the Animation</h3>
-</section>
-<section id="citations" class="level3">
-<h3 class="anchored" data-anchor-id="citations">Citations</h3>
-<p>These sites were very helpful while I was working on this project:</p>
+<p>Creating the animation is one of the more straight forward parts of this project. We will focus on two path attributes:</p>
 <ul>
-<li><a href="https://yqnn.github.io/svg-path-editor/">Visual SVG Path Editor</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/path"><code>path()</code> Documentation</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/path"><code>&lt;path&gt;</code> Documentation</a></li>
-<li><a href="https://ellakaye.co.uk/posts/2023-04-11_animated-logo/">Quarto Logo SVG Input</a></li>
-<li><a href="https://svgwg.org/svg2-draft/painting.html">Styling the Path</a></li>
-<li><a href="https://svgwg.org/svg2-draft/paths.html#PathElement">General Info About Paths</a></li>
+<li><code>stroke-dasharray</code>
+<ul>
+<li>This command creates a series of dashes interspersed with blank spaces of equal length along the path. It takes one numeric argument representing the length of each dash.</li>
+</ul></li>
+<li><code>stroke-dashoffset</code>
+<ul>
+<li>This command allows the programmer to <em>move</em> the series of dashes forward or backward along the path. it takes one numeric argument representing the distance that the series of dashes should be moved.</li>
+</ul></li>
 </ul>
+<p>For a visual and interactive example of these two commands in action, check out <a href="https://www.cassie.codes/posts/creating-my-logo-animation/">this tutorial from Cassie Codes</a>.</p>
+<p>This animation is built by choosing a value for <code>stroke-dasharray</code> (the length of each dash) wide enough to make it so one dash can entirely fill the path. The space would also fill the path since the length of each dash is equal to the length of each space.</p>
+<p>The next trick of this animation is finding the two values of <code>stroke-dashoffset</code> where the path is entirely full and another where it is entirely space. Then we can use the commands <code>animation</code> and <code>@keyframes</code> as seen in the <a href="#css-code">css code</a> to create the animation.</p>
+</section>
+<section id="brighten-on-hover" class="level3">
+<h3 class="anchored" data-anchor-id="brighten-on-hover">Brighten on Hover</h3>
+<p>The the color of my logo brightens slightly when the mouse hovers over it. This was accomplished by creating a css rule for the path element that only activates when the mouse is hovering over the div tag with the class <code>navbar-brand-container</code>.</p>
+</section>
+<section id="css-code" class="level3">
+<h3 class="anchored" data-anchor-id="css-code">CSS Code</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>svg<span class="fu">.logo</span> path {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">fill</span>: <span class="dv">none</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="dv">visible</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    stroke: <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">.7</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    stroke-width: <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    stroke-dasharray: <span class="dv">1800</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    stroke-dashoffset: <span class="dv">1800</span><span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">animation</span>: draw <span class="dv">1.5</span><span class="dt">s</span> <span class="dv">linear</span> <span class="dv">forwards</span><span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    d: <span class="fu">path(</span><span class="st">"M-116-126C-116-94-118-31-109 1-99 42-83 63-62 81-49 93-30 103-10 103 14 103 30 95 38 71Q46 39 29.927 15.408C29 14 27 11 21.642 10.618 17.841 10.238 14 12 12 15 10 18 9.783 22.63 11.455 25.062 12.899 27.267 14.724 28.483 17.765 29.319 22 30 23.846 29.699 28.255 27.039 40 19 42 15 50 11 54 9 60 9 64 11 68 13 70 15 72 19 74 25 73 28 70 31 66 35 60 38 54 41 47 45 46 54 46 59 46 64 49.009 73.411 51.061 76.984 55 84 60 89 64 92 69 96 76 103 98 103 112 103 120 97 122 95 124 93 130 88 134 79 138 68 140 61 140 53 140 45 140 33 138 27 136 21.6666 132 13 122 11 112 9 106 11 102 15 98 19 96 25 98 31 100 37 104 41 116 43 128 45 144 45 160 39 178 33 190.242 25.396 201 6 205.333-1.489 209-13 211-23Q215.994-45.639 217.126-66.771C218-84 219-93 219-119"</span><span class="fu">)</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">@keyframes</span> draw {</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    to  {</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        stroke-dashoffset: <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>div<span class="fu">.navbar-brand-container</span><span class="in">:hover</span> path {</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    stroke: <span class="fu">rgba(</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">255</span><span class="op">,</span><span class="dv">.8</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>svg<span class="fu">.logo</span>{</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="dv">visible</span><span class="op">;</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">.navbar-title</span> {</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="dv">visible</span><span class="op">;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">.navbar-brand</span> {</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="kw">overflow</span>: <span class="dv">visible</span><span class="op">;</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="kw">padding</span>: <span class="dv">15</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="yaml-code" class="level3">
+<h3 class="anchored" data-anchor-id="yaml-code">Yaml Code</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"personal-rhys-tilford"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://rctilford.github.io/personal-rhys-tilford/"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;svg class='logo' viewbox='65 55 100 10'&gt;&lt;path&gt;&lt;/path&gt;&lt;/svg&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
