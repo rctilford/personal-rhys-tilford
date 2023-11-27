@@ -44,19 +44,21 @@ Tables <-
 MetroList <- 
   Tables %>% 
   purrr::pluck(1) %>%
-  html_table()
+  html_table() %>%
+  select(1:9)
 ```
 
 ```{r}
 #| echo: false
-#| warning: false
-MetroList <- read.csv(file = "MetroData.csv") %>% select(1:9)
+setwd("C:/Users/Rhys Tilford/OneDrive/Documents/personal-rhys-tilford/posts/post_02")
+MetroList <- read.csv(file = "MetroData.csv") %>% select(2:10)
+
 ```
 
 Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
 
 ```{r}
-#| warning: false
+
 #| echo: false
 MetroList %>% 
   DT::datatable(class = "table table-hover",
@@ -110,6 +112,7 @@ Much better! There's still more to go though. Next we should tackle the extra gu
 This code uses regular expresssions to remove all of the gunk in the columns:
 ```{r}
 #| eval: false
+#| warning: false
 TidyMetroList <-
   TidyMetroList %>%
   mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
@@ -122,7 +125,6 @@ TidyMetroList <-
 
 ```{r}
 #| echo: false
-#| warning: false
 MetroList %>% 
   set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
   mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
@@ -160,10 +162,14 @@ TidyMetroList <-
          Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
          Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
          StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
-         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))) %>%
+         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")),
+         Lines = as.numeric(Lines)) %>%
   mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
          RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
 
+```{r}
+#| echo: false
 TidyMetroList  %>%
   DT::datatable(class = "table table-hover",
                 style = "bootstrap",
@@ -175,7 +181,6 @@ TidyMetroList  %>%
 ### Ridership Data Analysis
 
 ```{r}
-#| output: false
 MetroRidershipGraphInput <-
   TidyMetroList %>% 
   na.omit() %>% 
@@ -198,7 +203,6 @@ MetroRidershipGraphInput  %>%
 
 ### System Size Data Analysis
 ```{r}
-#| output: false
 MetroSizeGraphInput <- 
   TidyMetroList %>% 
   na.omit() %>% 
@@ -226,7 +230,6 @@ MetroSizeGraphInput  %>%
 ### System Maturity Data Analysis
 
 ```{r}
-#| output: false
 MetroMaturityGraphInput <- 
   TidyMetroList %>% 
   mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),

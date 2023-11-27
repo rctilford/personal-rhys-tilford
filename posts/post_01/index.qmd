@@ -3,7 +3,7 @@ title: Day 2 Solution
 author: Rhys Tilford
 description: Read about my solution to Day 2 of the 2022 Advent of Code Challenge.
 date: 11/4/2023
-categories: [JS, Just For Fun, Programming]
+categories: [JS, Just For Fun, Programming, Substantive]
 image: Advent_Of_Code.jpg
 ---
 ## Instructions
