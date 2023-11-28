@@ -2,6 +2,7 @@
 title: Animating an SVG Path for a Logo
 author: Rhys Tilford
 date: 11/19/2023
+image: LogoSVGPathScreenshot.png
 categories: [CSS, HTML, Quarto]
 ---
 

@@ -3,6 +3,7 @@ title: Sorting an HTML Table
 author: Rhys Tilford
 description: Read about how I used javascript to populate and sort an HTML table.
 date: 11/5/2023
+image: Table.png
 categories: [HTML, JS, Programming]
 ---
 
