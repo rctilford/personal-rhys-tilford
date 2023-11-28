@@ -10,7 +10,7 @@ categories: [Education, Math]
 
 > **11.1.10 Definition** The **Cantor set** $\mathbb{F}$ is the intersection of the sets $F_n,n\in\mathbb{N}$, obtained by successive removal of open middle thirds, starting with $[0,1]$.
 >
-> -- <cite>Bartle and Sherbert (p. 331)</cite>
+> -- <cite>Intro to Real Analysis: Bartle and Sherbert (p. 331)</cite>
 
 ### Visualization
 
@@ -90,8 +90,6 @@ $\mathfrak{Here}$ $\mathfrak{Endeth}$ $\mathfrak{The}$ $\mathfrak{Proofeth}$
 ###### Proof:
 
 For this proof we will use contradiction. We assume $\mathbb{F}$ contains a nonempty open interval. Well, we obtain each element in $\mathbb{F}$ by removing *open* intervals. This means that the remaining intervals in each element of $\mathbb{F}$ must be *closed*. So there can never be a nonempty open interval in $\mathbb{F}$.
-
-
 
 ##### Property 3: The Cantor set $\mathbb{F}$ has infinitely (even uncountably) many points
 
