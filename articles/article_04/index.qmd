@@ -44,19 +44,20 @@ Tables <-
 MetroList <- 
   Tables %>% 
   purrr::pluck(1) %>%
-  html_table()
+  html_table() %>%
+  select(1:9)
 ```
 
 ```{r}
 #| echo: false
-#| warning: false
-MetroList <- read.csv(file = "MetroData.csv") %>% select(1:9)
+setwd("C:/Users/Rhys Tilford/OneDrive/Documents/personal-rhys-tilford/posts/post_02")
+MetroList <- read.csv(file = "MetroData.csv") %>% select(2:10)
+
 ```
 
 Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
 
 ```{r}
-#| warning: false
 #| echo: false
 MetroList %>% 
   DT::datatable(class = "table table-hover",
@@ -103,13 +104,45 @@ MetroList %>%
                 options = list(pageLength = 5))
 ```
 
-Much better! There's still more to go though. Next we should tackle the extra gunk in the columns.
+Much better! There's still more to go though. Next we can tackle the extra gunk in the columns.
 
 ##### Isolating the Data
+
+We'll do this part with regular expressions and the `stringr` package. These are the main regular expressions we'll use:
+
+> - `[]`: Grouping
+>    - This element matches one of any character inside the brackets.
+> - `|`: Alternation
+>    - This element sperates two expressions. The computer will match one or the other.
+> - `w`: Word
+>    - This matches "word characters." It is very inclusive with what it defines as a word character so it needs to be used with care.
+> - `s`: Whitespace
+>    - This matches all forms of whitespace.
+> - `d`: Digit
+>    - This matches any natural number in the closed interval [0,9].
+> - `.`: Dot
+>    - This matches everything except linebreaks.
+> - `+`: Plus
+>    - This matches one or more of the expression it follows.
+> - `?`: Optional
+>    - This matches 0 or 1 of the expression it follows.
+> - `{}`: Quantifier
+>    - This matches the quantity in the curly-brackets.
+> - `(?<=ExpressionHere)`: Positive Lookbehind
+>    - This matches an expression before the main expression without including it in the result.
+> - `(?=ExpressionHere)`: Positive Lookahead
+>    - This matches an expression after the main expression without including it in the result.
+> 
+> -- <cite>Adapted from the reference book on [regexr.com](https://regexr.com)</cite>
+
+:::{.callout-tip}
+If you want some practice with regular expressions, checkout [regexr.com](https://regexr.com). They have a development environment that tests expressions in real-time and a reference book containing descriptions for every command.
+:::
 
 This code uses regular expresssions to remove all of the gunk in the columns:
 ```{r}
 #| eval: false
+#| warning: false
 TidyMetroList <-
   TidyMetroList %>%
   mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
@@ -160,10 +193,14 @@ TidyMetroList <-
          Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
          Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
          StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
-         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))) %>%
+         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")),
+         Lines = as.numeric(Lines)) %>%
   mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
          RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
 
+```{r}
+#| echo: false
 TidyMetroList  %>%
   DT::datatable(class = "table table-hover",
                 style = "bootstrap",
@@ -174,8 +211,11 @@ TidyMetroList  %>%
 
 ### Ridership Data Analysis
 
+##### Analysis
+
+I would like to know what the average ridership is like for the five largest economies. So I start by removing any NA values with the command in the third line. Next, I group the dataset so the mutate command takes the mean of `RidershipMillions` for each country. Now I filter out the five countries of interest. The select command picks out the columns I choose and the distinct command removes superfluous rows.
+
 ```{r}
-#| output: false
 MetroRidershipGraphInput <-
   TidyMetroList %>% 
   na.omit() %>% 
@@ -196,9 +236,41 @@ MetroRidershipGraphInput  %>%
                                PagingTag = "button"))
 ```
 
+##### Caveats
+
+This data set is not a great indicator of how widely used urban rail transport is in these countries because we have no data in this dataset for the population that each metro system serves. If we did it would be very interesting to compare the average ridership divided by the average service zone population.
+
+##### Visual
+
+:::{.callout-note}
+For the visuals I used [Observables](https://observablehq.com/). It is an excellent graphics generator that supplies a clear interface for creating a notebooks. If you would like to see the work I did to generate this code checkout my public [notebook](https://observablehq.com/@rhys-tilford-ws/visualizing-urban-rail-transport-data) for this project.
+:::
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Average Ridership in 5 Major Countries",
+  y: { label: "Millions of Riders" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroRidership.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Ridership (Millions)",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
 ### System Size Data Analysis
+
+##### Analysis
+
+
+
 ```{r}
-#| output: false
 MetroSizeGraphInput <- 
   TidyMetroList %>% 
   na.omit() %>% 
@@ -223,77 +295,7 @@ MetroSizeGraphInput  %>%
                                PagingTag = "button"))
 ```
 
-### System Maturity Data Analysis
-
-```{r}
-#| output: false
-MetroMaturityGraphInput <- 
-  TidyMetroList %>% 
-  mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),
-         YearsSinceExpansion = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - LastExpanded)) %>% 
-  select(Country, SystemAge, YearsSinceExpansion) %>%
-  na.omit() %>% 
-  group_by(Country) %>% 
-  mutate(AverageSystemAge = mean(SystemAge),
-         AverageYearsSinceExpansion = mean(YearsSinceExpansion)) %>% 
-  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>% 
-  distinct() %>%
-  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
-  pivot_longer(cols = !Country, names_to = "Types", values_to = "Values")
-```
-
-```{r}
-#| echo: false
-MetroMaturityGraphInput  %>%
-  DT::datatable(class = "table table-hover",
-                style = "bootstrap",
-                options = list(pageLength = 5,
-                               buttons.buttons.classname = "btn btn-primary",
-                               PagingTag = "button"))
-```
-
-### Data Visualization
-
-```{ojs}
-Plot.plot({
-  color: { legend: true },
-  title: "Transit System Maturity",
-  subtitle: "Urban Rail System Maturity in 5 Major Countries",
-  y: { label: "Years" },
-  marks: [
-    Plot.frame({ strokeOpacity: 0.1 }),
-    Plot.barY(await FileAttachment("MetroMaturity.csv").csv({ typed: "auto" }), {
-      fx: " ",
-      x: "Country",
-      y: "Values",
-      fill: "Country",
-      tip: true
-    }),
-    Plot.ruleY([0])
-  ]
-})
-```
-
-
-
-
-```{ojs}
-Plot.plot({
-  color: { legend: true },
-  title: "Average Ridership in 5 Major Countries",
-  y: { label: "Millions of Riders" },
-  marks: [
-    Plot.barY(await FileAttachment("MetroRidership.csv").csv({ typed: "auto" }), {
-      x: "Country",
-      y: "Average Ridership (Millions)",
-      fill: "Country",
-      tip: true
-    }),
-    Plot.ruleY([0])
-  ]
-})
-```
-
+##### Visual
 
 ```{ojs}
 Plot.plot({
@@ -311,8 +313,6 @@ Plot.plot({
   ]
 })
 ```
-
-
 
 ```{ojs}
 Plot.plot({
@@ -340,6 +340,61 @@ Plot.plot({
     Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
       x: "Country",
       y: "Average Number of Stations",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+
+### System Maturity Data Analysis
+
+##### Analysis
+
+
+
+```{r}
+MetroMaturityGraphInput <- 
+  TidyMetroList %>% 
+  mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),
+         YearsSinceExpansion = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - LastExpanded)) %>% 
+  select(Country, SystemAge, YearsSinceExpansion) %>%
+  na.omit() %>% 
+  group_by(Country) %>% 
+  mutate(AverageSystemAge = mean(SystemAge),
+         AverageYearsSinceExpansion = mean(YearsSinceExpansion)) %>% 
+  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>% 
+  distinct() %>%
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
+  pivot_longer(cols = !Country, names_to = "Types", values_to = "Values")
+```
+
+```{r}
+#| echo: false
+MetroMaturityGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
+
+##### Visual
+
+```{ojs}
+Plot.plot({
+  color: { legend: true },
+  title: "Transit System Maturity",
+  subtitle: "Urban Rail System Maturity in 5 Major Countries",
+  y: { label: "Years" },
+  marks: [
+    Plot.frame({ strokeOpacity: 0.1 }),
+    Plot.barY(await FileAttachment("MetroMaturity.csv").csv({ typed: "auto" }), {
+      fx: " ",
+      x: "Country",
+      y: "Values",
       fill: "Country",
       tip: true
     }),
