@@ -218,11 +218,11 @@ I would like to know what the average ridership is like for the five largest eco
 ```{r}
 MetroRidershipGraphInput <-
   TidyMetroList %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>%
   na.omit() %>% 
   group_by(Country) %>% 
   mutate(RidershipMillionsAvg = mean(RidershipMillions)) %>% 
-  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
-  select(Country, RidershipMillionsAvg) %>% 
+  select(Country, RidershipMillionsAvg) %>%  
   distinct()
 ```
 
@@ -268,19 +268,23 @@ Plot.plot({
 
 ##### Analysis
 
+First, we take the dataset and filter so we only have data on the five countries we are interested in. Then we remove any NA values. Now we move to mutations. We would like to see some metric of how many stations there are on each line. We will mutate `StationCount` divided by `SystemLength` and call this ratio `StationDensity`. At this point we still have the data for each metro system in the dataset individually. We will now use `group_by()` to group the data into 5 groups corresponding to the 5 countries. Now we can run a mutate to find the averages of `StationCount`, `Lines`, `SystemLength`, and `StationDensity` for each of the 5 countries. We will select the five columns of interest and remove any duplicated rows. Now we have all the data we need to make some really intriguing graphics.
 
+##### Caveat
+
+Upon looking at the data again, I realize that I could have built a variable more intuitive than `StationDensity`. Station density is currently measured in $\frac{Stations}{Kilometer}$. I think it would be easier to communicate this data if I flipped the ratio to measure in $\frac{Kilometers}{Station}$. In this format, the data would show that average distance between 2 stations. If one were to divide this average in half we could see the average max distance a rider would have to walk in order to get to their destination from a rail station.
 
 ```{r}
 MetroSizeGraphInput <- 
   TidyMetroList %>% 
-  na.omit() %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>%
+  na.omit() %>%
   mutate(StationDensity = StationCount/SystemLength) %>% 
   group_by(Country) %>% 
   mutate(StationCountAvg = mean(StationCount),
          LinesAvg = mean(Lines),
          SystemLengthAvg = mean(SystemLength),
          StationDensityAvg = mean(StationDensity)) %>% 
-  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
   select(Country, StationCountAvg, LinesAvg, SystemLengthAvg, StationDensityAvg) %>% 
   distinct()
 ```
@@ -295,7 +299,7 @@ MetroSizeGraphInput  %>%
                                PagingTag = "button"))
 ```
 
-##### Visual
+##### Visuals
 
 ```{ojs}
 Plot.plot({
@@ -348,26 +352,25 @@ Plot.plot({
 })
 ```
 
-
 ### System Maturity Data Analysis
 
 ##### Analysis
 
-
+I would like to compare the age of these five metro stations.
 
 ```{r}
 MetroMaturityGraphInput <- 
   TidyMetroList %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
   mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),
          YearsSinceExpansion = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - LastExpanded)) %>% 
   select(Country, SystemAge, YearsSinceExpansion) %>%
-  na.omit() %>% 
+  na.omit() %>%
   group_by(Country) %>% 
   mutate(AverageSystemAge = mean(SystemAge),
          AverageYearsSinceExpansion = mean(YearsSinceExpansion)) %>% 
-  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>% 
+  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>%  
   distinct() %>%
-  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
   pivot_longer(cols = !Country, names_to = "Types", values_to = "Values")
 ```
 

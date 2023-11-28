@@ -4,7 +4,7 @@ author: Rhys Tilford
 description: Read my presentation of everything I have learned about the Cantor Set.
 date: 11/8/2023
 categories: [Education, Math]
-image: Blackboard.jpg
+image: Blackboard.png
 ---
 ### The Definition
 
