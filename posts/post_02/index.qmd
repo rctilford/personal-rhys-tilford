@@ -255,7 +255,11 @@ For the visuals I used [Observables](https://observablehq.com/). It is an excell
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Ridership in 5 Major Countries",
   y: { label: "Millions of Riders" },
   marks: [
@@ -310,7 +314,11 @@ MetroSizeGraphInput  %>%
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Distance Between Stations",
   y: { label: "Kilometers per Station" },
   marks: [
@@ -327,7 +335,11 @@ Plot.plot({
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average System Length",
   y: { label: "Kilometers of Rail Service" },
   marks: [
@@ -344,7 +356,11 @@ Plot.plot({
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Number of Stations per System",
   y: { label: "Stations" },
   marks: [
@@ -402,7 +418,11 @@ MetroMaturityGraphInput  %>%
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Transit System Maturity",
   subtitle: "Urban Rail System Maturity in 5 Major Countries",
   y: { label: "Years" },

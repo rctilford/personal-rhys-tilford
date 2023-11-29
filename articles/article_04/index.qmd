@@ -10,9 +10,8 @@ image: MBTA_Platform.jpg
 <style>
   body {
 background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.dev/svgjs' width='1440' height='6750' preserveAspectRatio='none' viewBox='0 0 1440 6750'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2586%26quot%3b)' fill='none'%3e%3crect width='1440' height='6750' x='0' y='0' fill='url(%26quot%3b%23SvgjsLinearGradient2587%26quot%3b)'%3e%3c/rect%3e%3cpath d='M907.5 2995.05L908.56 2995.05L908.56 3001.56L907.5 3001.56z' fill='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M37.7 5866.79L160.28 5866.79L160.28 5956.61L37.7 5956.61z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M1147.1 5778.26L1291 5778.26L1291 5922.16L1147.1 5922.16z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M817 5410.75L899.75 5410.75L899.75 5554.32L817 5554.32z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M43.08 2228.44L133.46 2228.44L133.46 2350.17L43.08 2350.17z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M658.98 1393.22 a135.32 135.32 0 1 0 270.64 0 a135.32 135.32 0 1 0 -270.64 0z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M158.43 1791.36a32.64 32.64 0 1 0-46.6-45.71z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M744.7 3670.88 a3.69 3.69 0 1 0 7.38 0 a3.69 3.69 0 1 0 -7.38 0z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M414.46 1721.55L551.15 1721.55L551.15 1858.24L414.46 1858.24z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1216.06 1901.45 a15.38 15.38 0 1 0 30.76 0 a15.38 15.38 0 1 0 -30.76 0z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1224.47 3067.6L1277.7 3067.6L1277.7 3113.52L1224.47 3113.52z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1080.51 12.2 a17.1 17.1 0 1 0 34.2 0 a17.1 17.1 0 1 0 -34.2 0z' fill='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M741.97 4886.53 a30.58 30.58 0 1 0 61.16 0 a30.58 30.58 0 1 0 -61.16 0z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1062.66 977.68L1100.43 977.68L1100.43 1015.45L1062.66 1015.45z' fill='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M772.45 3038.11L865.32 3038.11L865.32 3130.98L772.45 3130.98z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M948.6 5803.51 a127.35 127.35 0 1 0 254.7 0 a127.35 127.35 0 1 0 -254.7 0z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M476.08 3731.33 a71.08 71.08 0 1 0 142.16 0 a71.08 71.08 0 1 0 -142.16 0z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M-96.67 748.82 a111.89 111.89 0 1 0 223.78 0 a111.89 111.89 0 1 0 -223.78 0z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M142.3 5615.44a113.93 113.93 0 1 0-152.36 169.43z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M511.38 5607.83L589.07 5607.83L589.07 5685.52L511.38 5685.52z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M227.97 2797.72L251.59 2797.72L251.59 2821.34L227.97 2821.34z' fill='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M1411.95 4407.11a108.66 108.66 0 1 0-81.34-201.52z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1226.37 3642.87 a108.6 108.6 0 1 0 217.2 0 a108.6 108.6 0 1 0 -217.2 0z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M357.99 3022.94 a74.36 74.36 0 1 0 148.72 0 a74.36 74.36 0 1 0 -148.72 0z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M257.42 6210.07 a53.81 53.81 0 1 0 107.62 0 a53.81 53.81 0 1 0 -107.62 0z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M1317.18 2917.18a98 98 0 1 0-62.62 185.73z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M314.42 1006.08a120.26 120.26 0 1 0-6.88 240.42z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M924.53 1396.45a101.81 101.81 0 1 0-196.94 51.72z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M257.67 3134.31 a17.36 17.36 0 1 0 34.72 0 a17.36 17.36 0 1 0 -34.72 0z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1150.75 5685.04a67.23 67.23 0 1 0 132.19-24.6z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M157.76 2114.13 a88.56 88.56 0 1 0 177.12 0 a88.56 88.56 0 1 0 -177.12 0z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1114.69 4599.5a65.83 65.83 0 1 0 101.62 83.72z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M799.84 5740.07a49.61 49.61 0 1 0 40.13-90.74z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1433.85 4426.48L1446.09 4426.48L1446.09 4517.51L1433.85 4517.51z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1386.75 4133.44L1430.79 4133.44L1430.79 4191.8L1386.75 4191.8z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1326.7 2236.09a114.58 114.58 0 1 0-147.93-175.02z' fill='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M1183.62 4503.14L1289.28 4503.14L1289.28 4608.8L1183.62 4608.8z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M991.26 1325.56a125.72 125.72 0 1 0-183.75-171.63z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M11.94 3203.78 a28.72 28.72 0 1 0 57.44 0 a28.72 28.72 0 1 0 -57.44 0z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1211.44 2112.41L1354.43 2112.41L1354.43 2254.35L1211.44 2254.35z' fill='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M224.76 5443.03a133.25 133.25 0 1 0 242.88-109.68z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M265.22 5943.14L376.17 5943.14L376.17 6054.09L265.22 6054.09z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1219.85 4198.55 a46.38 46.38 0 1 0 92.76 0 a46.38 46.38 0 1 0 -92.76 0z' fill='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1091.39 4265.84L1160.18 4265.84L1160.18 4366.48L1091.39 4366.48z' fill='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M771.81 4545.97 a27.65 27.65 0 1 0 55.3 0 a27.65 27.65 0 1 0 -55.3 0z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M208.09 289.13 a14.38 14.38 0 1 0 28.76 0 a14.38 14.38 0 1 0 -28.76 0z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1010.95-29.17a70.49 70.49 0 1 0 53.61 130.39z' fill='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1279.97 5764.84a98.28 98.28 0 1 0-190.2-49.62z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M44.31 1098.6L109.88 1098.6L109.88 1164.17L44.31 1164.17z' stroke='rgba(239%2c 163%2c 29%2c 1)'%3e%3c/path%3e%3cpath d='M1226.22 5204.14 a57.49 57.49 0 1 0 114.98 0 a57.49 57.49 0 1 0 -114.98 0z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1231.78 2128.61a109.24 109.24 0 1 0 23.83 217.18z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1253.16 3058.67L1304.29 3058.67L1304.29 3109.8L1253.16 3109.8z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M913.86 147.05L997.5 147.05L997.5 230.69L913.86 230.69z' stroke='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1349.33 3112.16L1429.95 3112.16L1429.95 3228.91L1349.33 3228.91z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3cpath d='M1057.39 5200.43 a49.46 49.46 0 1 0 98.92 0 a49.46 49.46 0 1 0 -98.92 0z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M752.23 6161.33L873.59 6161.33L873.59 6166.8L752.23 6166.8z' fill='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M821.05 1283.67L846.55 1283.67L846.55 1293.24L821.05 1293.24z' stroke='rgba(252%2c 57%2c 57%2c 1)'%3e%3c/path%3e%3cpath d='M538.65 5253.6a52.77 52.77 0 1 0 64.17 83.79z' stroke='rgba(19%2c 185%2c 85%2c 1)'%3e%3c/path%3e%3cpath d='M1184.36 6227.97L1220.92 6227.97L1220.92 6321.23L1184.36 6321.23z' fill='rgba(0%2c 156%2c 220%2c 1)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2586'%3e%3crect width='1440' height='6750' fill='white'%3e%3c/rect%3e%3c/mask%3e%3clinearGradient x1='50%25' y1='0%25' x2='50%25' y2='100%25' gradientUnits='userSpaceOnUse' id='SvgjsLinearGradient2587'%3e%3cstop stop-color='rgba(14%2c 42%2c 71%2c 0)' offset='0.98'%3e%3c/stop%3e%3cstop stop-color='rgba(89%2c 49%2c 150%2c 1)' offset='1'%3e%3c/stop%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e");
-}
+  }
 </style>
-
 
 
 
@@ -257,7 +256,11 @@ For the visuals I used [Observables](https://observablehq.com/). It is an excell
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Ridership in 5 Major Countries",
   y: { label: "Millions of Riders" },
   marks: [
@@ -312,7 +315,11 @@ MetroSizeGraphInput  %>%
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Distance Between Stations",
   y: { label: "Kilometers per Station" },
   marks: [
@@ -329,7 +336,11 @@ Plot.plot({
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average System Length",
   y: { label: "Kilometers of Rail Service" },
   marks: [
@@ -346,7 +357,11 @@ Plot.plot({
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Average Number of Stations per System",
   y: { label: "Stations" },
   marks: [
@@ -404,7 +419,11 @@ MetroMaturityGraphInput  %>%
 
 ```{ojs}
 Plot.plot({
-  color: { legend: true },
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
   title: "Transit System Maturity",
   subtitle: "Urban Rail System Maturity in 5 Major Countries",
   y: { label: "Years" },
