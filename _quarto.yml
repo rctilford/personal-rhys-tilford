@@ -17,6 +17,8 @@ website:
         text: Articles
       - href: posts/index.qmd
         text: Blog
+      - href: comment.qmd
+        text: Comments
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/rhystilford
