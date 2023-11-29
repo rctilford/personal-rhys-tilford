@@ -3,7 +3,7 @@ title: CSS Image Zoom on Hover
 author: Rhys Tilford
 date: 11/18/2023
 image: ListingScreenshot.png
-categories: [CSS, HTML, Programing, Quarto]
+categories: [CSS, HTML, Programming, Quarto]
 ---
 <style>
     body {
