@@ -13,11 +13,9 @@
     transform: scale(1.25);
 }
 
- /* .post-contents {
-    max-height: 170.27px;
-}  */
-/* code adapted from:  */
-/* end section */
+/* End section */
+
+/* SVG Logo With Animation */
 
 svg.logo path {
     fill: none;
@@ -54,5 +52,16 @@ svg.logo{
     padding: 15px;
 }
 
-/* End project code */
+/* End section */
 
+/* Code to change background format */
+
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+/* Citation: https://bgjar.com/ free svg generater */
+
+/* End section */
