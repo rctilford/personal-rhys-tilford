@@ -3,6 +3,7 @@
 /* Make card images zoom on hover*/
   .card-img-top{
     overflow: hidden;
+    border-radius: 25px;
 }
 
 .card-img-top img {
@@ -69,8 +70,6 @@ footer.footer {
     content: "";
     position: absolute;
     background-color: #0074d900;
-    bottom: -50px;
-    height: 50px;
     width: 100%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -79,6 +78,17 @@ footer.footer {
 /* Citation: https://itnext.io/how-to-make-a-fancy-inverted-border-radius-in-css-5db048a53f95 */
 /* End section */
 
+.quarto-listing div {
+    border-radius: 25px;
+}
+
+.quarto-listing span {
+    border-radius: 25px;
+}
+
+.quarto-listing select {
+    border-radius: 25px;
+}
 
 /* Code to change background format */
 
