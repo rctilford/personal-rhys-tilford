@@ -99,17 +99,17 @@ footer.footer {
 }
 
 .quarto-listing span {
-    border-top-left-radius: 18px;
-    border-bottom-left-radius: 18px;
+    border-top-left-radius: 18px !important;
+    border-bottom-left-radius: 18px !important;
 }
 
 .quarto-listing select {
-    border-top-right-radius: 18px;
-    border-bottom-right-radius: 18px;
+    border-top-right-radius: 18px !important;
+    border-bottom-right-radius: 18px !important;
 }
 
 .quarto-grid-item .listing-categories .listing-category {
-    border-radius: 0.75rem;
+    border-radius: 0.75rem !important;
 }
 
 /* Code to change background format */
