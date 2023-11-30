@@ -32,9 +32,9 @@ website:
       - icon: spotify
         href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
         target: _blank
-  page-footer:
-    border: false
-    background: transparent
+  page-footer: 
+    center: " "
+    background: rgb(89,49,150)
 
   favicon: images/glamourshot.png
   back-to-top-navigation: true

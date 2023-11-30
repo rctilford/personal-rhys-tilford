@@ -12,11 +12,9 @@
 .g-col-1:hover img {
     transform: scale(1.25);
 }
-
 /* End section */
 
 /* SVG Logo With Animation */
-
 svg.logo path {
     fill: none;
     overflow: visible;
@@ -51,17 +49,38 @@ svg.logo{
     overflow: visible;
     padding: 15px;
 }
-
 /* End section */
+
+
+/* Inverted navbar border curve  */
+#quarto-header::before  {
+    content: "";
+    position: absolute;
+    background-color: #0074d900;
+    bottom: -50px;
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -25px 0 0 #593196;
+}
+
+footer.footer {
+    content: "";
+    position: absolute;
+    background-color: #0074d900;
+    bottom: -50px;
+    height: 50px;
+    width: 100%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    box-shadow: 0 -25px 0 0 #593196;
+}
+/* Citation: https://itnext.io/how-to-make-a-fancy-inverted-border-radius-in-css-5db048a53f95 */
+/* End section */
+
 
 /* Code to change background format */
 
-body {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: bottom;
-}
-
 /* Citation: https://bgjar.com/ free svg generater */
-
 /* End section */
