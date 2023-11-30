@@ -304,16 +304,36 @@ Note
 </ul></li>
 </ul>
 <p>One thing to note about all of these points is that we can convert them into a basde three system for more clarity.</p>
-<p>Our base ten system operates as follows (we will use <span class="math inline">\(\frac{1}{27}\)</span> for this example):</p>
+<p>Our base ten system operates as follows (we will use <span class="math inline">\(\frac{8}{27}\)</span> for this example):</p>
 <p><span class="math display">\[
-\frac{1}{27}=0. \overline{037} =0\frac{1}{10}+3\frac{1}{100}+7\frac{1}{1000}+0\frac{1}{10000}+3\frac{1}{100000}+7\frac{1}{1000000}+...
+\frac{8}{27}=0. \overline{296} =2\frac{1}{10}+9\frac{1}{100}+6\frac{1}{1000}+2\frac{1}{10000}+9\frac{1}{100000}+6\frac{1}{1000000}+...
 \]</span></p>
 <p>Note that the denominators are all powers of ten.</p>
 <p>For this exammple the decimal number goes off into infinity. Most of the other points of the Cantor set do as well.</p>
 <p>Alternatively, here is <span class="math inline">\(\frac{8}{27}\)</span> in a base three system:</p>
 <p><span class="math display">\[
-\frac{8}{27}=
+\frac{8}{27}=0\frac{1}{3^0}+0\frac{1}{3^1}+2\frac{1}{3^2}+2\frac{1}{3^3}=(0.022)_3
 \]</span></p>
+<p>To find this we first try to check how many <span class="math inline">\(27s\)</span> are in <span class="math inline">\(8\)</span>. Upon finding none, we write the first term <span class="math inline">\(0\frac{1}{3^0}\)</span>. Now we multiply <span class="math inline">\(8\)</span> and <span class="math inline">\(3\)</span> to get <span class="math inline">\(24\)</span>. Again, we check how many <span class="math inline">\(27s\)</span> are in <span class="math inline">\(24\)</span>. Upon finding none, we write the second term <span class="math inline">\(0\frac{1}{3^1}\)</span>. Now we multiply <span class="math inline">\(24\)</span> and <span class="math inline">\(3\)</span> to get <span class="math inline">\(72\)</span>. Now we actually find <span class="math inline">\(2\)</span> <span class="math inline">\(27s\)</span> in <span class="math inline">\(72\)</span>. so we write the third term <span class="math inline">\(2\frac{1}{3^2}\)</span>. Now, since we found some <span class="math inline">\(27s\)</span>, we subtract <span class="math inline">\(2*27\)</span> from <span class="math inline">\(72\)</span> to get <span class="math inline">\(18\)</span> and multiply <span class="math inline">\(18\)</span> by <span class="math inline">\(3\)</span> to get <span class="math inline">\(54\)</span>. Now we find exactly two <span class="math inline">\(27s\)</span> in <span class="math inline">\(54\)</span> so we finish by writing the fourth term <span class="math inline">\(2\frac{1}{3^3}\)</span>.</p>
+<p>In fact, we can apply the method above to write any <span class="math inline">\(x\in[0,1]\)</span> in base 3 form using only the numbers <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\frac{8}{27}\)</span> is written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span>. This is significant because it is one of the endpoints of the intervals in the Cantor set. We can gather from this that all points in any element of the Cantor set will be written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span> because the <span class="math inline">\(1s\)</span> correspond to the open middle thirds.</p>
+</div>
+</div>
+<p>Now we will write this topic more formally:</p>
+<p><span class="math display">\[
+x=\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}=(0.a_1a_2...a_n...)_3
+\]</span></p>
+<p><em>where each <span class="math inline">\(a_n\)</span> is either <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, or <span class="math inline">\(2\)</span>.</em></p>
 <p><span class="math inline">\(\mathbfcal{Thank}\)</span> <span class="math inline">\(\mathbfcal{you}\)</span> <span class="math inline">\(\mathbfcal{for}\)</span> <span class="math inline">\(\mathbfcal{viewing}\)</span> <span class="math inline">\(\mathbfcal{this}\)</span> <span class="math inline">\(\mathbfcal{Queer}\)</span> <span class="math inline">\(\mathbfcal{Educational}\)</span> <span class="math inline">\(\mathbfcal{Demonstration}\)</span> <span class="math inline">\(\mathbfcal{(Q.E.D.)}\)</span></p>
 
 
