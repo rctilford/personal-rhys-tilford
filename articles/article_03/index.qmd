@@ -71,7 +71,7 @@ $\mathbfcal{Here}$ $\mathbfcal{Endeth}$ $\mathbfcal{The}$ $\mathbfcal{Proofeth}$
    - **Fourth:** We pull all the facts from Step $3$ together to get: $0<b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$.
    - **Fifth:** We recall that $\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0$.
    - **Sixth:** Step $5$ shows why the inequality from Step $4$ is going to be an issue.
-      - If we take the limit of the whole inequality we get $0<b-a\leq0$ which is a contradiction $\bigstar$.
+      - If we take the limit of the whole inequality we get $0<b-a\leq0$ which is a contradiction [$\bigstar$](shock.html).
    - **Seventh:** Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in $\mathbb{F}$.
 
 $\mathbfcal{Periodt}$ $\mathbfcal{*snaps}$ $\mathbfcal{fingers}$ $\mathbfcal{with}$ $\mathbfcal{moxie*}$
@@ -99,7 +99,7 @@ $$
 
 Note that the denominators are all powers of ten.
 
-For this exammple the decimal number goes off into infinity. Most of the other points of the Cantor set do as well.
+For this example the decimal number goes off into infinity. Most of the other points of the Cantor set do as well.
 
 Alternatively, here is $\frac{8}{27}$ in a base three system:
 
@@ -115,7 +115,7 @@ In fact, we can apply the method above to write any $x\in[0,1]$ in base 3 form u
 $\frac{8}{27}$ is written with $0s$ and $2s$. This is significant because it is one of the endpoints of the intervals in the Cantor set. We can gather from this that all points in any element of the Cantor set will be written with $0s$ and $2s$ because the $1s$ correspond to the open middle thirds.
 :::
 
-Now we will write th more formally:
+Now we will write this more formally:
 
 $$
 x=\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}=(0.a_1a_2...a_n...)_3
@@ -128,7 +128,7 @@ Now that we know it can be written as a decimal, we will go on to the proof.
 ##### Proof
 
  - ***Goal:***
-   - Show that the Cantor set is not uncountably inifite.
+   - Show that the Cantor set is not uncountably infinite.
  - ***Resources:***
    - **Theorem 1.3.10:** *The following statements are equivalent:*
       - **(a)** *S is a countable set.*
