@@ -240,39 +240,31 @@ Note
 <h5 class="anchored" data-anchor-id="property-1-the-total-length-of-the-removed-intervals-is-1">Property 1: The total length of the removed intervals is 1</h5>
 <section id="proof" class="level6">
 <h6 class="anchored" data-anchor-id="proof">Proof:</h6>
-<p>We will construct a convergent geometric series of the lengths of the removed open middle thirds.</p>
-<p>We see from the visual that the length of the removed open middle thirds is the series:</p>
-<p><span class="math display">\[
-\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...
-\]</span></p>
-<p>First, Let’s work with the denominator:</p>
-<p><span class="math display">\[
-=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...
-\]</span></p>
-<p>Now we can tackle the numerator:</p>
-<p><span class="math display">\[
-=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...
-\]</span></p>
-<p>Now we have what we need to build a series:</p>
-<p><span class="math display">\[
-=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}
-\]</span></p>
-<p>This isn’t quite a geometric series though. We’ll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules:</p>
-<p><span class="math display">\[
-=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}
-\]</span></p>
-<p>Now we can pull the constant multiple outside the sum:</p>
-<p><span class="math display">\[
-=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}
-\]</span></p>
-<p>Next we will apply the formula for the sum of a geometric series:</p>
-<p><span class="math display">\[
-=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}
-\]</span></p>
-<p>With some simplification we find that the sum is infact <span class="math inline">\(1\)</span>:</p>
-<p><span class="math display">\[
-=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1
-\]</span></p>
+<ul>
+<li><strong><em>Goal:</em></strong>
+<ul>
+<li>Find the total length of the removed intervals.</li>
+</ul></li>
+<li><strong><em>Resources:</em></strong>
+<ul>
+<li><strong>Formula for the Geometric Series:</strong> <span class="math inline">\(\sum_{i=0}^{\infty}ar^i=\frac{a}{1-r}\)</span></li>
+</ul></li>
+<li><strong><em>Strategy:</em></strong>
+<ul>
+<li>We will construct a convergent geometric series of the lengths of the removed open middle thirds.</li>
+</ul></li>
+<li><strong><em>Method:</em></strong>
+<ul>
+<li><strong>First:</strong> We see from the visual that the length of the removed open middle thirds is the series: <span class="math inline">\(\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...\)</span></li>
+<li><strong>Second:</strong> Let’s work with the denominator: <span class="math inline">\(=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...\)</span></li>
+<li><strong>Third:</strong> Now we can tackle the numerator: <span class="math inline">\(=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...\)</span></li>
+<li><strong>Fourth:</strong> Now we have what we need to build a series: <span class="math inline">\(=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}\)</span></li>
+<li><strong>Fifth:</strong> We note that this isn’t quite a geometric series though. We’ll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules: <span class="math inline">\(=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}\)</span></li>
+<li><strong>Sixth:</strong> Now we can pull the constant multiple outside the sum: <span class="math inline">\(=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}\)</span></li>
+<li><strong>Seventh:</strong> Next we will apply the formula for the sum of a geometric series: <span class="math inline">\(=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}\)</span></li>
+<li><strong>Eighth:</strong> With some simplification we find that the sum is infact <span class="math inline">\(1\)</span>: <span class="math inline">\(=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1\)</span></li>
+</ul></li>
+</ul>
 <p><span class="math inline">\(\mathbfcal{Here}\)</span> <span class="math inline">\(\mathbfcal{Endeth}\)</span> <span class="math inline">\(\mathbfcal{The}\)</span> <span class="math inline">\(\mathbfcal{Proofeth}\)</span></p>
 </section>
 </section>
@@ -291,23 +283,23 @@ Note
 </ul></li>
 <li><strong><em>Method</em></strong>
 <ul>
-<li><em>First:</em> We assume there is some nonempty open interval <span class="math inline">\(C:=(a,b)\)</span> in <span class="math inline">\(\mathbb{F}\)</span>.</li>
-<li><em>Second</em> We recall that <span class="math inline">\(\mathbb{F}\)</span> is the intersection of <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.
+<li><strong>First:</strong> We assume there is some nonempty open interval <span class="math inline">\(C:=(a,b)\)</span> in <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li><strong>Second</strong> We recall that <span class="math inline">\(\mathbb{F}\)</span> is the intersection of <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.
 <ul>
 <li>So <span class="math inline">\(C\)</span> must be a subset of <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
 </ul></li>
-<li><em>Third:</em> We want to make a statement the length of <span class="math inline">\(C\)</span> So we assemble the following facts:
+<li><strong>Third:</strong> We want to make a statement the length of <span class="math inline">\(C\)</span> So we assemble the following facts:
 <ul>
 <li>We know <span class="math inline">\(0&lt;b-a\)</span> from the fact that <span class="math inline">\(C\)</span> is nonempty.</li>
 <li>we know <span class="math inline">\(b-a\leq\Bigl(\frac{2}{3}\Bigr)^n\)</span> from the fact that the length of <span class="math inline">\(C\)</span> can never be greater than the length of the remaining closed intervals in each <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
 </ul></li>
-<li><em>Fourth:</em> We pull all the facts from Step <span class="math inline">\(3\)</span> together to get: <span class="math inline">\(0&lt;b-a\leq\Bigl(\frac{2}{3}\Bigr)^n\)</span>.</li>
-<li><em>Fifth:</em> We recall that <span class="math inline">\(\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0\)</span>.</li>
-<li><em>Sixth:</em> Step <span class="math inline">\(5\)</span> shows why the inequality from Step <span class="math inline">\(4\)</span> is going to be an issue.
+<li><strong>Fourth:</strong> We pull all the facts from Step <span class="math inline">\(3\)</span> together to get: <span class="math inline">\(0&lt;b-a\leq\Bigl(\frac{2}{3}\Bigr)^n\)</span>.</li>
+<li><strong>Fifth:</strong> We recall that <span class="math inline">\(\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0\)</span>.</li>
+<li><strong>Sixth:</strong> Step <span class="math inline">\(5\)</span> shows why the inequality from Step <span class="math inline">\(4\)</span> is going to be an issue.
 <ul>
 <li>If we take the limit of the whole inequality we get <span class="math inline">\(0&lt;b-a\leq0\)</span> which is a contradiction <span class="math inline">\(\bigstar\)</span>.</li>
 </ul></li>
-<li><em>Seven:</em> Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li><strong>Seventh:</strong> Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span>.</li>
 </ul></li>
 </ul>
 <p><span class="math inline">\(\mathbfcal{Periodt}\)</span> <span class="math inline">\(\mathbfcal{*snaps}\)</span> <span class="math inline">\(\mathbfcal{fingers}\)</span> <span class="math inline">\(\mathbfcal{with}\)</span> <span class="math inline">\(\mathbfcal{moxie*}\)</span></p>

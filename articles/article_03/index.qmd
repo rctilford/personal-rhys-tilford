@@ -34,55 +34,22 @@ This visual is generated from the Wolfram Cloud: Use [this](https://www.wolframc
 
 ###### Proof:
 
-We will construct a convergent geometric series of the lengths of the removed open middle thirds.
+ - ***Goal:***
+   - Find the total length of the removed intervals.
 
-We see from the visual that the length of the removed open middle thirds is the series:
-
-$$
-\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...
-$$
-
-First, Let's work with the denominator:
-
-$$
-=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...
-$$
-
-Now we can tackle the numerator: 
-
-$$
-=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...
-$$
-
-Now we have what we need to build a series: 
-
-$$
-=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}
-$$
-
-This isn't quite a geometric series though. We'll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules: 
-
-$$
-=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}
-$$
-
-Now we can pull the constant multiple outside the sum: 
-
-$$
-=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}
-$$
-
-Next we will apply the formula for the sum of a geometric series: 
-
-$$
-=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}
-$$
-
-With some simplification we find that the sum is infact $1$: 
-
-$$
-=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1
-$$
+ - ***Resources:***
+   - **Formula for the Geometric Series:** $\sum_{i=0}^{\infty}ar^i=\frac{a}{1-r}$
+ - ***Strategy:***
+   - We will construct a convergent geometric series of the lengths of the removed open middle thirds.
+ - ***Method:***
+   - **First:** We see from the visual that the length of the removed open middle thirds is the series: $\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...$
+   - **Second:** Let's work with the denominator: $=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...$
+   - **Third:** Now we can tackle the numerator: $=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...$
+   - **Fourth:** Now we have what we need to build a series: $=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}$
+   - **Fifth:** We note that this isn't quite a geometric series though. We'll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules: $=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}$
+   - **Sixth:** Now we can pull the constant multiple outside the sum: $=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}$
+   - **Seventh:** Next we will apply the formula for the sum of a geometric series: $=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}$
+   - **Eighth:** With some simplification we find that the sum is infact $1$: $=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1$
 
 $\mathbfcal{Here}$ $\mathbfcal{Endeth}$ $\mathbfcal{The}$ $\mathbfcal{Proofeth}$
 
@@ -95,17 +62,17 @@ $\mathbfcal{Here}$ $\mathbfcal{Endeth}$ $\mathbfcal{The}$ $\mathbfcal{Proofeth}$
  - ***Strategy***
    - We will assume that there is a nonempty open interval in $\mathbb{F}$ and then do math stuff until we find a contradiction.
  - ***Method***
-   - *First:* We assume there is some nonempty open interval $C:=(a,b)$ in $\mathbb{F}$.
-   - *Second* We recall that $\mathbb{F}$ is the intersection of $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
+   - **First:** We assume there is some nonempty open interval $C:=(a,b)$ in $\mathbb{F}$.
+   - **Second** We recall that $\mathbb{F}$ is the intersection of $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
       - So $C$ must be a subset of $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
-   - *Third:* We want to make a statement the length of $C$ So we assemble the following facts:
+   - **Third:** We want to make a statement the length of $C$ So we assemble the following facts:
       - We know $0<b-a$ from the fact that $C$ is nonempty.
       - we know $b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$ from the fact that the length of $C$ can never be greater than the length of the remaining closed intervals in each $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
-   - *Fourth:* We pull all the facts from Step $3$ together to get: $0<b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$.
-   - *Fifth:* We recall that $\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0$.
-   - *Sixth:* Step $5$ shows why the inequality from Step $4$ is going to be an issue.
+   - **Fourth:** We pull all the facts from Step $3$ together to get: $0<b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$.
+   - **Fifth:** We recall that $\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0$.
+   - **Sixth:** Step $5$ shows why the inequality from Step $4$ is going to be an issue.
       - If we take the limit of the whole inequality we get $0<b-a\leq0$ which is a contradiction $\bigstar$.
-   - *Seven:* Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in $\mathbb{F}$.
+   - **Seventh:** Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in $\mathbb{F}$.
 
 $\mathbfcal{Periodt}$ $\mathbfcal{*snaps}$ $\mathbfcal{fingers}$ $\mathbfcal{with}$ $\mathbfcal{moxie*}$
 
