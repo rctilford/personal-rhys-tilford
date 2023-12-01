@@ -286,24 +286,24 @@ Note
 </section>
 <section id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points" class="level5">
 <h5 class="anchored" data-anchor-id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points">Property 3: The Cantor set <span class="math inline">\(\mathbb{F}\)</span> has infinitely (even uncountably) many points</h5>
-<section id="proof-2" class="level6">
-<h6 class="anchored" data-anchor-id="proof-2">Proof:</h6>
-<p>We can think of the Cantor set as having points if we consider the endpoints of each interval. For example:</p>
+<section id="a-little-bit-about-bases" class="level6">
+<h6 class="anchored" data-anchor-id="a-little-bit-about-bases">A little bit about bases:</h6>
+<p>We know the Cantor set has all of the points of the form <span class="math inline">\(\frac{2^k}{3^n}\)</span> where k iterates over all the natural numbers less than or equal to n, for every <span class="math inline">\(n\in\mathbb{N}\)</span>. For example:</p>
 <ul>
-<li>The first element would have <span class="math inline">\(4\)</span> key points:
+<li>When <span class="math inline">\(n=1\)</span> we have <span class="math inline">\(4\)</span> key points:
 <ul>
 <li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, and <span class="math inline">\(1\)</span></li>
 </ul></li>
-<li>The second element would have <span class="math inline">\(8\)</span> key points:
+<li>When <span class="math inline">\(n=2\)</span> we have <span class="math inline">\(8\)</span> key points:
 <ul>
 <li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{9}\)</span>, <span class="math inline">\(\frac{2}{9}\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, <span class="math inline">\(\frac{7}{9}\)</span>, <span class="math inline">\(\frac{8}{9}\)</span>, and <span class="math inline">\(1\)</span></li>
 </ul></li>
-<li>The third element would have <span class="math inline">\(16\)</span> key points:
+<li>When <span class="math inline">\(n=3\)</span> we have <span class="math inline">\(16\)</span> key points:
 <ul>
 <li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{27}\)</span>, <span class="math inline">\(\frac{2}{27}\)</span>, <span class="math inline">\(\frac{1}{9}\)</span>, <span class="math inline">\(\frac{2}{9}\)</span>, <span class="math inline">\(\frac{7}{27}\)</span>, <span class="math inline">\(\frac{8}{27}\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, <span class="math inline">\(\frac{19}{27}\)</span>, <span class="math inline">\(\frac{20}{27}\)</span>, <span class="math inline">\(\frac{7}{9}\)</span>, <span class="math inline">\(\frac{8}{9}\)</span>, <span class="math inline">\(\frac{25}{27}\)</span>, <span class="math inline">\(\frac{26}{27}\)</span>, and <span class="math inline">\(1\)</span></li>
 </ul></li>
 </ul>
-<p>One thing to note about all of these points is that we can convert them into a basde three system for more clarity.</p>
+<p>One thing to note about all of these points is that we can convert them into a base three system for more clarity.</p>
 <p>Our base ten system operates as follows (we will use <span class="math inline">\(\frac{8}{27}\)</span> for this example):</p>
 <p><span class="math display">\[
 \frac{8}{27}=0. \overline{296} =2\frac{1}{10}+9\frac{1}{100}+6\frac{1}{1000}+2\frac{1}{10000}+9\frac{1}{100000}+6\frac{1}{1000000}+...
@@ -329,15 +329,69 @@ Note
 <p><span class="math inline">\(\frac{8}{27}\)</span> is written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span>. This is significant because it is one of the endpoints of the intervals in the Cantor set. We can gather from this that all points in any element of the Cantor set will be written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span> because the <span class="math inline">\(1s\)</span> correspond to the open middle thirds.</p>
 </div>
 </div>
-<p>Now we will write this topic more formally:</p>
+<p>Now we will write th more formally:</p>
 <p><span class="math display">\[
 x=\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}=(0.a_1a_2...a_n...)_3
 \]</span></p>
 <p><em>where each <span class="math inline">\(a_n\)</span> is either <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, or <span class="math inline">\(2\)</span>.</em></p>
+<p>Now that we know it can be written as a decimal, we will go on to the proof.</p>
+</section>
+</section>
+<section id="proof-2" class="level5">
+<h5 class="anchored" data-anchor-id="proof-2">Proof</h5>
+<ul>
+<li><strong><em>Goal:</em></strong>
+<ul>
+<li>Show that the Cantor set is not uncountably inifite.</li>
+</ul></li>
+<li><strong><em>Resources:</em></strong>
+<ul>
+<li><strong>Theorem 1.3.10:</strong> <em>The following statements are equivalent:</em>
+<ul>
+<li><strong>(a)</strong> <em>S is a countable set.</em></li>
+<li><strong>(b)</strong> <em>There exists a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto S.</em></li>
+<li><strong>(c)</strong> <em>There exists an injection of S into <span class="math inline">\(\mathbb{N}\)</span></em></li>
+</ul></li>
+<li><strong>Theorem 2.5.5:</strong> <em>The unit interval <span class="math inline">\([0,1]:=\{x\in\mathbb{R}:0\leq x\leq1\}\)</span> is not countable.</em></li>
+</ul></li>
+<li><strong><em>Strategy:</em></strong>
+<ul>
+<li>We will assume the Cantor set is countable and look for a contradiction.</li>
+</ul></li>
+<li><strong><em>Method:</em></strong>
+<ul>
+<li><strong>First:</strong> We assume that the Cantor set <span class="math inline">\(\mathbb{F}\)</span> is countably infinite.
+<ul>
+<li>In other words, we assume <span class="math inline">\(\mathbb{F}\)</span> can be put in bijection with <span class="math inline">\(\mathbb{N}\)</span>.</li>
+</ul></li>
+<li><strong>Second:</strong> We recall that any point <span class="math inline">\(x\in[0,1]\)</span> can be written as a base three expansion consisting only of the digits <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(2\)</span>.</li>
+<li><strong>Third:</strong> According to <a href="https://proofwiki.org/wiki/Representation_of_Ternary_Expansions">Proof Wiki</a>, it is not possible for a real number in base 3 notation to be written in more than one way without using the digit <span class="math inline">\(1\)</span>.
+<ul>
+<li>This is a useful fact because the inputs of a bijective function are unique.</li>
+</ul></li>
+<li><strong>Fourth:</strong> We want to define a function with the following parts:
+<ul>
+<li>Domain: All elements of <span class="math inline">\([0,1]\)</span> that can be written without using <span class="math inline">\(1\)</span>. Psst… This domain is <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li>Range: All elements of <span class="math inline">\([0,1]\)</span>.</li>
+<li>Notation: <span class="math inline">\(f\Bigl(\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}\Bigr)=\sum^{\infty}_{n=1}{\frac{\frac{a_n}{2}}{2^n}}\)</span>
+<ul>
+<li><em>Note:</em> The output of the function is in binary.</li>
+</ul></li>
+</ul></li>
+<li><strong>Fifth:</strong> So <span class="math inline">\(f\)</span> is a surjection of <span class="math inline">\(\mathbb{F}\)</span> onto <span class="math inline">\([0,1]\)</span>.</li>
+<li><strong>Sixth:</strong> We can now pull in our assumption that <span class="math inline">\(\mathbb{F}\)</span> is countable along with <em>Theorem 1.3.10</em> to show that there exists a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto <span class="math inline">\(\mathbb{F}\)</span>.
+<ul>
+<li>We’ll call this function <span class="math inline">\(g\)</span>.</li>
+</ul></li>
+<li><strong>Seventh:</strong> We recall that <span class="math inline">\(g\)</span> <span class="math inline">\(|\)</span> <span class="math inline">\(\mathbb{N}\rightarrow\mathbb{F}\)</span> and <span class="math inline">\(f\)</span> <span class="math inline">\(|\)</span> <span class="math inline">\(\mathbb{F}\rightarrow[0,1]\)</span>. From this we see that <span class="math inline">\(f\circ g\)</span> is a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto <span class="math inline">\([0,1]\)</span>.</li>
+<li><strong>Eighth</strong> We can now apply <em>Theorem 1.3.10</em> to show that <span class="math inline">\([0,1]\)</span> is a countable set.</li>
+<li><strong>Ninth</strong> Now we circle back to <em>Theorem 2.5.5</em> which contradicts the result of Step <span class="math inline">\(8\)</span> <a href="shock.html"><span class="math inline">\(\bigstar\)</span></a>.</li>
+<li><strong>Tenth</strong> Now that we have found a contradiction, we can apply <em>Reductio Ad Absurdum</em> to eliminate <span class="math inline">\(1\)</span> of the assumptions we used to get here and conclude the negation of that assumption. In our case, we conclude <span class="math inline">\(\mathbb{F}\)</span> is uncountable. <span class="math inline">\(\square\)</span></li>
+</ul></li>
+</ul>
 <p><span class="math inline">\(\mathbfcal{Thank}\)</span> <span class="math inline">\(\mathbfcal{you}\)</span> <span class="math inline">\(\mathbfcal{for}\)</span> <span class="math inline">\(\mathbfcal{viewing}\)</span> <span class="math inline">\(\mathbfcal{this}\)</span> <span class="math inline">\(\mathbfcal{Queer}\)</span> <span class="math inline">\(\mathbfcal{Educational}\)</span> <span class="math inline">\(\mathbfcal{Demonstration}\)</span> <span class="math inline">\(\mathbfcal{(Q.E.D.)}\)</span></p>
 
 
-</section>
 </section>
 </section>
 
