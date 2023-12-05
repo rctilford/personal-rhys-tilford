@@ -128,7 +128,7 @@ Now that we know it can be written as a decimal, we will go on to the proof.
 ##### Proof
 
  - ***Goal:***
-   - Show that the Cantor set is not uncountably infinite.
+   - Show that the Cantor set is uncountably infinite.
  - ***Resources:***
    - **Theorem 1.3.10:** *The following statements are equivalent:*
       - **(a)** *S is a countable set.*
