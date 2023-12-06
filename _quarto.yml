@@ -15,8 +15,6 @@ website:
         text: Lore
       - href: articles/index.qmd
         text: Articles
-      - href: posts/index.qmd
-        text: Blog
       - href: comment.qmd
         text: Comments
     right:

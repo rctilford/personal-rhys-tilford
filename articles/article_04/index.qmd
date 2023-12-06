@@ -50,7 +50,7 @@ MetroList <-
 
 ```{r}
 #| echo: false
-setwd("C:/Users/Rhys Tilford/OneDrive/Documents/personal-rhys-tilford/posts/post_02")
+# setwd("C:/Users/Rhys Tilford/OneDrive/Documents/personal-rhys-tilford/posts/post_02")
 MetroList <- read.csv(file = "MetroData.csv") %>% select(2:10)
 
 ```

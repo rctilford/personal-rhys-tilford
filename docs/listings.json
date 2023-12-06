@@ -10,15 +10,5 @@
       "/articles/article_02/index.html",
       "/articles/article_04/index.html"
     ]
-  },
-  {
-    "listing": "/posts/index.html",
-    "items": [
-      "/posts/post_04/index.html",
-      "/posts/post_03/index.html",
-      "/posts/post_01/index.html",
-      "/posts/post_05/index.html",
-      "/posts/post_02/index.html"
-    ]
   }
 ]
