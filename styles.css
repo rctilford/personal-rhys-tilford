@@ -104,13 +104,13 @@ footer.footer {
 
 .quarto-title .quarto-categories .quarto-category {
     border-radius: 0.75rem !important;
-    transition: all 0.25s;
+    transition:  0.25s;
 }
 
 .quarto-title .quarto-categories .quarto-category:hover {
     background-color: #593196;
-    color: aliceblue;
-    transform: scale(1.1);
+    color: white;
+    transform: scale(1.2);
 }
 
 .quarto-listing div {
@@ -171,5 +171,7 @@ div.callout-header.d-flex.align-content-center {
 
 div.sourceCode {
     border-radius: 18px;
+    scrollbar-color: rgb(0,8,66,1);
+    scrollbar-width: 20px;
 }
 
