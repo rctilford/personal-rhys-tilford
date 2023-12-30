@@ -46,6 +46,7 @@ format:
       light: pulse
     css: styles.css
     toc: true
+    code-overflow: scroll
 
 
 

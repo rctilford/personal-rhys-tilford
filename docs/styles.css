@@ -94,6 +94,25 @@ footer.footer {
 /* Citation: https://itnext.io/how-to-make-a-fancy-inverted-border-radius-in-css-5db048a53f95 */
 /* End section */
 
+
+/* Code to change background format */
+
+/* Citation: https://bgjar.com/ free svg generater */
+/* End section */
+
+/* code to restyle listing categories */
+
+.quarto-title .quarto-categories .quarto-category {
+    border-radius: 0.75rem !important;
+    transition: all 0.25s;
+}
+
+.quarto-title .quarto-categories .quarto-category:hover {
+    background-color: #593196;
+    color: aliceblue;
+    transform: scale(1.1);
+}
+
 .quarto-listing div {
     border-radius: 18px;
 }
@@ -110,9 +129,46 @@ footer.footer {
 
 .quarto-grid-item .listing-categories .listing-category {
     border-radius: 0.75rem !important;
+    transition: all 0.25s;
 }
 
-/* Code to change background format */
+.quarto-grid-item .listing-categories .listing-category:hover {
+    background-color: #593196;
+    color: aliceblue;
+    transform: scale(1.1);
+}
 
-/* Citation: https://bgjar.com/ free svg generater */
-/* End section */
+/* End Section */
+
+/* Change Button Style */
+
+input::-webkit-file-upload-button {
+    border-radius: 0.9rem;
+    border-color: #593196;
+    color: #593196;
+    background-color: white;
+    transition: all 0.25s;
+}
+
+input::-webkit-file-upload-button:hover {
+    color: white;
+    background-color: #593196;
+}
+
+/* End Section */
+
+div.callout.callout-style-default.callout-note.callout-titled {
+    border-radius: 18px;
+    border-left: 1px solid rgba(0,0,0,.05);
+}
+
+div.callout-header.d-flex.align-content-center {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    background-color: rgba(0,8,66,1);
+}
+
+
+div.sourceCode {
+    border-radius: 18px;
+}
