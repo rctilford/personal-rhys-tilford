@@ -7,7 +7,7 @@ website:
   site-url: "https://rctilford.github.io/personal-rhys-tilford/"
   google-analytics: G-5R6TTB9D5X
   navbar:
-    title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
+    title: "<svg class='logo' viewbox='97 -47 196 196'><path></path><circle id='c1'/><circle id='c2'/><circle id='c3'/></svg>"
     left:
       - href: index.qmd
         text: Home
@@ -34,7 +34,7 @@ website:
     center: " "
     background: rgb(89,49,150)
 
-  favicon: images/glamourshot.png
+  favicon: images/embosser.png
   back-to-top-navigation: true
   reader-mode: true
   repo-url: https://github.com/rctilford/personal-rhys-tilford
