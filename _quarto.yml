@@ -42,9 +42,9 @@ website:
 
 format:
   html:
-    theme: 
-      light: pulse
-    css: custom.scss
+    theme:
+      - pulse
+      - custom.scss
     toc: true
 
 

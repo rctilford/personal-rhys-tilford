@@ -168,6 +168,8 @@ div.callout-header.d-flex.align-content-center {
     background-color: rgba(0,8,66,1);
 }
 
+/*-- scss:mixins --*/
+
 @mixin scrollbars(
   $size: 10px,
   $foreground-color: #999,
