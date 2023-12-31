@@ -4,7 +4,7 @@ about:
   id: AboutMe
   template: solana
   image-shape: round
-  image: images/PensiveShot.png
+  image: images/PensiveShot.jpg
 ---
 
 :::{#AboutMe}
