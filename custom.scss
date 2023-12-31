@@ -11,6 +11,10 @@
     src: local('COXXON Font') url('/coxxonFont.otf') format('otf');
 }
 
+.copyright {
+    font-family: "COXXON Font";
+}
+
 /* Make card images zoom on hover*/
 .card-img-top{
     overflow: hidden;

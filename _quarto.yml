@@ -31,14 +31,12 @@ website:
         href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
         target: _blank
   page-footer: 
-    center: " "
+    center: "<span class='copyright'>Rhys Tilford | © 2023</span>"
     background: rgb(89,49,150)
 
   favicon: images/embosser.png
   back-to-top-navigation: true
-  reader-mode: true
   repo-url: https://github.com/rctilford/personal-rhys-tilford
-  repo-actions: issue
 
 format:
   html:
