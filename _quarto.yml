@@ -43,8 +43,8 @@ website:
 format:
   html:
     theme:
-      - pulse
       - custom.scss
+      - pulse
     toc: true
 
 

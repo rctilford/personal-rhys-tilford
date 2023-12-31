@@ -1,4 +1,15 @@
+/*-- scss:defaults --*/
 
+// $font-family-sans-serif: "COXXON Font";
+// $font-family-monospace: "COXXON Font";
+// $bs-body-font-family: "COXXON Font";
+
+/*-- scss:rules --*/
+
+@font-face {
+    font-family: 'COXXON Font';
+    src: local('COXXON Font') url('/coxxonFont.otf') format('otf');
+}
 
 /* Make card images zoom on hover*/
 .card-img-top{
@@ -221,30 +232,3 @@ div.callout-header.d-flex.align-content-center {
     background-color: #59319667;
 }
 
-/*-- scss:mixins --*/
-
-@mixin scrollbars(
-  $size: 10px,
-  $foreground-color: #999,
-  $background-color: #333
-) {
-  // For Chrome & Safari
-  &::-webkit-scrollbar {
-    width: $size;
-    height: $size;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: $foreground-color;
-  }
-  &::-webkit-scrollbar-track {
-    background: $background-color;
-  }
-
-  // Standard version (Firefox only for now)
-  scrollbar-color: $foreground-color $background-color;
-}
-
-div.sourceCode {
-    border-radius: 18px;
-    @include scrollbars(5px, blue, green);
-}
