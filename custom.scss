@@ -7,12 +7,16 @@
 /*-- scss:rules --*/
 
 @font-face {
-    font-family: 'COXXON Font';
-    src: url('https://www.wfonts.com/download/data/2022/05/30/coxxon/COXXON%20Font.otf') format('otf');
+    font-family: 'CoxxonFont';
+    src: url('fonts/coxxon_font-webfont.woff2') format('woff2'),
+         url('fonts/coxxon_font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 .copyright {
-    font-family: "COXXON Font";
+    font-family: "CoxxonFont";
 }
 
 /* Make card images zoom on hover*/
