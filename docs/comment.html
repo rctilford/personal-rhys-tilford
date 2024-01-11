@@ -171,25 +171,46 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 </header>
 
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <section id="please-leave-a-comment-id-love-to-hear-from-you." class="level1">
 <h1>Please leave a comment, I’d love to hear from you.</h1>
-<div id="gitment-comments">
+
+<!-- style sheet of Vssue -->
+<link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+
+
+<div id="vssue">
 
 </div>
+<!-- Introduce Vue first -->
+<!-- vue runtime build (runtime only)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+<!-- Introduce Vssue after Vue -->
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+<!-- use render function for vue runtime build -->
 <script>
-        const gitment = new Gitment({
-  owner: 'rctilford',
-  repo: 'personal-rhys-tilford',
-  oauth: {
-    client_id: '9f2e6bf389986dd77793',
-    client_secret: '667ab6fd63d934d8e8fe1c3763e98351469e1195',
-  },
-})
+    new Vue({
+      el: '#vssue',
 
-gitment.render(document.getElementById('gitment-comments'));
-</script>
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'VssueTest',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>
+
 <section id="hey-howdy-hey" class="level2">
 <h2 class="anchored" data-anchor-id="hey-howdy-hey">Hey Howdy Hey</h2>
 <script src="https://utteranc.es/client.js" repo="rctilford/personal-rhys-tilford" issue-term="pathname" label="Comment" theme="github-light" crossorigin="anonymous" async="">

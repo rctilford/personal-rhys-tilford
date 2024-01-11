@@ -2,25 +2,52 @@
 title: Comments
 ---
 
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
 
 # Please leave a comment, I'd love to hear from you.
 
-<div id="gitment-comments"></div>
+<head>
+  <!-- style sheet of Vssue -->
+  <link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
+</head>
 
-<script>
-        const gitment = new Gitment({
-  owner: 'rctilford',
-  repo: 'personal-rhys-tilford',
-  oauth: {
-    client_id: '9f2e6bf389986dd77793',
-    client_secret: '667ab6fd63d934d8e8fe1c3763e98351469e1195',
-  },
-})
+<body>
+  <div id="vssue"></div>
 
-gitment.render(document.getElementById('gitment-comments'));
-</script>
+  <!-- Introduce Vue first -->
+
+  <!-- vue runtime build (runtime only)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+  <!-- OR: vue full build (runtime + compiler)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+
+  <!-- Introduce Vssue after Vue -->
+
+  <!-- Vssue Github build -->
+  <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+  <!-- use render function for vue runtime build -->
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'VssueTest',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>
+
+</body>
 
 
 ## Hey Howdy Hey
