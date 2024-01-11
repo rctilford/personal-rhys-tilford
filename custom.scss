@@ -42,6 +42,10 @@ h1 {
     transition: transform 0.8s;
 }
 
+#listing-articles > div.list.grid.quarto-listing-cols-3 > div:nth-child(3) > a > div > div > div.card-attribution.card-text-small.justify {
+    box-sizing: content-box;
+}
+
 /* @keyframes RadicalRadii {
     50% {border-radius: 5px;}
     100% {border-radius: 18px;}

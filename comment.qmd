@@ -2,8 +2,28 @@
 title: Comments
 ---
 
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+
 # Please leave a comment, I'd love to hear from you.
 
+<div id="gitment-comments"></div>
+
+<script>
+        const gitment = new Gitment({
+  id: 'Comments', // optional
+  owner: 'rctilford',
+  repo: 'rctilford/personal-rhys-tilford',
+  oauth: {
+    client_id: '9f2e6bf389986dd77793',
+    client_secret: '667ab6fd63d934d8e8fe1c3763e98351469e1195',
+  },
+})
+
+gitment.render(document.getElementById('gitment-comments'));
+</script>
+
+
+## Hey Howdy Hey
 
 <script src="https://utteranc.es/client.js"
         repo="rctilford/personal-rhys-tilford"
