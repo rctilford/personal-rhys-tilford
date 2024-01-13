@@ -1,5 +1,11 @@
 /*-- scss:defaults --*/
 
+$navbar-bg: #09014f;
+$navb-fg: #b87333;
+$footer-bg: #09014f;
+$footer-fg: #b87333;
+
+
 // $font-family-sans-serif: "COXXON Font";
 // $font-family-monospace: "COXXON Font";
 // $bs-body-font-family: "COXXON Font";
@@ -24,8 +30,35 @@
 
 }
 
+@font-face {
+    font-family: 'GoogleSans';
+    src: url('fonts/GoogleSans.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 h1 {
-    font-family: "novamonoregular";
+    font-family: "GoogleSans";
+}
+
+h2 {
+    font-family: "GoogleSans";
+}
+
+h3 {
+    font-family: "GoogleSans";
+}
+
+h4 {
+    font-family: "GoogleSans";
+}
+
+h5 {
+    font-family: "GoogleSans";
+}
+
+h6 {
+    font-family: "GoogleSans";
 }
 
 .copyright {
@@ -168,7 +201,7 @@ svg.logo{
     width: 100%;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    box-shadow: 0 -18px 0 0 #593196;
+    box-shadow: 0 -18px 0 0 $navbar-bg;
 }
 
 footer.footer {
@@ -178,7 +211,7 @@ footer.footer {
     width: 100%;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    box-shadow: 0 -18px 0 0 #593196;
+    box-shadow: 0 -18px 0 0 $footer-bg;
 }
 /* Citation: https://itnext.io/how-to-make-a-fancy-inverted-border-radius-in-css-5db048a53f95 */
 /* End section */
