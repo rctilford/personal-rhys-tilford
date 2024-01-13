@@ -5,12 +5,6 @@ title: Comments
 
 # Please leave a comment, I'd love to hear from you.
 
-<head>
-  <!-- style sheet of Vssue -->
-  <link rel="stylesheet" href="https://unpkg.com/vssue/dist/vssue.min.css">
-</head>
-
-<body>
   <div id="vssue"></div>
 
   <!-- Introduce Vue first -->
@@ -46,17 +40,3 @@ title: Comments
       })
     })
   </script>
-
-</body>
-
-
-## Hey Howdy Hey
-
-<script src="https://utteranc.es/client.js"
-        repo="rctilford/personal-rhys-tilford"
-        issue-term="pathname"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
