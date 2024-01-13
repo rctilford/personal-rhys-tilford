@@ -1,9 +1,13 @@
 /*-- scss:defaults --*/
 
+$primary: #09014f;
+$secondary: #b87333;
+
 $navbar-bg: #09014f;
 $navb-fg: #b87333;
 $footer-bg: #09014f;
 $footer-fg: #b87333;
+
 
 
 // $font-family-sans-serif: "COXXON Font";
@@ -16,15 +20,6 @@ $footer-fg: #b87333;
     font-family: 'CoxxonFont';
     src: url('fonts/coxxon_font-webfont.woff2') format('woff2'),
          url('fonts/coxxon_font-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'novamonoregular';
-    src: url('fonts/novamono-regular-webfont.woff2') format('woff2'),
-         url('fonts/novamono-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -104,7 +99,7 @@ h6 {
 svg.logo path {
     fill: none;
     overflow: visible;
-    stroke: rgba(255,255,255,.7);
+    stroke: $secondary;
     stroke-width: 2;
     stroke-dasharray: 1800;
     stroke-dashoffset: 1800;
@@ -114,7 +109,7 @@ svg.logo path {
 
 #c1 {
     stroke-width: 2;
-    stroke: rgba(255,255,255,.7);
+    stroke: $secondary;
     fill-opacity: 0;
     r: 0;
     cx: 72;
@@ -125,7 +120,7 @@ svg.logo path {
 
 #c2 {
     stroke-width: 2;
-    stroke: rgba(255,255,255,.7);
+    stroke: $secondary;
     fill-opacity: 0;
     r: 0;
     cx: 72;
@@ -135,7 +130,7 @@ svg.logo path {
 
 #c3 {
     stroke-width: 2;
-    stroke: rgba(255,255,255,.7);
+    stroke: $secondary;
     fill-opacity: 0;
     r: 0;
     cx: 72;
@@ -167,26 +162,18 @@ svg.logo path {
     }
 }
 
-div.navbar-brand-container:hover path {
-    stroke: rgba(255,255,255,.8);
-}
-
-div.navbar-brand-container:hover circle {
-    stroke: rgba(255,255,255,.8);
-}
-
 svg.logo{
     overflow: visible;
 }
 
 .navbar-title {
     overflow: visible;
-    padding: 50px;
+    padding: 20px;
 }
 
 .navbar-brand {
     overflow: visible;
-    padding: 50px;
+    padding: 20px;
 }
 /* End section */
 
@@ -230,9 +217,8 @@ footer.footer {
 }
 
 .quarto-title .quarto-categories .quarto-category:hover {
-    background-color: #593196;
+    background-color: $primary;
     color: white;
-    transform: scale(1.2);
 }
 
 .quarto-listing div {
@@ -255,9 +241,8 @@ footer.footer {
 }
 
 .quarto-grid-item .listing-categories .listing-category:hover {
-    background-color: #593196;
+    background-color: $primary;
     color: aliceblue;
-    transform: scale(1.1);
 }
 
 /* End Section */
@@ -266,15 +251,15 @@ footer.footer {
 
 input::-webkit-file-upload-button {
     border-radius: 0.9rem;
-    border-color: #593196;
-    color: #593196;
+    border-color: $primary;
+    color: $primary;
     background-color: white;
     transition: all 0.25s;
 }
 
 input::-webkit-file-upload-button:hover {
     color: white;
-    background-color: #593196;
+    background-color: $primary;
 }
 
 /* End Section */
@@ -322,9 +307,9 @@ div.callout-header.d-flex.align-content-center {
    padding: 10px 20px;
    font-size: 1.05;
    font-weight: bold;
-   color: #3eaf7c;
+   color: $secondary;
    background-color: transparent;
-   border: 2px solid #3eaf7c;
+   border: 2px solid $secondary;
    border-radius: 50px;
  }
  .vssue .vssue-button:disabled {
@@ -340,14 +325,14 @@ div.callout-header.d-flex.align-content-center {
    border-color: #a3aab1;
  }
  .vssue .vssue-button:not(:disabled).vssue-button-primary {
-   color: #3eaf7c;
-   border-color: #3eaf7c;
+   color: $secondary;
+   border-color: $secondary;
  }
  .vssue .vssue-icon {
    width: 1em;
    height: 1em;
    vertical-align: -0.15em;
-   fill: #3eaf7c;
+   fill: $secondary;
    overflow: hidden;
  }
  .vssue .vssue-icon-loading {
@@ -401,7 +386,7 @@ div.callout-header.d-flex.align-content-center {
    top: 0;
    padding: 10px 20px;
    width: 100%;
-   color: #3eaf7c;
+   color: $secondary;
    border: solid 2px #c3ead8;
    border-radius: 18px;
    background-color: #f5fbf8;
@@ -411,13 +396,13 @@ div.callout-header.d-flex.align-content-center {
    top: 0;
    left: 0;
    height: 2px;
-   background-color: #3eaf7c;
+   background-color: $secondary;
  }
  .vssue .vssue-status {
    text-align: center;
    padding-top: 20px;
    padding-bottom: 10px;
-   color: #3eaf7c;
+   color: $secondary;
  }
  .vssue .vssue-status .vssue-icon {
    font-size: 1.4em;
@@ -583,8 +568,8 @@ div.callout-header.d-flex.align-content-center {
  .vssue .vssue-comments .vssue-comment .vssue-comment-header {
    padding: 10px 15px;
    overflow: hidden;
-   border-top-left-radius: 5px;
-   border-top-right-radius: 5px;
+   border-top-left-radius: 18px;
+   border-top-right-radius: 18px;
    border: 1px solid #eaecef;
    border-bottom: none;
  }
@@ -607,8 +592,8 @@ div.callout-header.d-flex.align-content-center {
  .vssue .vssue-comments .vssue-comment .vssue-comment-footer {
    padding: 10px 15px;
    overflow: hidden;
-   border-bottom-left-radius: 5px;
-   border-bottom-right-radius: 5px;
+   border-bottom-left-radius: 18px;
+   border-bottom-right-radius: 18px;
    border: 1px solid #eaecef;
    border-top: none;
  }
@@ -620,11 +605,11 @@ div.callout-header.d-flex.align-content-center {
    cursor: pointer;
    display: inline-block;
    margin-right: 8px;
-   color: #3eaf7c;
+   color: $secondary;
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-footer .vssue-comment-operations {
    float: right;
-   color: #3eaf7c;
+   color: $secondary;
  }
  .vssue .vssue-comments .vssue-comment .vssue-comment-footer .vssue-comment-operations .vssue-comment-operation {
    cursor: pointer;
@@ -714,7 +699,7 @@ div.callout-header.d-flex.align-content-center {
    pointer-events: none;
  }
  .vssue .vssue-pagination .vssue-pagination-link:not(.disabled) {
-   color: #3eaf7c;
+   color: $secondary;
    font-weight: 500;
    cursor: pointer;
  }
@@ -726,7 +711,7 @@ div.callout-header.d-flex.align-content-center {
  .vssue :not(.vssue-comment-content) a {
    cursor: pointer;
    font-weight: 500;
-   color: #3eaf7c;
+   color: $secondary;
    text-decoration: none;
  }
  .vssue :not(.vssue-comment-content) hr {
