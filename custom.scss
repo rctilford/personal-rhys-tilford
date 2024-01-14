@@ -74,6 +74,24 @@ h6 {
     box-sizing: content-box;
 }
 
+.listing-author {
+  font-family: "GoogleSans";
+  text-transform: none;
+}
+
+.listing-date {
+  font-family: "GoogleSans";
+  text-transform: none;
+}
+
+.quarto-listing-sort {
+  font-family: "GoogleSans";
+}
+
+.category {
+  font-family: "GoogleSans";
+}
+
 /* @keyframes RadicalRadii {
     50% {border-radius: 5px;}
     100% {border-radius: 18px;}
@@ -213,6 +231,8 @@ footer.footer {
 
 .quarto-title .quarto-categories .quarto-category {
     border-radius: 0.75rem !important;
+    text-transform: none;
+    font-family: "GoogleSans";
     transition:  0.25s;
 }
 
@@ -237,6 +257,8 @@ footer.footer {
 
 .quarto-grid-item .listing-categories .listing-category {
     border-radius: 0.75rem !important;
+    text-transform: none;
+    font-family: "GoogleSans";
     transition: all 0.25s;
 }
 
