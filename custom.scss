@@ -141,7 +141,6 @@ svg.footer {
 /* SVG Logo With Animation */
 svg.logo path {
     fill: none;
-    overflow: visible;
     stroke: $secondary;
     stroke-width: 2;
     stroke-dasharray: 1800;
@@ -206,18 +205,44 @@ svg.logo path {
 }
 
 svg.logo{
-    overflow: visible;
+    width: 50%;
+    height: auto;
+    margin-left: 20%;
 }
 
 .navbar-title {
     overflow: visible;
-    padding: 20px;
+    padding: 10px;
 }
 
 .navbar-brand {
     overflow: visible;
-    padding: 20px;
+    padding: 10px;
 }
+
+.aa-DetachedSearchButtonIcon svg {
+  fill: $navb-fg;
+}
+
+.aa-DetachedCancelButton {
+  border-radius: 30px;
+  border-color: $secondary;
+}
+
+.aa-DetachedFormContainer .aa-Form {
+  border-radius: 30px;
+  border-color: $secondary;
+}
+
+.aa-DetachedContainer {
+  border-radius: 30px;
+  border-color: rgba(0,0,0,0);
+}
+
+.aa-SubmitButton svg {
+  fill: $secondary;
+}
+
 /* End section */
 
 
