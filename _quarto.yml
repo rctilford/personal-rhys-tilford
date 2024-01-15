@@ -7,7 +7,7 @@ website:
   site-url: "https://rctilford.github.io/personal-rhys-tilford/"
   google-analytics: G-5R6TTB9D5X
   navbar:
-    title: "<img src='images/WhiteLogo.gif' width='200'></img>"
+    title: "<svg class='logo' viewbox='97 -47 196 196'><path></path><circle id='c1'/><circle id='c2'/><circle id='c3'/></svg>"
     left:
       - href: index.qmd
         text: Home
@@ -15,8 +15,6 @@ website:
         text: Lore
       - href: articles/index.qmd
         text: Articles
-      - href: comment.qmd
-        text: Comments
     right:
       - icon: linkedin
         href: https://www.linkedin.com/in/rhystilford
