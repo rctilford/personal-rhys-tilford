@@ -52,3 +52,39 @@ website:
   google-analytics: "UA-XXXXXXXX"
 ```
 After this change is deployed, It may take some time for Google Analytics to link with the site. I didn't notice any changes for about a half hour.
+
+<div id="vssue"></div>
+
+  <!-- Introduce Vue first -->
+
+  <!-- vue runtime build (runtime only)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+  <!-- OR: vue full build (runtime + compiler)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+
+  <!-- Introduce Vssue after Vue -->
+
+  <!-- Vssue Github build -->
+  <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+  <!-- use render function for vue runtime build -->
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'Vssue_article_05',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>

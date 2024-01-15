@@ -326,6 +326,38 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> </span><span class="st">"https://rctilford.github.io/personal-rhys-tilford/"</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">navbar</span><span class="kw">:</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;svg class='logo' viewbox='65 55 100 10'&gt;&lt;path&gt;&lt;/path&gt;&lt;/svg&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="vssue">
+
+</div>
+<p><!-- Introduce Vue first --></p>
+<!-- vue runtime build (runtime only)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+<p><!-- Introduce Vssue after Vue --></p>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+<!-- use render function for vue runtime build -->
+<script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'Vssue_article_07',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>
 
 
 </section>
@@ -567,13 +599,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center"><span class="copyright">Rhys Tilford | © 2023</span></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+    <div class="nav-footer-left"><span class="name">Rhys Tilford</span></div>   
+    <div class="nav-footer-center"><svg class="footer" viewbox="-790 -1245 1600 1245"><path></path></svg></div>
+    <div class="nav-footer-right"><span class="copyright">© 2023 - 2024</span></div>
   </div>
 </footer>
 

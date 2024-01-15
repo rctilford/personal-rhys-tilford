@@ -406,6 +406,38 @@ Note
 </section>
 <section id="if-you-would-like-to-see-the-code-in-action-click-here." class="level3">
 <h3 class="anchored" data-anchor-id="if-you-would-like-to-see-the-code-in-action-click-here.">If you would like to see the code in action click <a href="https://rctilford.github.io/CSC324/">here</a>.</h3>
+<div id="vssue">
+
+</div>
+<p><!-- Introduce Vue first --></p>
+<!-- vue runtime build (runtime only)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+<!-- OR: vue full build (runtime + compiler)  -->
+<script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+<p><!-- Introduce Vssue after Vue --></p>
+<!-- Vssue Github build -->
+<script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+<!-- use render function for vue runtime build -->
+<script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'Vssue_article_02',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>
 
 
 </section>
@@ -647,13 +679,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center"><span class="copyright">Rhys Tilford | © 2023</span></div>
-    <div class="nav-footer-right">
-      &nbsp;
-    </div>
+    <div class="nav-footer-left"><span class="name">Rhys Tilford</span></div>   
+    <div class="nav-footer-center"><svg class="footer" viewbox="-790 -1245 1600 1245"><path></path></svg></div>
+    <div class="nav-footer-right"><span class="copyright">© 2023 - 2024</span></div>
   </div>
 </footer>
 

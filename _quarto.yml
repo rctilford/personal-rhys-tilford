@@ -31,8 +31,9 @@ website:
         href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
         target: _blank
   page-footer: 
-    center: "<span class='copyright'>Rhys Tilford | © 2023</span>"
-    background: rgb(89,49,150)
+    center: "<svg class='footer' viewbox='-790 -1245 1600 1245'><path></path></svg>"
+    left: "<span class='name'>Rhys Tilford</span>"
+    right: "<span class='copyright'>© 2023 - 2024</span></span>"
 
   favicon: images/embosser.png
   back-to-top-navigation: true

@@ -11,3 +11,43 @@ categories: [Programming, Data Analysis, R, Just For Fun]
 Some time ago I came across a fascinating mural project on social media. Each mural was made of thousands of dice arranged in a frame so that each dice was a single pixel in the image. I had largely forgotten about the piece until I came across another example of it created by [Dice Ideas](https://diceideas.com/) which is an organization that makes these murals by comission. On their website they have a tool that lets users upload a photo and get a digital example of what a dice mural might look like for that photo. I was curious to see how I could go about getting a spreadsheet that would show me what side of a dice would be face up for any photo so I got to work.
 
 I realized early on that some of my work would be best expedited to professional image editing software. I prefer [GIMP](https://www.gimp.org/) because it is a free open source program with ample support documents online.
+
+
+
+
+
+<div id="vssue"></div>
+
+  <!-- Introduce Vue first -->
+
+  <!-- vue runtime build (runtime only)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.runtime.min.js"></script>
+  <!-- OR: vue full build (runtime + compiler)  -->
+  <script src="https://unpkg.com/vue@2.7.14/dist/vue.min.js"></script>
+
+  <!-- Introduce Vssue after Vue -->
+
+  <!-- Vssue Github build -->
+  <script src="https://unpkg.com/vssue/dist/vssue.github.min.js"></script>
+
+  <!-- use render function for vue runtime build -->
+  <script>
+    new Vue({
+      el: '#vssue',
+
+      render: h => h('Vssue', {
+        props: {
+          // here set the title of issue of current page
+          title: 'Vssue_article_08',
+
+          // here set the options for your OAuth App
+          options: {
+            owner: 'rctilford',
+            repo: 'personal-rhys-tilford',
+            clientId: '9f2e6bf389986dd77793',
+            clientSecret: '667ab6fd63d934d8e8fe1c3763e98351469e1195', // only required for some of the platforms
+          },
+        }
+      })
+    })
+  </script>
