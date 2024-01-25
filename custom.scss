@@ -258,6 +258,15 @@ button.aa-DetachedSearchButton:hover .aa-SubmitIcon {
   color: $navb-fg;
 }
 
+.nav-item {
+  transition: 0.25s;
+}
+
+.nav-item:hover {
+  transform: scale(0.9);
+  color: $navb-fg;
+}
+
 .menu-text {
   color: $navb-fg;
 }
