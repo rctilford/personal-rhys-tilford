@@ -39,6 +39,10 @@ website:
 
 format:
   html:
+    include-in-header:
+      - text: |
+          <script src="js/AutoFrameResizer.js"></script>
+          <script src="js/getYear.js"></script>
     theme:
       - custom.scss
       - pulse

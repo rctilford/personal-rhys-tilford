@@ -1,0 +1,1 @@
+document.getElementById("copyright").innerHTML = "Rhys Tilford | © 2023 - " + new Date().getFullYear();
