@@ -109,7 +109,7 @@ website:
     title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
 ```
 
-<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="https://rctilford.github.io/personal-rhys-tilford/contactMe.html"><button type="button">Contact Me</button></a></div>
 
 
 <div id="vssue"></div>

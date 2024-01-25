@@ -24,7 +24,7 @@ In order to make any changes to the element we have to find it's container. To d
 ```
 
 
-<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="https://rctilford.github.io/personal-rhys-tilford/contactMe.html"><button type="button">Contact Me</button></a></div>
 
 
 <div id="vssue"></div>
