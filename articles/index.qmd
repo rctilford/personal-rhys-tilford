@@ -13,3 +13,6 @@ This page includes several articles that document various projects I've made and
 
 :::{#articles}
 :::
+
+
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>

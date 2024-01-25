@@ -158,6 +158,10 @@ Now that we know it can be written as a decimal, we will go on to the proof.
 
 $\mathbfcal{Thank}$ $\mathbfcal{you}$ $\mathbfcal{for}$ $\mathbfcal{viewing}$ $\mathbfcal{this}$ $\mathbfcal{Queer}$ $\mathbfcal{Educational}$ $\mathbfcal{Demonstration}$ $\mathbfcal{(Q.E.D.)}$ 
 
+
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
+
+
 <div id="vssue"></div>
 
   <!-- Introduce Vue first -->

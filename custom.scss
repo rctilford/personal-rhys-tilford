@@ -58,16 +58,17 @@ h6 {
 
 span.copyright {
   font-family: "CoxxonFont";
-  margin-right: 50%;
   font-size: 120%;
+  text-align: center;
   text-wrap: nowrap;
   overflow: visible;
 }
 
 span.name {
   font-family: "CoxxonFont";
-  margin-left: 50%;
   font-size: 120%;
+  text-align: center;
+  text-wrap: nowrap;
 }
 
 svg.footer path {
@@ -80,8 +81,8 @@ svg.footer path {
 }
 
 svg.footer {
-  max-width: 50%;
-  height: auto;
+  width: auto;
+  height: 75px;
   align-items: center;
 }
 
@@ -205,9 +206,8 @@ svg.logo path {
 }
 
 svg.logo{
-    width: 50%;
-    height: auto;
-    margin-left: 20%;
+    width: auto;
+    height: 150px;
 }
 
 .navbar-title {
@@ -218,6 +218,18 @@ svg.logo{
 .navbar-brand {
     overflow: visible;
     padding: 10px;
+}
+
+.navbar-toggler-icon {
+  background-image: none;
+}
+
+.bi {
+  color: $navb-fg;
+}
+
+.menu-text {
+  color: $navb-fg;
 }
 
 .aa-DetachedSearchButtonIcon svg {
@@ -332,6 +344,31 @@ input::-webkit-file-upload-button {
 input::-webkit-file-upload-button:hover {
     color: white;
     background-color: $primary;
+}
+
+button {
+  border-radius: 0.9rem;
+  border-color: $primary;
+  color: white;
+  background-color: $primary;
+  transition: all 0.25s;
+}
+
+button:hover {
+  color: $primary;
+  background-color: white;
+}
+
+iframe {
+  width: auto;
+}
+
+.contactMe {
+  text-align: center;
+}
+
+.callToAction {
+  text-align: center;
 }
 
 /* End Section */

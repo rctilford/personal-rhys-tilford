@@ -1,5 +1,6 @@
 ---
 title-meta: Lore
+toc: false
 about:
   id: AboutMe
   template: solana
@@ -26,3 +27,5 @@ I work as a Resident Advisor at Georgetown College. In this role, I facilitate a
 
 I have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (*2022-2023*)
 :::
+
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
