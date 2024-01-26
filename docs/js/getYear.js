@@ -1,1 +1,1 @@
-document.getElementsByClassName("copyright").innerHTML = "© 2023 - " + new Date().getFullYear();
+document.getElementsByTagName("span").getElementsByClassName("copyright").innerHTML = "© 2023 - " + new Date().getFullYear();

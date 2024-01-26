@@ -54,7 +54,7 @@ website:
 After this change is deployed, It may take some time for Google Analytics to link with the site. I didn't notice any changes for about a half hour.
 
 
-<div class="callToAction"><a href="https://rctilford.github.io/personal-rhys-tilford/contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="../contactMe.html"><button type="button">Contact Me</button></a></div>
 
 
 <div id="vssue"></div>
