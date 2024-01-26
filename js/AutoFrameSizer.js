@@ -1,8 +1,13 @@
 // This code is designed to resize the iframe to the height of the content
 
 
-
-document.getElementsByTagName('iframe').style.height = iframe.contentWindow.document.body.height + 'px';
+    // Selecting the iframe element
+    let iframe = document.getElementsByTagName("iframe");
+    
+    // Adjusting the iframe height onload event
+    iframe.onload = function(){
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    }
 
 
 
