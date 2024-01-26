@@ -31,7 +31,7 @@ website:
   page-footer: 
     center: "<svg class='footer' viewbox='-790 -1245 1600 1245'><path></path></svg>"
     left: "<span class='name'>Rhys Tilford</span>"
-    right: "<span class='copyright'>© 2023 - 2024</span></span>"
+    right: "<span class='copyright'></span>"
 
   favicon: images/embosser.png
   back-to-top-navigation: true
