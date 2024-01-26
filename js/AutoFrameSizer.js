@@ -14,7 +14,7 @@ window.addEventListener('message', function(event) {
 window.onload = function() {
     window.parent.postMessage({
         'height': document.body.scrollHeight
-    }, '*');
+    }, 'https://docs.google.com');
 };
 
 
