@@ -5,7 +5,4 @@ toc: false
 
 
 
-<div class="contactMe"><iframe class="contactme" src="https://docs.google.com/forms/d/e/1FAIpQLSfcRoj1gOLLfpnEobg2zgSbGCMdlsuGQRFpWO-8nigNghHKfw/viewform?embedded=true" height="1700px" width="100%" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
-
-
-<script src="./js/AutoFrameSizer.js"></script>
+<div class="contactMe"><iframe class="contactme" src="https://docs.google.com/forms/d/e/1FAIpQLSfcRoj1gOLLfpnEobg2zgSbGCMdlsuGQRFpWO-8nigNghHKfw/viewform?embedded=true" height="1700px" width="100%" frameborder="0" marginheight="0" marginwidth="0" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen>Loading…</iframe></div>
