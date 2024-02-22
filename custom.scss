@@ -25,6 +25,16 @@ $footer-fg: #b87333;
 
 }
 
+// <uniquifier>: Use a uniquifier for the class name
+// <weight>: Use a value from 300 to 700
+@font-face {
+  font-family: "Quicksand", sans-serif;
+  src: url('fonts/QuicksandVariableFont.woff2') format('woff2');
+  font-optical-sizing: auto;
+  font-weight: var(weight);
+  font-style: normal;
+}
+
 @font-face {
     font-family: 'GoogleSans';
     src: url('fonts/GoogleSans.woff2') format('woff2');
@@ -54,6 +64,10 @@ h5 {
 
 h6 {
     font-family: "GoogleSans";
+}
+
+body {
+  font-family: "Quicksand";
 }
 
 span.copyright {
