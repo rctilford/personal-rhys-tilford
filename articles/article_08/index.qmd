@@ -14,7 +14,7 @@ I realized early on that some of my work would be best expedited to professional
 
 
 
-<div class="callToAction"><a href="../contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
 
 <div id="vssue"></div>
 

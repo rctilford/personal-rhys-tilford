@@ -186,7 +186,7 @@ function shuffle() {
 ### If you would like to see the code in action click [here](https://rctilford.github.io/CSC324/).
 
 
-<div class="callToAction"><a href="../contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
 
 
 <div id="vssue"></div>

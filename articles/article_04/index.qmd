@@ -435,7 +435,7 @@ Plot.plot({
 ```
 
 
-<div class="callToAction"><a href="../contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
 
 
 <div id="vssue"></div>

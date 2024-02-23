@@ -104,7 +104,7 @@ The JavaScript file is [here](Day2.js).
 <script src="Day2.js"></script>
 ```
 
-<div class="callToAction"><a href="../contactMe.html"><button type="button">Contact Me</button></a></div>
+<div class="callToAction"><a href="contactMe.html"><button type="button">Contact Me</button></a></div>
 
 <div id="vssue"></div>
 
