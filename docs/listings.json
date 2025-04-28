@@ -2,14 +2,13 @@
   {
     "listing": "/articles/index.html",
     "items": [
-      "/articles/article_07/index.html",
       "/articles/article_06/index.html",
-      "/articles/article_03/index.html",
-      "/articles/article_01/index.html",
       "/articles/article_05/index.html",
-      "/articles/article_08/index.html",
       "/articles/article_02/index.html",
-      "/articles/article_04/index.html"
+      "/articles/article_01/index.html",
+      "/articles/article_04/index.html",
+      "/articles/article_07/index.html",
+      "/articles/article_03/index.html"
     ]
   }
 ]

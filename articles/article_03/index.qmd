@@ -1,162 +1,438 @@
 ---
-title: Cantor Set Presentation
+title: Tidying Unkempt Data
 author: Rhys Tilford
-description: Read my presentation of everything I have learned about the Cantor Set.
-date: 11/8/2023
-categories: [Education, Math]
-image: Blackboard.png
+description: Read about how I used R to tidy and display urban transport data
+date: 11/13/2023
+categories: [Data Analysis, Programming, R]
+image: MBTA_Platform.jpg
 ---
 
-### The Definition
-
-> **11.1.10 Definition** The **Cantor set** $\mathbb{F}$ is the intersection of the sets $F_n,n\in\mathbb{N}$, obtained by successive removal of open middle thirds, starting with $[0,1]$.
->
-> -- <cite>Intro to Real Analysis: Bartle and Sherbert (p. 331)</cite>
-
-### Visualization
-
-```{=html}
-<script crossorigin src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script>
+```{ojs}
+Plot = import("https://esm.run/@observablehq/plot@0.6.11")
 ```
-::: {#WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437}
+
+```{r}
+#| include: false
+### load necessary packages
+library(tidyverse)
+library(rvest)
+library(magrittr)
+library(rlang)
+library(stats)
+library(readr)
+library(DT)
+```
+
+### Introduction
+
+Transport has always been a passion of mine. I have always adored Trains, Planes, Cars, Boats, and any other type of vehicle. As I matured I began to see transit through a new lens. The sights and sounds of large transport-oriented machinary no longer held my attention like they once did. A more humanistic view of transport caught my fancy and I began to take interest in transport equity for people from all socio-economic backgrounds.
+
+It is well known that the automobile is a focal point in American society. That said, I was well into my teens before I noticed the consequences our car-centric culture causes for people who either can't afford to own a car or choose not to own a car. This realization invigorated my interest in public transport and walkable infrastructure. In this data exploration, I hope to shed some light on the state of urban rail transport systems in America and compare them to that of other first world countries.
+
+### The Data
+
+I found a fascinating data table on [this](https://en.wikipedia.org/wiki/List_of_metro_systems) Wikipedia page so I decided to pull it and analize it. Here is the code I used to pull it:
+
+```{r}
+#| eval: false
+web_page <- "https://en.wikipedia.org/wiki/List_of_metro_systems"
+
+Tables <-
+  web_page %>%
+  read_html() %>%
+  html_elements("table")
+
+MetroList <- 
+  Tables %>% 
+  purrr::pluck(1) %>%
+  html_table() %>%
+  select(1:9)
+```
+
+```{r}
+#| echo: false
+# setwd("C:/Users/Rhys Tilford/OneDrive/Documents/personal-rhys-tilford/posts/post_02")
+MetroList <- read.csv(file = "MetroData.csv") %>% select(2:10)
+
+```
+
+Much to my dismay the data was riddled with miscellaneous junk. Here is the data inside MetroList:
+
+```{r}
+#| echo: false
+MetroList %>% 
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+Here are the problems I see in MetroList:
+
+ - The name of the column that holds the number of stations on each system has a long and irrelevent name.
+ - Several of the columns have units and footnote links in them.
+
+I decided to import it to Rstudio and take a crack at cleaning it.
+
+### Tidying
+
+Optimistically, I decided to call this new table TidyMetroList.
+
+##### Renaming Columns
+
+The following code renames the columns with a unified naming system:
+
+```{r}
+#| eval: false
+TidyMetroList <-
+  MetroList %>%
+  set_names(c("City",
+              "Country",
+              "Name",
+              "ServiceOpened",
+              "LastExpanded",
+              "StationCount",
+              "Lines",
+              "SystemLength",
+              "RidershipMillions"))
+```
+
+```{r}
+#| echo: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
+
+Much better! There's still more to go though. Next we can tackle the extra gunk in the columns.
+
+##### Isolating the Data
+
+We'll do this part with regular expressions and the `stringr` package. These are the main regular expressions we'll use:
+
+> - `[]`: Grouping
+>    - This element matches one of any character inside the brackets.
+> - `|`: Alternation
+>    - This element sperates two expressions. The computer will match one or the other.
+> - `w`: Word
+>    - This matches "word characters." It is very inclusive with what it defines as a word character so it needs to be used with care.
+> - `s`: Whitespace
+>    - This matches all forms of whitespace.
+> - `d`: Digit
+>    - This matches any natural number in the closed interval [0,9].
+> - `.`: Dot
+>    - This matches everything except linebreaks.
+> - `+`: Plus
+>    - This matches one or more of the expression it follows.
+> - `?`: Optional
+>    - This matches 0 or 1 of the expression it follows.
+> - `{}`: Quantifier
+>    - This matches the quantity in the curly-brackets.
+> - `(?<=ExpressionHere)`: Positive Lookbehind
+>    - This matches an expression before the main expression without including it in the result.
+> - `(?=ExpressionHere)`: Positive Lookahead
+>    - This matches an expression after the main expression without including it in the result.
+> 
+> -- <cite>Adapted from the reference book on [regexr.com](https://regexr.com)</cite>
+
+:::{.callout-tip}
+If you want some practice with regular expressions, checkout [regexr.com](https://regexr.com). They have a development environment that tests expressions in real-time and a reference book containing descriptions for every command.
 :::
 
-```{=html}
-<script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
+This code uses regular expresssions to remove all of the gunk in the columns:
+```{r}
+#| eval: false
+#| warning: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", ""))
 ```
-::: callout-note
-This visual is generated from the Wolfram Cloud: Use [this](https://www.wolframcloud.com/objects/demonstrations/CantorSet-source.nb) link to access it.
-:::
 
-### Proving Key Properties
+```{r}
+#| echo: false
+#| warning: false
+MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")) %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5))
+```
 
-##### Property 1: The total length of the removed intervals is 1
+Lovely! Now there's only one problem. Notice that the `RidershipMillions` column still was not dealt with in the last command. That's because the parenthetical statements in that column show the timeframe in which the ridership data was collected. We'd rather not get rid of this data so hastily.
 
-###### Proof:
+##### A Special Case
 
- - ***Goal:***
-   - Find the total length of the removed intervals.
+The following code will snatch the data from the parenthesis and drop it in a new column called `RidershipMillionsDataFrom`. Then it will remove the excess information from `RidershipMillions` like we did above.
+```{r}
+#| eval: false
+TidyMetroList <-
+  TidyMetroList %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
 
- - ***Resources:***
-   - **Formula for the Geometric Series:** $\sum_{i=0}^{\infty}ar^i=\frac{a}{1-r}$
- - ***Strategy:***
-   - We will construct a convergent geometric series of the lengths of the removed open middle thirds.
- - ***Method:***
-   - **First:** We see from the visual that the length of the removed open middle thirds is the series: $\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...$
-   - **Second:** Let's work with the denominator: $=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...$
-   - **Third:** Now we can tackle the numerator: $=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...$
-   - **Fourth:** Now we have what we need to build a series: $=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}$
-   - **Fifth:** We note that this isn't quite a geometric series though. We'll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules: $=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}$
-   - **Sixth:** Now we can pull the constant multiple outside the sum: $=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}$
-   - **Seventh:** Next we will apply the formula for the sum of a geometric series: $=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}$
-   - **Eighth:** With some simplification we find that the sum is infact $1$: $=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1$
+```{r}
+#| echo: false
+#| warning: false
+TidyMetroList <- 
+  MetroList %>% 
+  set_names(c("City", "Country", "Name", "ServiceOpened", "LastExpanded", "StationCount", "Lines", "SystemLength", "RidershipMillions")) %>%
+  mutate(ServiceOpened = as.numeric(str_replace_all(ServiceOpened, "\\[[\\w+\\s+]+\\]", "")),
+         LastExpanded = as.numeric(str_replace_all(LastExpanded, "\\[[\\w+\\s+]+\\]", "")),
+         Country = str_replace_all(Country, "\\[[\\w+\\s+]+\\]", ""),
+         Name = str_replace_all(Name, "\\[[\\w\\s]+\\]|\\([\\w\\s]+\\)", ""),
+         StationCount = as.numeric(str_replace_all(StationCount, "\\[[\\w+\\s+]+\\]", "")),
+         SystemLength = as.numeric(str_replace_all(SystemLength, "\\skm\\s|\\d+(\\.\\d+)?.mi|\\[[\\w+\\s+]+\\]|[\\(\\)]+", "")),
+         Lines = as.numeric(Lines)) %>%
+  mutate(RidershipMillionsDataFrom = str_extract(RidershipMillions, "(?<=\\().+(?=\\))"),
+         RidershipMillions = as.numeric(str_replace_all(RidershipMillions, "\\[[\\w+\\s+]+\\]|(\\().+(\\))", "")))
+```
 
-$\mathbfcal{Here}$ $\mathbfcal{Endeth}$ $\mathbfcal{The}$ $\mathbfcal{Proofeth}$
+```{r}
+#| echo: false
+TidyMetroList  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
 
-##### Property 2: The Cantor set $\mathbb{F}$ contains no nonempty open interval as a subset
+### Ridership Data Analysis
 
-###### Proof:
+##### Analysis
 
- - ***Goal***
-   - Show that there exists no nonempty open interval in $\mathbb{F}$
- - ***Strategy***
-   - We will assume that there is a nonempty open interval in $\mathbb{F}$ and then do math stuff until we find a contradiction.
- - ***Method***
-   - **First:** We assume there is some nonempty open interval $C:=(a,b)$ in $\mathbb{F}$.
-   - **Second** We recall that $\mathbb{F}$ is the intersection of $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
-      - So $C$ must be a subset of $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
-   - **Third:** We want to make a statement the length of $C$ So we assemble the following facts:
-      - We know $0<b-a$ from the fact that $C$ is nonempty.
-      - we know $b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$ from the fact that the length of $C$ can never be greater than the length of the remaining closed intervals in each $\mathbb{F}_n$ for all $n\in\mathbb{N}$.
-   - **Fourth:** We pull all the facts from Step $3$ together to get: $0<b-a\leq\Bigl(\frac{2}{3}\Bigr)^n$.
-   - **Fifth:** We recall that $\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0$.
-   - **Sixth:** Step $5$ shows why the inequality from Step $4$ is going to be an issue.
-      - If we take the limit of the whole inequality we get $0<b-a\leq0$ which is a contradiction [$\bigstar$](shock.html).
-   - **Seventh:** Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in $\mathbb{F}$.
+I would like to know what the average ridership is like for the five largest economies. So I start by removing any NA values with the command in the third line. Next, I group the dataset so the mutate command takes the mean of `RidershipMillions` for each country. Now I filter out the five countries of interest. The select command picks out the columns I choose and the distinct command removes superfluous rows.
 
-$\mathbfcal{Periodt}$ $\mathbfcal{*snaps}$ $\mathbfcal{fingers}$ $\mathbfcal{with}$ $\mathbfcal{moxie*}$
+##### Caveat
 
-##### Property 3: The Cantor set $\mathbb{F}$ has infinitely (even uncountably) many points
+This data set is not a great indicator of how widely used urban rail transport is in these countries because we have no data in this dataset for the population that each metro system serves. If we did it would be very interesting to compare the average ridership divided by the average service zone population.
 
-###### A little bit about bases:
+```{r}
+MetroRidershipGraphInput <-
+  TidyMetroList %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>%
+  na.omit() %>% 
+  group_by(Country) %>% 
+  mutate(RidershipMillionsAvg = mean(RidershipMillions)) %>% 
+  select(Country, RidershipMillionsAvg) %>%  
+  distinct()
+```
 
-We know the Cantor set has all of the points of the form $\frac{2^k}{3^n}$ where k iterates over all the natural numbers less than or equal to n, for every $n\in\mathbb{N}$. For example:
+```{r}
+#| echo: false
+MetroRidershipGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
 
- - When $n=1$ we have $4$ key points:
-    - $0$, $\frac{1}{3}$, $\frac{2}{3}$, and $1$
- - When $n=2$ we have $8$ key points:
-    - $0$, $\frac{1}{9}$, $\frac{2}{9}$, $\frac{1}{3}$, $\frac{2}{3}$, $\frac{7}{9}$, $\frac{8}{9}$, and $1$
- - When $n=3$ we have $16$ key points:
-    - $0$, $\frac{1}{27}$, $\frac{2}{27}$, $\frac{1}{9}$, $\frac{2}{9}$, $\frac{7}{27}$, $\frac{8}{27}$, $\frac{1}{3}$, $\frac{2}{3}$, $\frac{19}{27}$, $\frac{20}{27}$, $\frac{7}{9}$, $\frac{8}{9}$, $\frac{25}{27}$, $\frac{26}{27}$, and $1$
-
-One thing to note about all of these points is that we can convert them into a base three system for more clarity.
-
-Our base ten system operates as follows (we will use $\frac{8}{27}$ for this example):
-
-$$
-\frac{8}{27}=0. \overline{296} =2\frac{1}{10}+9\frac{1}{100}+6\frac{1}{1000}+2\frac{1}{10000}+9\frac{1}{100000}+6\frac{1}{1000000}+...
-$$
-
-Note that the denominators are all powers of ten.
-
-For this example the decimal number goes off into infinity. Most of the other points of the Cantor set do as well.
-
-Alternatively, here is $\frac{8}{27}$ in a base three system:
-
-$$
-\frac{8}{27}=0\frac{1}{3^0}+0\frac{1}{3^1}+2\frac{1}{3^2}+2\frac{1}{3^3}=(0.022)_3
-$$
-
-To find this we first try to check how many $27s$ are in $8$. Upon finding none, we write the first term $0\frac{1}{3^0}$. Now we multiply $8$ and $3$ to get $24$. Again, we check how many $27s$ are in $24$. Upon finding none, we write the second term $0\frac{1}{3^1}$. Now we multiply $24$ and $3$ to get $72$. Now we actually find $2$ $27s$ in $72$. so we write the third term $2\frac{1}{3^2}$. Now, since we found some $27s$, we subtract $2*27$ from $72$ to get $18$ and multiply $18$ by $3$ to get $54$. Now we find exactly two $27s$ in $54$ so we finish by writing the fourth term $2\frac{1}{3^3}$.
-
-In fact, we can apply the method above to write any $x\in[0,1]$ in base 3 form using only the numbers $0$, $1$, and $2$.
+##### Visual
 
 :::{.callout-note}
-$\frac{8}{27}$ is written with $0s$ and $2s$. This is significant because it is one of the endpoints of the intervals in the Cantor set. We can gather from this that all points in any element of the Cantor set will be written with $0s$ and $2s$ because the $1s$ correspond to the open middle thirds.
+For the visuals I used [Observables](https://observablehq.com/). It is an excellent graphics generator that supplies a clear interface for creating a notebooks. If you would like to see the work I did to generate this code checkout my public [notebook](https://observablehq.com/@rhys-tilford-ws/visualizing-urban-rail-transport-data) for this project.
 :::
 
-Now we will write this more formally:
+```{ojs}
+Plot.plot({
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
+  title: "Average Ridership in 5 Major Countries",
+  y: { label: "Millions of Riders" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroRidership.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Ridership (Millions)",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
 
-$$
-x=\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}=(0.a_1a_2...a_n...)_3
-$$
 
-*where each $a_n$ is either $0$, $1$, or $2$.*
+### System Size Data Analysis
 
-Now that we know it can be written as a decimal, we will go on to the proof.
+##### Analysis
 
-##### Proof
+First, we take the dataset and filter so we only have data on the five countries we are interested in. Then we remove any NA values. Now we move to mutations. We would like to see some metric of how many stations there are on each line. We will mutate `StationCount` divided by `SystemLength` and call this ratio `StationDensity`. At this point we still have the data for each metro system in the dataset individually. We will now use `group_by()` to group the data into 5 groups corresponding to the 5 countries. Now we can run a mutate to find the averages of `StationCount`, `Lines`, `SystemLength`, and `StationDensity` for each of the 5 countries. We will select the five columns of interest and remove any duplicated rows. Now we have all the data we need to make some really intriguing graphics.
 
- - ***Goal:***
-   - Show that the Cantor set is uncountably infinite.
- - ***Resources:***
-   - **Theorem 1.3.10:** *The following statements are equivalent:*
-      - **(a)** *S is a countable set.*
-      - **(b)** *There exists a surjection of $\mathbb{N}$ onto S.*
-      - **(c)** *There exists an injection of S into $\mathbb{N}$*
-   - **Theorem 2.5.5:** *The unit interval $[0,1]:=\{x\in\mathbb{R}:0\leq x\leq1\}$ is not countable.*
- - ***Strategy:***
-   - We will assume the Cantor set is countable and look for a contradiction.
- - ***Method:***
-   - **First:** We assume that the Cantor set $\mathbb{F}$ is countably infinite.
-      - In other words, we assume $\mathbb{F}$ can be put in bijection with $\mathbb{N}$.
-   - **Second:** We recall that any point $x\in[0,1]$ can be written as a base three expansion consisting only of the digits $0$, $1$, and $2$.
-   - **Third:** According to [Proof Wiki](https://proofwiki.org/wiki/Representation_of_Ternary_Expansions), it is not possible for a real number in base 3 notation to be written in more than one way without using the digit $1$.
-      - This is a useful fact because the inputs of a bijective function are unique.
-   - **Fourth:** We want to define a function with the following parts:
-      - Domain: All elements of $[0,1]$ that can be written without using $1$. Psst... This domain is $\mathbb{F}$.
-      - Range: All elements of $[0,1]$.
-      - Notation: $f\Bigl(\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}\Bigr)=\sum^{\infty}_{n=1}{\frac{\frac{a_n}{2}}{2^n}}$
-         - *Note:* The output of the function is in binary.
-   - **Fifth:** So $f$ is a surjection of $\mathbb{F}$ onto $[0,1]$.
-   - **Sixth:** We can now pull in our assumption that $\mathbb{F}$ is countable along with *Theorem 1.3.10* to show that there exists a surjection of $\mathbb{N}$ onto $\mathbb{F}$.
-      - We'll call this function $g$.
-   - **Seventh:** We recall that $g$ $|$ $\mathbb{N}\rightarrow\mathbb{F}$ and $f$ $|$ $\mathbb{F}\rightarrow[0,1]$. From this we see that $f\circ g$ is a surjection of $\mathbb{N}$ onto $[0,1]$. 
-   - **Eighth** We can now apply *Theorem 1.3.10* to show that $[0,1]$ is a countable set.
-   - **Ninth** Now we circle back to *Theorem 2.5.5* which contradicts the result of Step $8$ [$\bigstar$](shock.html).
-   - **Tenth** Now that we have found a contradiction, we can apply *Reductio Ad Absurdum* to eliminate $1$ of the assumptions we used to get here and conclude the negation of that assumption. In our case, we conclude $\mathbb{F}$ is uncountable. [$\square$](cantorMemes.html)
+##### Caveat
 
-$\mathbfcal{Thank}$ $\mathbfcal{you}$ $\mathbfcal{for}$ $\mathbfcal{viewing}$ $\mathbfcal{this}$ $\mathbfcal{Queer}$ $\mathbfcal{Educational}$ $\mathbfcal{Demonstration}$ $\mathbfcal{(Q.E.D.)}$ 
+Upon looking at the data again, I realize that I could have built a variable more intuitive than `StationDensity`. Station density is currently measured in $\frac{Stations}{Kilometer}$. I think it would be easier to communicate this data if I flipped the ratio to measure in $\frac{Kilometers}{Station}$. In this format, the data would show that average distance between 2 stations. If one were to divide this average in half we could see the average max distance a rider would have to walk in order to get to their destination from a rail station.
+
+```{r}
+MetroSizeGraphInput <- 
+  TidyMetroList %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>%
+  na.omit() %>%
+  mutate(StationDensity = StationCount/SystemLength) %>% 
+  group_by(Country) %>% 
+  mutate(StationCountAvg = mean(StationCount),
+         LinesAvg = mean(Lines),
+         SystemLengthAvg = mean(SystemLength),
+         StationDensityAvg = mean(StationDensity)) %>% 
+  select(Country, StationCountAvg, LinesAvg, SystemLengthAvg, StationDensityAvg) %>% 
+  distinct()
+```
+
+```{r}
+#| echo: false
+MetroSizeGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
+
+##### Visuals
+
+```{ojs}
+Plot.plot({
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
+  title: "Average Distance Between Stations",
+  y: { label: "Kilometers per Station" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Station Density",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+```{ojs}
+Plot.plot({
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
+  title: "Average System Length",
+  y: { label: "Kilometers of Rail Service" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average System Length",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+```{ojs}
+Plot.plot({
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
+  title: "Average Number of Stations per System",
+  y: { label: "Stations" },
+  marks: [
+    Plot.barY(await FileAttachment("MetroSize.csv").csv({ typed: "auto" }), {
+      x: "Country",
+      y: "Average Number of Stations",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
+
+### System Maturity Data Analysis
+
+##### Analysis
+
+I would like to compare the age of these five metro systems. First I'll filter out all the countries that are irelevant to our comparison. Next we need to find both the age of each system and the amount of time since each was expanded. For that we need to know the current date. Luckily, R has a function called `Sys.Date()` that returns the current time and date. So we need to extract the year from `Sys.date()`. We'll use both our venerable regular expressions and the `stringr` package to accomplish this. Then we can ensure that this string of 4 numbers is converted to a number with the `as.numeric()` function. Now we mutate the difference between the column `ServiceOpened` and our current year to get a new column called `SystemAge`. We also mutate the difference between the column `LastExpanded` and our current year to get a new column called `YearsSinceExpansion`. Now we select only the columns we need and remove any NA vlaues from those columns. Next we can group by each country and find the average for each as explained [above](#analysis-1). Finally we select the columns `Country`, `AverageYearsSinceExpansion`, and `AverageSystemAge`. If graphing this data sounds like a problem, you would be right. We need to create a categorical variable with the levels: `AverageYearsSinceExpansion` and `AverageSystemAge`. Thank goodness for the R function `pivot_longer()`! It takes three arguments:
+ - `cols`
+    - A column or columns to consider in the pivoting process.
+ - `names_to`
+    - The name of a new column to hold the values of the column titles. (`AverageYearsSinceExpansion` and `AverageSystemAge` in our case).
+ - `values_to`
+    - The name of a new column to hold the values of the columns being pivoted.
+The resulting dataframe is just below the code chunk.
+
+```{r}
+MetroMaturityGraphInput <- 
+  TidyMetroList %>% 
+  filter(Country %in% c("United States", "Germany", "India", "China", "Japan")) %>% 
+  mutate(SystemAge = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - ServiceOpened),
+         YearsSinceExpansion = (as.numeric(str_extract(Sys.Date(), "\\d{4}")) - LastExpanded)) %>% 
+  select(Country, SystemAge, YearsSinceExpansion) %>%
+  na.omit() %>%
+  group_by(Country) %>% 
+  mutate(AverageSystemAge = mean(SystemAge),
+         AverageYearsSinceExpansion = mean(YearsSinceExpansion)) %>% 
+  select(Country, AverageYearsSinceExpansion, AverageSystemAge) %>%  
+  distinct() %>%
+  pivot_longer(cols = !Country, names_to = "Types", values_to = "Values")
+```
+
+```{r}
+#| echo: false
+MetroMaturityGraphInput  %>%
+  DT::datatable(class = "table table-hover",
+                style = "bootstrap",
+                options = list(pageLength = 5,
+                               buttons.buttons.classname = "btn btn-primary",
+                               PagingTag = "button"))
+```
+
+##### Visual
+
+```{ojs}
+Plot.plot({
+  color: {    
+    type: "categorical",
+    domain: d3.range(5).map[`China`, `Germany`, `India`, `Japan`, `United States`], 
+    range: ["#593196", "#009CDC", "#13B955", "#EFA31D", "#FC3939"]
+  },
+  title: "Transit System Maturity",
+  subtitle: "Urban Rail System Maturity in 5 Major Countries",
+  y: { label: "Years" },
+  marks: [
+    Plot.frame({ strokeOpacity: 0.1 }),
+    Plot.barY(await FileAttachment("MetroMaturity.csv").csv({ typed: "auto" }), {
+      fx: " ",
+      x: "Country",
+      y: "Values",
+      fill: "Country",
+      tip: true
+    }),
+    Plot.ruleY([0])
+  ]
+})
+```
 
 
 <div class="callToAction"><a href="/contactMe.html"><button type="button">Contact Me</button></a></div>
@@ -184,7 +460,7 @@ $\mathbfcal{Thank}$ $\mathbfcal{you}$ $\mathbfcal{for}$ $\mathbfcal{viewing}$ $\
       render: h => h('Vssue', {
         props: {
           // here set the title of issue of current page
-          title: 'Vssue_article_03',
+          title: 'Vssue_article_04',
 
           // here set the options for your OAuth App
           options: {

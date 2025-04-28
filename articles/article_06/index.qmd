@@ -1,28 +1,113 @@
 ---
-title: CSS Image Zoom on Hover
+title: Animating an SVG Path for a Logo
 author: Rhys Tilford
-date: 11/18/2023
-image: ListingScreenshot.png
-categories: [CSS, HTML, Programming, Quarto]
+date: 11/19/2023
+image: LogoSVGPathScreenshot.png
+categories: [CSS, HTML, Quarto, Major Enhancement]
 ---
 
 ### Introduction
 
-I wanted to make some slick effects for the website so it looks more professional. I found a tutorial on pinterest for a zoom effect on hover. However, I ran into several problems when I applied the code so I will show how I fixed those problems here.
+In the spring of 2018, I decided that I needed to create a unique signature that I could write quickly. This all came about because I was taking a dual credit art course at Georgetown College and I needed a symbol to sign my work. I wanted that this signature to be my initials to help make the symbol swifter to reproduce. After much trial and error I created a style that I liked and began to apply it in my drawings for the college course.
 
-### Finding the Element
-In order to make any changes to the element we have to find it's container. To do this we need to open the developer tools our browser while we are viewing the webpage we want to modify.
+Sometime later, I began to see use for the symbol in new venues. I used the symbol when writing letters, signing for purchases, and even as a substitute for *Q.E.D.* at the end of Mathematical proofs. It was then that I began to see the symbol as an accessory to my identity and an increasingly important part of my brand.
 
+Recently, I decided it would be useful to create a version of my signature in a digital form so I could apply it in digital mediums of communication. This project is the product of that decision.
 
+### Creating the SVG Logo
 
+After debating between different types of images, I decided to make the signature as an SVG path. This format is especially versatile because it can be resized without degrading the image it self. This is accomplished with an elaborate list of vectors which can be resized as needed. In fact, the acronym *SVG* stands for *Scaleable Vector Graphic*.
 
+The language used to create an SVG is very complicated so for the sake of time I decided to build my signature in a [visual SVG path editor](https://yqnn.github.io/svg-path-editor/). This free interface makes it very easy to build a path by dragging the points of each line segment to the desired location.
 
-### Citation
+### Replacing the Default Logo with the Custom SVG
 
-```{=html}
-<iframe src="https://assets.pinterest.com/ext/embed.html?id=984318062294243327" height="520" width="236" frameborder="0" scrolling="no" ></iframe>
+To replace the default branding with my signature, I needed to find out where quarto found the title for the site in the `_quarto.yml` file. Luckily, someone else has tried changing the logo of their quarto website as well. This [site](https://ellakaye.co.uk/posts/2023-04-11_animated-logo/) developed by Ella Kaye has a lovely tutorial on putting a custom logo in the yaml setup material. The key is to place the html reference in the navbar title reference as depicted here.
+
+Notice that the HTML code in [this yaml chunk](#yaml-code) does not include any styling options for the path. These will be added in the CSS file. This is why it is very important that the svg tag have a specific class. If it did not, the styling rules we will use in our CSS file would apply to all svg tags in the website.
+
+Immediately, I ran into some issues. The default title was gone but my signature was no where to be found. After trial, error, blood, sweat, and tears, I found one setting that hid the signature from me.
+
+##### Overflow
+The problem was with the overflow settings. By default the parent tags of the path were set to keep the overflow hidden. All I had to do was add a reference to each parent tag in the CSS file with the contents `overflow: visible;` as shown in [this code chunk](#css-code).
+
+### Adjusting the Sizing and Location
+The HTML code does include use the `viewbox` attribute in the SVG tag. The path is a child of the SVG element but the path only holds data and styling information. The SVG tag is the one that holds all the sizing and location information. That is stored in the `viewbox` attribute. It is a list of four entries:
+
+ - `Min-x`: The x-coordinate of the top left corner.
+ - `Min-y`: The y-coordinate of the top left corner.
+ - `Width` of the viewport.
+ - `Height` of the viewport.
+
+The `Width` and `Height` variables are fairly self-explanatory but `Min-x` and `Min-y` are worth discussing in more depth. These two coodinates set the position of the view port. We can imagine the viewport as our screen when we've zoomed in really close in the [svg path editor](https://yqnn.github.io/svg-path-editor/) and maneuvered the graph so that the point we see in the top left corner of our screen has the coordinates (Min-x, Min-y).
+
+### Creating the Animation
+
+Creating the animation is one of the more straight forward parts of this project. We will focus on two path attributes:
+
+ - `stroke-dasharray`
+    - This command creates a series of dashes interspersed with blank spaces of equal length along the path. It takes one numeric argument representing the length of each dash.
+ - `stroke-dashoffset`
+    - This command allows the programmer to *move* the series of dashes forward or backward along the path. it takes one numeric argument representing the distance that the series of dashes should be moved.
+
+For a visual and interactive example of these two commands in action, check out [this tutorial from Cassie Codes](https://www.cassie.codes/posts/creating-my-logo-animation/).
+
+This animation is built by choosing a value for `stroke-dasharray` (the length of each dash) wide enough to make it so one dash can entirely fill the path. The space would also fill the path since the length of each dash is equal to the length of each space.
+
+The next trick of this animation is finding the two values of `stroke-dashoffset` where the path is entirely full and another where it is entirely space. Then we can use the commands `animation` and `@keyframes` as seen in the [css code](#css-code) to create the animation.
+
+### Brighten on Hover
+
+The the color of my logo brightens slightly when the mouse hovers over it. This was accomplished by creating a css rule for the path element that only activates when the mouse is hovering over the div tag with the class `navbar-brand-container`.
+
+### CSS Code
+
+```CSS
+svg.logo path {
+    fill: none;
+    overflow: visible;
+    stroke: rgba(255,255,255,.7);
+    stroke-width: 2;
+    stroke-dasharray: 1800;
+    stroke-dashoffset: 1800;
+    animation: draw 1.5s linear forwards;
+    d: path("M-116-126C-116-94-118-31-109 1-99 42-83 63-62 81-49 93-30 103-10 103 14 103 30 95 38 71Q46 39 29.927 15.408C29 14 27 11 21.642 10.618 17.841 10.238 14 12 12 15 10 18 9.783 22.63 11.455 25.062 12.899 27.267 14.724 28.483 17.765 29.319 22 30 23.846 29.699 28.255 27.039 40 19 42 15 50 11 54 9 60 9 64 11 68 13 70 15 72 19 74 25 73 28 70 31 66 35 60 38 54 41 47 45 46 54 46 59 46 64 49.009 73.411 51.061 76.984 55 84 60 89 64 92 69 96 76 103 98 103 112 103 120 97 122 95 124 93 130 88 134 79 138 68 140 61 140 53 140 45 140 33 138 27 136 21.6666 132 13 122 11 112 9 106 11 102 15 98 19 96 25 98 31 100 37 104 41 116 43 128 45 144 45 160 39 178 33 190.242 25.396 201 6 205.333-1.489 209-13 211-23Q215.994-45.639 217.126-66.771C218-84 219-93 219-119")
+}
+
+@keyframes draw {
+    to  {
+        stroke-dashoffset: 0;
+    }
+}
+
+div.navbar-brand-container:hover path {
+    stroke: rgba(255,255,255,.8);
+}
+
+svg.logo{
+    overflow: visible;
+}
+
+.navbar-title {
+    overflow: visible;
+    padding: 25px;
+}
+
+.navbar-brand {
+    overflow: visible;
+    padding: 15px;
+}
 ```
 
+### Yaml Code
+
+```yaml
+website:
+  title: "personal-rhys-tilford"
+  site-url: "https://rctilford.github.io/personal-rhys-tilford/"
+  navbar:
+    title: "<svg class='logo' viewbox='65 55 100 10'><path></path></svg>"
+```
 
 <div class="callToAction"><a href="/contactMe.html"><button type="button">Contact Me</button></a></div>
 
@@ -49,7 +134,7 @@ In order to make any changes to the element we have to find it's container. To d
       render: h => h('Vssue', {
         props: {
           // here set the title of issue of current page
-          title: 'Vssue_article_06',
+          title: 'Vssue_article_07',
 
           // here set the options for your OAuth App
           options: {

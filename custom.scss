@@ -35,35 +35,28 @@ $footer-fg: #b87333;
   font-style: normal;
 }
 
-@font-face {
-    font-family: 'GoogleSans';
-    src: url('fonts/GoogleSans.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
 h1 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 h2 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 h3 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 h4 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 h5 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 h6 {
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
 }
 
 body {
@@ -347,7 +340,7 @@ footer.footer {
 .quarto-title .quarto-categories .quarto-category {
     border-radius: 0.75rem !important;
     text-transform: none;
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
     transition:  0.25s;
 }
 
@@ -373,7 +366,7 @@ footer.footer {
 .quarto-grid-item .listing-categories .listing-category {
     border-radius: 0.75rem !important;
     text-transform: none;
-    font-family: "GoogleSans";
+    font-family: "Quicksand";
     transition: all 0.25s;
 }
 

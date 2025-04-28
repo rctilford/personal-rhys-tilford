@@ -2,15 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Rhys Tilford">
-<meta name="dcterms.date" content="2023-11-05">
-<meta name="description" content="Read about how I used javascript to populate and sort an HTML table.">
+<meta name="dcterms.date" content="2023-11-08">
+<meta name="description" content="Read my presentation of everything I have learned about the Cantor Set.">
 
-<title>personal-rhys-tilford - Sorting an HTML Table</title>
+<title>Cantor Set Presentation – personal-rhys-tilford</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -83,7 +49,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -92,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -108,6 +81,35 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 </script>
 <script src="./js/getYear.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -115,57 +117,47 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title"><svg class="logo" viewbox="-60 -65 250 250"><path></path><circle id="c1"></circle><circle id="c2"></circle><circle id="c3"></circle></svg></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html" rel="" target="">
- <span class="menu-text">Lore</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">Lore</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../articles/index.html" rel="" target="">
- <span class="menu-text">Articles</span></a>
+    <a class="nav-link" href="../../articles/index.html"> 
+<span class="menu-text">Articles</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/rhystilford" rel="" target="_blank"><i class="bi bi-linkedin" role="img">
+    <a class="nav-link" href="https://www.linkedin.com/in/rhystilford" target="_blank"> <i class="bi bi-linkedin" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rctilford" rel="" target="_blank"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/rctilford" target="_blank"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://www.instagram.com/rctilford" rel="" target="_blank"><i class="bi bi-instagram" role="img">
-</i> 
- <span class="menu-text"></span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10" rel="" target="_blank"><i class="bi bi-spotify" role="img">
-</i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
+          </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
-          </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -178,13 +170,9 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#the-data-input" id="toc-the-data-input" class="nav-link active" data-scroll-target="#the-data-input">The Data Input</a></li>
-  <li><a href="#step-1.-making-the-table" id="toc-step-1.-making-the-table" class="nav-link" data-scroll-target="#step-1.-making-the-table">Step 1. Making the Table</a></li>
-  <li><a href="#step-2.-initializing-button-elements" id="toc-step-2.-initializing-button-elements" class="nav-link" data-scroll-target="#step-2.-initializing-button-elements">Step 2. Initializing Button Elements</a></li>
-  <li><a href="#step-3.-initialize-all-buttons" id="toc-step-3.-initialize-all-buttons" class="nav-link" data-scroll-target="#step-3.-initialize-all-buttons">Step 3. Initialize All Buttons</a></li>
-  <li><a href="#step-4.-create-event-listeners" id="toc-step-4.-create-event-listeners" class="nav-link" data-scroll-target="#step-4.-create-event-listeners">Step 4. Create Event Listeners</a></li>
-  <li><a href="#step-5.-functions-for-sorting" id="toc-step-5.-functions-for-sorting" class="nav-link" data-scroll-target="#step-5.-functions-for-sorting">Step 5. Functions for Sorting</a></li>
-  <li><a href="#if-you-would-like-to-see-the-code-in-action-click-here." id="toc-if-you-would-like-to-see-the-code-in-action-click-here." class="nav-link" data-scroll-target="#if-you-would-like-to-see-the-code-in-action-click-here.">If you would like to see the code in action click here.</a></li>
+  <li><a href="#the-definition" id="toc-the-definition" class="nav-link active" data-scroll-target="#the-definition">The Definition</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#proving-key-properties" id="toc-proving-key-properties" class="nav-link" data-scroll-target="#proving-key-properties">Proving Key Properties</a></li>
   </ul>
 </nav>
     </div>
@@ -193,17 +181,16 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Sorting an HTML Table</h1>
+<h1 class="title">Cantor Set Presentation</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">HTML</div>
-    <div class="quarto-category">JS</div>
-    <div class="quarto-category">Programming</div>
+    <div class="quarto-category">Education</div>
+    <div class="quarto-category">Math</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    Read about how I used javascript to populate and sort an HTML table.
+    Read my presentation of everything I have learned about the Cantor Set.
   </div>
 </div>
 
@@ -220,7 +207,7 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">November 5, 2023</p>
+      <p class="date">November 8, 2023</p>
     </div>
   </div>
   
@@ -228,116 +215,24 @@ gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
   </div>
   
 
+
 </header>
 
-<section id="the-data-input" class="level3">
-<h3 class="anchored" data-anchor-id="the-data-input">The Data Input</h3>
-<p>For this challenge, we recieved an array of objects that contained metadata about artists who perform a music genre known as bhangra. Each object contained the three attributes:</p>
-<ul>
-<li><em>name</em> referring to the name of each artist.</li>
-<li><em>birthYear</em> referring to the year each artist was born.</li>
-<li><em>link</em> referring to a youtube link for a video of that artist’s work.</li>
-</ul>
-<section id="this-is-the-array-we-were-given." class="level5">
-<h5 class="anchored" data-anchor-id="this-is-the-array-we-were-given.">This is the array we were given.</h5>
-<div class="sourceCode" id="cb1"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> artists <span class="op">=</span> [</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Ms Scandalous"</span><span class="op">,</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthYear</span><span class="op">:</span> <span class="dv">1985</span><span class="op">,</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">link</span><span class="op">:</span> <span class="st">"https://www.youtube.com/watch?v=2FPivlfvxu0"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Juggy D"</span><span class="op">,</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthYear</span><span class="op">:</span> <span class="dv">1981</span><span class="op">,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">link</span><span class="op">:</span> <span class="st">"https://www.youtube.com/watch?v=1jAc_-FVjdI"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Sukhbir Singh"</span><span class="op">,</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthYear</span><span class="op">:</span> <span class="dv">1969</span><span class="op">,</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">link</span><span class="op">:</span> <span class="st">"https://www.youtube.com/watch?v=HiprNF9Jad0"</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Abrar-ul-Haq"</span><span class="op">,</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthYear</span><span class="op">:</span> <span class="dv">1989</span><span class="op">,</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">link</span><span class="op">:</span> <span class="st">"https://www.youtube.com/watch?v=-lnnVIP7FEc"</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  }<span class="op">,</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  {</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">name</span><span class="op">:</span> <span class="st">"Rishi Rich"</span><span class="op">,</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">birthYear</span><span class="op">:</span> <span class="dv">1970</span><span class="op">,</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="dt">link</span><span class="op">:</span> <span class="st">"https://www.youtube.com/watch?v=O95-w2gACuA"</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<section id="the-definition" class="level3">
+<h3 class="anchored" data-anchor-id="the-definition">The Definition</h3>
+<blockquote class="blockquote">
+<p><strong>11.1.10 Definition</strong> The <strong>Cantor set</strong> <span class="math inline">\(\mathbb{F}\)</span> is the intersection of the sets <span class="math inline">\(F_n,n\in\mathbb{N}\)</span>, obtained by successive removal of open middle thirds, starting with <span class="math inline">\([0,1]\)</span>.</p>
+<p>– <cite>Intro to Real Analysis: Bartle and Sherbert (p.&nbsp;331)</cite></p>
+</blockquote>
 </section>
-</section>
-<section id="step-1.-making-the-table" class="level3">
-<h3 class="anchored" data-anchor-id="step-1.-making-the-table">Step 1. Making the Table</h3>
-<p>First, the students must populate a given table element to hold the data. We chose to accomplish this by systematically accumulating HTML tags as string surrounding metadata from the array and inserting the accumulation into the table element.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">populateTable</span>(array) {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> table <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">'bhangra'</span>)<span class="op">;</span> <span class="co">// this code selects the table</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="co">// declare a string to hold the inner HTML code for the table</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> contents <span class="op">=</span> <span class="st">"&lt;tbody&gt;"</span><span class="op">;</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co">// add the header row</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  contents <span class="op">+=</span> <span class="vs">`&lt;tr&gt;&lt;th&gt;name&lt;/th&gt;`</span><span class="op">;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  contents <span class="op">+=</span> <span class="vs">`&lt;th&gt;birthyear&lt;/th&gt;`</span><span class="op">;</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  contents <span class="op">+=</span> <span class="vs">`&lt;th&gt;link&lt;/th&gt;&lt;/tr&gt;`</span><span class="op">;</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  array<span class="op">.</span><span class="fu">forEach</span>(<span class="kw">function</span> (artist) {</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">+=</span> <span class="vs">`&lt;tr&gt;`</span><span class="op">;</span> <span class="co">// open the row</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">+=</span> <span class="vs">`&lt;td&gt;</span><span class="sc">${</span>artist<span class="op">.</span><span class="at">name</span><span class="sc">}</span><span class="vs">&lt;/td&gt;`</span><span class="op">;</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">+=</span> <span class="vs">`&lt;td&gt;</span><span class="sc">${</span>artist<span class="op">.</span><span class="at">birthYear</span><span class="sc">}</span><span class="vs">&lt;/td&gt;`</span><span class="op">;</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">+=</span> <span class="vs">`&lt;td&gt;&lt;a href= "</span><span class="sc">${</span>artist<span class="op">.</span><span class="at">link</span><span class="sc">}</span><span class="vs">" target="_blank"&gt;</span><span class="sc">${</span>artist<span class="op">.</span><span class="at">link</span><span class="sc">}</span><span class="vs">&lt;/a&gt;&lt;/td&gt;`</span><span class="op">;</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    contents <span class="op">+=</span> <span class="vs">`&lt;/tr&gt;`</span><span class="op">;</span> <span class="co">// close the row</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  })</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co">// close out the body of the table</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  contents <span class="op">+=</span> <span class="st">"&lt;/tbody&gt;"</span><span class="op">;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  table<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> contents<span class="op">;</span> <span class="co">// this code populates the table with the contents string</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co">// call the function to populate the table</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">populateTable</span>(artists)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-2.-initializing-button-elements" class="level3">
-<h3 class="anchored" data-anchor-id="step-2.-initializing-button-elements">Step 2. Initializing Button Elements</h3>
-<p>Second, we created a general function for creating button elements.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createButton</span>(id<span class="op">,</span> label<span class="op">,</span> parent) {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">// create a new button element</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> newbutton <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">"button"</span>)<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co">// add the text to the button</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  newbutton<span class="op">.</span><span class="at">innerText</span> <span class="op">=</span> label<span class="op">;</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="co">// add the id to the button</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  newbutton<span class="op">.</span><span class="at">id</span> <span class="op">=</span> id<span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">// append the button to the parent</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  parent<span class="op">.</span><span class="fu">appendChild</span>(newbutton)<span class="op">;</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="co">// return the button</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> newbutton<span class="op">;</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-3.-initialize-all-buttons" class="level3">
-<h3 class="anchored" data-anchor-id="step-3.-initialize-all-buttons">Step 3. Initialize All Buttons</h3>
-<p>Third we used the <code>createButton()</code> function to make buttons for each of the sorting actions we want to enable.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> nameButton <span class="op">=</span> <span class="fu">createButton</span>(<span class="st">"name-button"</span><span class="op">,</span> <span class="st">"Sort by Name"</span><span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"sorting"</span>))<span class="op">;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> yearButton <span class="op">=</span> <span class="fu">createButton</span>(<span class="st">"year-button"</span><span class="op">,</span> <span class="st">"Sort by Year"</span><span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"sorting"</span>))<span class="op">;</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> randomButton <span class="op">=</span> <span class="fu">createButton</span>(<span class="st">"random-button"</span><span class="op">,</span> <span class="st">"Shuffle"</span><span class="op">,</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"sorting"</span>))<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-4.-create-event-listeners" class="level3">
-<h3 class="anchored" data-anchor-id="step-4.-create-event-listeners">Step 4. Create Event Listeners</h3>
-<p>Fourth, we needed to create event listeners for each button so the javascript code to sort the data would run when the buttons are pressed.</p>
+<section id="visualization" class="level3">
+<h3 class="anchored" data-anchor-id="visualization">Visualization</h3>
+<script crossorigin="" src="https://unpkg.com/wolfram-notebook-embedder@0.3/dist/wolfram-notebook-embedder.min.js"></script>
+<div id="WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437">
+
+</div>
+<script>WolframNotebookEmbedder.embed("https://www.wolframcloud.com/obj/demonstrations/CantorSet-source.nb",document.getElementById("WNE-div-fbd3d6af-86fb-4c0a-a478-71092d7c0437"));</script>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -348,61 +243,187 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The functions referrenced in each event listener are referenced later in the document. This is not problematic because JavaScript uses asynchronous programming.</p>
+<p>This visual is generated from the Wolfram Cloud: Use <a href="https://www.wolframcloud.com/objects/demonstrations/CantorSet-source.nb">this</a> link to access it.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nameButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  artists<span class="op">.</span><span class="fu">sort</span>(byName)<span class="op">;</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>yearButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  artists<span class="op">.</span><span class="fu">sort</span>(byYear)<span class="op">;</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>randomButton<span class="op">.</span><span class="fu">addEventListener</span>(<span class="st">'click'</span><span class="op">,</span> <span class="kw">function</span> () {</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  artists<span class="op">.</span><span class="fu">sort</span>(shuffle)<span class="op">;</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="step-5.-functions-for-sorting" class="level3">
-<h3 class="anchored" data-anchor-id="step-5.-functions-for-sorting">Step 5. Functions for Sorting</h3>
-<p>Fifth and finally, we needed to create a function for each sort method.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// first a function to sort by name:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">byName</span>(a<span class="op">,</span> b) {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">populateTable</span>(artists<span class="op">.</span><span class="fu">sort</span>(<span class="kw">function</span> (a<span class="op">,</span> b) {</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a<span class="op">.</span><span class="at">name</span> <span class="op">&lt;</span> b<span class="op">.</span><span class="at">name</span>) <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a<span class="op">.</span><span class="at">name</span> <span class="op">&gt;</span> b<span class="op">.</span><span class="at">name</span>) <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  }))<span class="op">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">// second a function to sort by year:</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">byYear</span>(a<span class="op">,</span> b) {</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">populateTable</span>(artists<span class="op">.</span><span class="fu">sort</span>(<span class="kw">function</span> (a<span class="op">,</span> b) {</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a<span class="op">.</span><span class="at">birthYear</span> <span class="op">&lt;</span> b<span class="op">.</span><span class="at">birthYear</span>) <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (a<span class="op">.</span><span class="at">birthYear</span> <span class="op">&gt;</span> b<span class="op">.</span><span class="at">birthYear</span>) <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  }))<span class="op">;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">// third a function to shuffle the rows:</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">shuffle</span>() {</span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> artists<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) {</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>      <span class="kw">let</span> j <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">floor</span>(<span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> (i <span class="op">+</span> <span class="dv">1</span>))<span class="op">;</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>      [artists[i]<span class="op">,</span> artists[j]] <span class="op">=</span> [artists[j]<span class="op">,</span> artists[i]]<span class="op">;</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">populateTable</span>(artists)<span class="op">;</span></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>Some parts of the above code were adapted from suggestions by Github Copilot.</em></p>
+<section id="proving-key-properties" class="level3">
+<h3 class="anchored" data-anchor-id="proving-key-properties">Proving Key Properties</h3>
+<section id="property-1-the-total-length-of-the-removed-intervals-is-1" class="level5">
+<h5 class="anchored" data-anchor-id="property-1-the-total-length-of-the-removed-intervals-is-1">Property 1: The total length of the removed intervals is 1</h5>
+<section id="proof" class="level6">
+<h6 class="anchored" data-anchor-id="proof">Proof:</h6>
+<ul>
+<li><strong><em>Goal:</em></strong>
+<ul>
+<li>Find the total length of the removed intervals.</li>
+</ul></li>
+<li><strong><em>Resources:</em></strong>
+<ul>
+<li><strong>Formula for the Geometric Series:</strong> <span class="math inline">\(\sum_{i=0}^{\infty}ar^i=\frac{a}{1-r}\)</span></li>
+</ul></li>
+<li><strong><em>Strategy:</em></strong>
+<ul>
+<li>We will construct a convergent geometric series of the lengths of the removed open middle thirds.</li>
+</ul></li>
+<li><strong><em>Method:</em></strong>
+<ul>
+<li><strong>First:</strong> We see from the visual that the length of the removed open middle thirds is the series: <span class="math inline">\(\frac{1}{3}+\frac{2}{9}+\frac{4}{27}+\frac{8}{81}+...\)</span></li>
+<li><strong>Second:</strong> Let’s work with the denominator: <span class="math inline">\(=\frac{1}{3^1}+\frac{2}{3^2}+\frac{4}{3^3}+\frac{8}{3^4}+...\)</span></li>
+<li><strong>Third:</strong> Now we can tackle the numerator: <span class="math inline">\(=\frac{2^0}{3^1}+\frac{2^1}{3^2}+\frac{2^2}{3^3}+\frac{2^3}{3^4}+...\)</span></li>
+<li><strong>Fourth:</strong> Now we have what we need to build a series: <span class="math inline">\(=\sum_{i=0}^{\infty}{\frac{2^i}{3^{(i+1)}}}\)</span></li>
+<li><strong>Fifth:</strong> We note that this isn’t quite a geometric series though. We’ll do some quick simplification to remedy this. We start by rewriting the denominator with exponent rules: <span class="math inline">\(=\sum_{i=0}^{\infty}{\frac{2^i}{3*3^i}}\)</span></li>
+<li><strong>Sixth:</strong> Now we can pull the constant multiple outside the sum: <span class="math inline">\(=\frac{1}{3}*\sum_{i=0}^{\infty}{\Bigl(\frac{2}{3}\Bigr)^i}\)</span></li>
+<li><strong>Seventh:</strong> Next we will apply the formula for the sum of a geometric series: <span class="math inline">\(=\frac{1}{3}*\frac{1}{1-\frac{2}{3}}\)</span></li>
+<li><strong>Eighth:</strong> With some simplification we find that the sum is infact <span class="math inline">\(1\)</span>: <span class="math inline">\(=\frac{1}{3}*\frac{1}{\frac{1}{3}}=\frac{3}{3}=1\)</span></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\mathbfcal{Here}\)</span> <span class="math inline">\(\mathbfcal{Endeth}\)</span> <span class="math inline">\(\mathbfcal{The}\)</span> <span class="math inline">\(\mathbfcal{Proofeth}\)</span></p>
 </section>
-<section id="if-you-would-like-to-see-the-code-in-action-click-here." class="level3">
-<h3 class="anchored" data-anchor-id="if-you-would-like-to-see-the-code-in-action-click-here.">If you would like to see the code in action click <a href="https://rctilford.github.io/CSC324/">here</a>.</h3>
+</section>
+<section id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset" class="level5">
+<h5 class="anchored" data-anchor-id="property-2-the-cantor-set-mathbbf-contains-no-nonempty-open-interval-as-a-subset">Property 2: The Cantor set <span class="math inline">\(\mathbb{F}\)</span> contains no nonempty open interval as a subset</h5>
+<section id="proof-1" class="level6">
+<h6 class="anchored" data-anchor-id="proof-1">Proof:</h6>
+<ul>
+<li><strong><em>Goal</em></strong>
+<ul>
+<li>Show that there exists no nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span></li>
+</ul></li>
+<li><strong><em>Strategy</em></strong>
+<ul>
+<li>We will assume that there is a nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span> and then do math stuff until we find a contradiction.</li>
+</ul></li>
+<li><strong><em>Method</em></strong>
+<ul>
+<li><strong>First:</strong> We assume there is some nonempty open interval <span class="math inline">\(C:=(a,b)\)</span> in <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li><strong>Second</strong> We recall that <span class="math inline">\(\mathbb{F}\)</span> is the intersection of <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.
+<ul>
+<li>So <span class="math inline">\(C\)</span> must be a subset of <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
+</ul></li>
+<li><strong>Third:</strong> We want to make a statement the length of <span class="math inline">\(C\)</span> So we assemble the following facts:
+<ul>
+<li>We know <span class="math inline">\(0&lt;b-a\)</span> from the fact that <span class="math inline">\(C\)</span> is nonempty.</li>
+<li>we know <span class="math inline">\(b-a\leq\Bigl(\frac{2}{3}\Bigr)^n\)</span> from the fact that the length of <span class="math inline">\(C\)</span> can never be greater than the length of the remaining closed intervals in each <span class="math inline">\(\mathbb{F}_n\)</span> for all <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
+</ul></li>
+<li><strong>Fourth:</strong> We pull all the facts from Step <span class="math inline">\(3\)</span> together to get: <span class="math inline">\(0&lt;b-a\leq\Bigl(\frac{2}{3}\Bigr)^n\)</span>.</li>
+<li><strong>Fifth:</strong> We recall that <span class="math inline">\(\lim_{n\rightarrow\infty}\Bigl(\frac{2}{3}\Bigr)^n=0\)</span>.</li>
+<li><strong>Sixth:</strong> Step <span class="math inline">\(5\)</span> shows why the inequality from Step <span class="math inline">\(4\)</span> is going to be an issue.
+<ul>
+<li>If we take the limit of the whole inequality we get <span class="math inline">\(0&lt;b-a\leq0\)</span> which is a contradiction <a href="shock.html"><span class="math inline">\(\bigstar\)</span></a>.</li>
+</ul></li>
+<li><strong>Seventh:</strong> Since we have found our contradiction, we can eliminate one assumption we used to get here and conclude its negation. We will conclude that there is no nonempty open interval in <span class="math inline">\(\mathbb{F}\)</span>.</li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\mathbfcal{Periodt}\)</span> <span class="math inline">\(\mathbfcal{*snaps}\)</span> <span class="math inline">\(\mathbfcal{fingers}\)</span> <span class="math inline">\(\mathbfcal{with}\)</span> <span class="math inline">\(\mathbfcal{moxie*}\)</span></p>
+</section>
+</section>
+<section id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points" class="level5">
+<h5 class="anchored" data-anchor-id="property-3-the-cantor-set-mathbbf-has-infinitely-even-uncountably-many-points">Property 3: The Cantor set <span class="math inline">\(\mathbb{F}\)</span> has infinitely (even uncountably) many points</h5>
+<section id="a-little-bit-about-bases" class="level6">
+<h6 class="anchored" data-anchor-id="a-little-bit-about-bases">A little bit about bases:</h6>
+<p>We know the Cantor set has all of the points of the form <span class="math inline">\(\frac{2^k}{3^n}\)</span> where k iterates over all the natural numbers less than or equal to n, for every <span class="math inline">\(n\in\mathbb{N}\)</span>. For example:</p>
+<ul>
+<li>When <span class="math inline">\(n=1\)</span> we have <span class="math inline">\(4\)</span> key points:
+<ul>
+<li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, and <span class="math inline">\(1\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(n=2\)</span> we have <span class="math inline">\(8\)</span> key points:
+<ul>
+<li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{9}\)</span>, <span class="math inline">\(\frac{2}{9}\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, <span class="math inline">\(\frac{7}{9}\)</span>, <span class="math inline">\(\frac{8}{9}\)</span>, and <span class="math inline">\(1\)</span></li>
+</ul></li>
+<li>When <span class="math inline">\(n=3\)</span> we have <span class="math inline">\(16\)</span> key points:
+<ul>
+<li><span class="math inline">\(0\)</span>, <span class="math inline">\(\frac{1}{27}\)</span>, <span class="math inline">\(\frac{2}{27}\)</span>, <span class="math inline">\(\frac{1}{9}\)</span>, <span class="math inline">\(\frac{2}{9}\)</span>, <span class="math inline">\(\frac{7}{27}\)</span>, <span class="math inline">\(\frac{8}{27}\)</span>, <span class="math inline">\(\frac{1}{3}\)</span>, <span class="math inline">\(\frac{2}{3}\)</span>, <span class="math inline">\(\frac{19}{27}\)</span>, <span class="math inline">\(\frac{20}{27}\)</span>, <span class="math inline">\(\frac{7}{9}\)</span>, <span class="math inline">\(\frac{8}{9}\)</span>, <span class="math inline">\(\frac{25}{27}\)</span>, <span class="math inline">\(\frac{26}{27}\)</span>, and <span class="math inline">\(1\)</span></li>
+</ul></li>
+</ul>
+<p>One thing to note about all of these points is that we can convert them into a base three system for more clarity.</p>
+<p>Our base ten system operates as follows (we will use <span class="math inline">\(\frac{8}{27}\)</span> for this example):</p>
+<p><span class="math display">\[
+\frac{8}{27}=0. \overline{296} =2\frac{1}{10}+9\frac{1}{100}+6\frac{1}{1000}+2\frac{1}{10000}+9\frac{1}{100000}+6\frac{1}{1000000}+...
+\]</span></p>
+<p>Note that the denominators are all powers of ten.</p>
+<p>For this example the decimal number goes off into infinity. Most of the other points of the Cantor set do as well.</p>
+<p>Alternatively, here is <span class="math inline">\(\frac{8}{27}\)</span> in a base three system:</p>
+<p><span class="math display">\[
+\frac{8}{27}=0\frac{1}{3^0}+0\frac{1}{3^1}+2\frac{1}{3^2}+2\frac{1}{3^3}=(0.022)_3
+\]</span></p>
+<p>To find this we first try to check how many <span class="math inline">\(27s\)</span> are in <span class="math inline">\(8\)</span>. Upon finding none, we write the first term <span class="math inline">\(0\frac{1}{3^0}\)</span>. Now we multiply <span class="math inline">\(8\)</span> and <span class="math inline">\(3\)</span> to get <span class="math inline">\(24\)</span>. Again, we check how many <span class="math inline">\(27s\)</span> are in <span class="math inline">\(24\)</span>. Upon finding none, we write the second term <span class="math inline">\(0\frac{1}{3^1}\)</span>. Now we multiply <span class="math inline">\(24\)</span> and <span class="math inline">\(3\)</span> to get <span class="math inline">\(72\)</span>. Now we actually find <span class="math inline">\(2\)</span> <span class="math inline">\(27s\)</span> in <span class="math inline">\(72\)</span>. so we write the third term <span class="math inline">\(2\frac{1}{3^2}\)</span>. Now, since we found some <span class="math inline">\(27s\)</span>, we subtract <span class="math inline">\(2*27\)</span> from <span class="math inline">\(72\)</span> to get <span class="math inline">\(18\)</span> and multiply <span class="math inline">\(18\)</span> by <span class="math inline">\(3\)</span> to get <span class="math inline">\(54\)</span>. Now we find exactly two <span class="math inline">\(27s\)</span> in <span class="math inline">\(54\)</span> so we finish by writing the fourth term <span class="math inline">\(2\frac{1}{3^3}\)</span>.</p>
+<p>In fact, we can apply the method above to write any <span class="math inline">\(x\in[0,1]\)</span> in base 3 form using only the numbers <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(2\)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\frac{8}{27}\)</span> is written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span>. This is significant because it is one of the endpoints of the intervals in the Cantor set. We can gather from this that all points in any element of the Cantor set will be written with <span class="math inline">\(0s\)</span> and <span class="math inline">\(2s\)</span> because the <span class="math inline">\(1s\)</span> correspond to the open middle thirds.</p>
+</div>
+</div>
+<p>Now we will write this more formally:</p>
+<p><span class="math display">\[
+x=\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}=(0.a_1a_2...a_n...)_3
+\]</span></p>
+<p><em>where each <span class="math inline">\(a_n\)</span> is either <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, or <span class="math inline">\(2\)</span>.</em></p>
+<p>Now that we know it can be written as a decimal, we will go on to the proof.</p>
+</section>
+</section>
+<section id="proof-2" class="level5">
+<h5 class="anchored" data-anchor-id="proof-2">Proof</h5>
+<ul>
+<li><strong><em>Goal:</em></strong>
+<ul>
+<li>Show that the Cantor set is uncountably infinite.</li>
+</ul></li>
+<li><strong><em>Resources:</em></strong>
+<ul>
+<li><strong>Theorem 1.3.10:</strong> <em>The following statements are equivalent:</em>
+<ul>
+<li><strong>(a)</strong> <em>S is a countable set.</em></li>
+<li><strong>(b)</strong> <em>There exists a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto S.</em></li>
+<li><strong>(c)</strong> <em>There exists an injection of S into <span class="math inline">\(\mathbb{N}\)</span></em></li>
+</ul></li>
+<li><strong>Theorem 2.5.5:</strong> <em>The unit interval <span class="math inline">\([0,1]:=\{x\in\mathbb{R}:0\leq x\leq1\}\)</span> is not countable.</em></li>
+</ul></li>
+<li><strong><em>Strategy:</em></strong>
+<ul>
+<li>We will assume the Cantor set is countable and look for a contradiction.</li>
+</ul></li>
+<li><strong><em>Method:</em></strong>
+<ul>
+<li><strong>First:</strong> We assume that the Cantor set <span class="math inline">\(\mathbb{F}\)</span> is countably infinite.
+<ul>
+<li>In other words, we assume <span class="math inline">\(\mathbb{F}\)</span> can be put in bijection with <span class="math inline">\(\mathbb{N}\)</span>.</li>
+</ul></li>
+<li><strong>Second:</strong> We recall that any point <span class="math inline">\(x\in[0,1]\)</span> can be written as a base three expansion consisting only of the digits <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, and <span class="math inline">\(2\)</span>.</li>
+<li><strong>Third:</strong> According to <a href="https://proofwiki.org/wiki/Representation_of_Ternary_Expansions">Proof Wiki</a>, it is not possible for a real number in base 3 notation to be written in more than one way without using the digit <span class="math inline">\(1\)</span>.
+<ul>
+<li>This is a useful fact because the inputs of a bijective function are unique.</li>
+</ul></li>
+<li><strong>Fourth:</strong> We want to define a function with the following parts:
+<ul>
+<li>Domain: All elements of <span class="math inline">\([0,1]\)</span> that can be written without using <span class="math inline">\(1\)</span>. Psst… This domain is <span class="math inline">\(\mathbb{F}\)</span>.</li>
+<li>Range: All elements of <span class="math inline">\([0,1]\)</span>.</li>
+<li>Notation: <span class="math inline">\(f\Bigl(\sum^{\infty}_{n=1}{\frac{a_n}{3^n}}\Bigr)=\sum^{\infty}_{n=1}{\frac{\frac{a_n}{2}}{2^n}}\)</span>
+<ul>
+<li><em>Note:</em> The output of the function is in binary.</li>
+</ul></li>
+</ul></li>
+<li><strong>Fifth:</strong> So <span class="math inline">\(f\)</span> is a surjection of <span class="math inline">\(\mathbb{F}\)</span> onto <span class="math inline">\([0,1]\)</span>.</li>
+<li><strong>Sixth:</strong> We can now pull in our assumption that <span class="math inline">\(\mathbb{F}\)</span> is countable along with <em>Theorem 1.3.10</em> to show that there exists a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto <span class="math inline">\(\mathbb{F}\)</span>.
+<ul>
+<li>We’ll call this function <span class="math inline">\(g\)</span>.</li>
+</ul></li>
+<li><strong>Seventh:</strong> We recall that <span class="math inline">\(g\)</span> <span class="math inline">\(|\)</span> <span class="math inline">\(\mathbb{N}\rightarrow\mathbb{F}\)</span> and <span class="math inline">\(f\)</span> <span class="math inline">\(|\)</span> <span class="math inline">\(\mathbb{F}\rightarrow[0,1]\)</span>. From this we see that <span class="math inline">\(f\circ g\)</span> is a surjection of <span class="math inline">\(\mathbb{N}\)</span> onto <span class="math inline">\([0,1]\)</span>.</li>
+<li><strong>Eighth</strong> We can now apply <em>Theorem 1.3.10</em> to show that <span class="math inline">\([0,1]\)</span> is a countable set.</li>
+<li><strong>Ninth</strong> Now we circle back to <em>Theorem 2.5.5</em> which contradicts the result of Step <span class="math inline">\(8\)</span> <a href="shock.html"><span class="math inline">\(\bigstar\)</span></a>.</li>
+<li><strong>Tenth</strong> Now that we have found a contradiction, we can apply <em>Reductio Ad Absurdum</em> to eliminate <span class="math inline">\(1\)</span> of the assumptions we used to get here and conclude the negation of that assumption. In our case, we conclude <span class="math inline">\(\mathbb{F}\)</span> is uncountable. <a href="cantorMemes.html"><span class="math inline">\(\square\)</span></a></li>
+</ul></li>
+</ul>
+<p><span class="math inline">\(\mathbfcal{Thank}\)</span> <span class="math inline">\(\mathbfcal{you}\)</span> <span class="math inline">\(\mathbfcal{for}\)</span> <span class="math inline">\(\mathbfcal{viewing}\)</span> <span class="math inline">\(\mathbfcal{this}\)</span> <span class="math inline">\(\mathbfcal{Queer}\)</span> <span class="math inline">\(\mathbfcal{Educational}\)</span> <span class="math inline">\(\mathbfcal{Demonstration}\)</span> <span class="math inline">\(\mathbfcal{(Q.E.D.)}\)</span></p>
 <div class="callToAction">
 <a href="../../contactMe.html"><button type="button">Contact Me</button></a>
 </div>
@@ -425,7 +446,7 @@ Note
       render: h => h('Vssue', {
         props: {
           // here set the title of issue of current page
-          title: 'Vssue_article_02',
+          title: 'Vssue_article_03',
 
           // here set the options for your OAuth App
           options: {
@@ -440,6 +461,7 @@ Note
   </script>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
@@ -478,18 +500,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -521,11 +532,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/rctilford\.github\.io\/personal-rhys-tilford\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -535,8 +585,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -548,7 +607,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -592,6 +774,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -617,6 +800,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -679,11 +888,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left"><span class="name">Rhys Tilford</span></div>   
-    <div class="nav-footer-center"><svg class="footer" viewbox="-790 -1245 1600 1245"><path></path></svg></div>
-    <div class="nav-footer-right"><span class="copyright">’’</span></div>
+    <div class="nav-footer-left">
+<p><span class="name">Rhys Tilford</span></p>
+</div>   
+    <div class="nav-footer-center">
+<svg class="footer" viewbox="-790 -1245 1600 1245">
+<path></path>
+</svg>
+</div>
+    <div class="nav-footer-right">
+<p><span id="copyright">© 2023 - </span></p>
+</div>
   </div>
 </footer>
+
 
 
 
