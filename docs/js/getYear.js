@@ -5,11 +5,14 @@ let year = new Date().getFullYear().toString();
 
 document.onload =   function() {
 
-document.getElementsByClassName("copyright")[0].innerHTML.replace("© 2023 - " + year, "''");
+document.getElementById('copyright').innerText.replace("© 2023 - ", "© 2023 - " + year);
 
 }
 
 
-var elements = document.getElementsByClassName("copyright");
+let elements = document.getElementById("copywright").
 
+console.log(elements);
 console.log(year);
+
+

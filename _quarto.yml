@@ -22,16 +22,10 @@ website:
       - icon: github
         href: https://github.com/rctilford
         target: _blank
-      - icon: instagram
-        href: https://www.instagram.com/rctilford
-        target: _blank
-      - icon: spotify
-        href: https://open.spotify.com/user/reesecupt?si=7f1c8e2d270d4a10
-        target: _blank
   page-footer: 
     center: "<svg class='footer' viewbox='-790 -1245 1600 1245'><path></path></svg>"
     left: "<span class='name'>Rhys Tilford</span>"
-    right: "<span class='copyright'>''</span>"
+    right: "<span id='copyright'>© 2023 - </span>"
 
   favicon: images/embosser.png
   back-to-top-navigation: true
