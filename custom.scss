@@ -1,14 +1,31 @@
 /*-- scss:defaults --*/
 
-$primary: #09014f;
-$secondary: #b87333;
+// The colours I chose originally
+//
+//$primary: #09014f;
+//$secondary: #b87333;
 
-$navbar-bg: #09014f;
-$navb-fg: #b87333;
-$footer-bg: #09014f;
-$footer-fg: #b87333;
+$primary: #01204f;
+$secondary: #b88c33;
 
+$navbar-bg: #01204f;
+$navb-fg: #b88c33;
+$navb-txt-hov: #7a5200;
+$footer-bg: #01204f;
+$footer-fg: #b88c33;
 
+// adobe colour pallet
+//
+//#01204f
+//#b88c33
+//#7a5200
+//#3c4c63
+//#38342c
+//#2c2e33
+//#dae2cc
+//#eef064
+//#3150a1
+//#dc99bd
 
 // $font-family-sans-serif: "COXXON Font";
 // $font-family-monospace: "COXXON Font";
@@ -28,10 +45,9 @@ $footer-fg: #b87333;
 // <uniquifier>: Use a uniquifier for the class name
 // <weight>: Use a value from 300 to 700
 @font-face {
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand';
   src: url('fonts/QuicksandVariableFont.woff2') format('woff2');
-  font-optical-sizing: auto;
-  font-weight: var(weight);
+  font-weight: normal;
   font-style: normal;
 }
 
@@ -64,8 +80,8 @@ body {
 }
 
 span.copyright {
-  font-family: "CoxxonFont";
-  font-size: 120%;
+  font-family: "Quicksand";
+  font-size: 150%;
   text-align: center;
   text-wrap: nowrap;
   overflow: visible;
@@ -108,21 +124,21 @@ svg.footer {
 }
 
 .listing-author {
-  font-family: "GoogleSans";
+  font-family: "Quicksand";
   text-transform: none;
 }
 
 .listing-date {
-  font-family: "GoogleSans";
+  font-family: "Quicksand";
   text-transform: none;
 }
 
 .quarto-listing-sort {
-  font-family: "GoogleSans";
+  font-family: "Quicksand";
 }
 
 .category {
-  font-family: "GoogleSans";
+  font-family: "Quicksand";
 }
 
 /* @keyframes RadicalRadii {
@@ -228,10 +244,6 @@ svg.logo{
     padding: 10px;
 }
 
-.navbar-title:hover .logo {
-  transform: scale(0.8);
-}
-
 .navbar-dark .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28184, 115, 51, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   transition: 0.25s;
@@ -245,20 +257,12 @@ button.navbar-toggler:focus {
   box-shadow: none;
 }
 
-button.navbar-toggler:hover .navbar-toggler-icon {
-  transform: scale(.8);
-}
-
 button.aa-DetachedSearchButton:hover {
   background-color: rgba(0, 255, 255, 0);
 }
 
 .aa-SubmitIcon {
   transition: 0.25s;
-}
-
-button.aa-DetachedSearchButton:hover .aa-SubmitIcon {
-  transform: scale(0.8);
 }
 
 .bi {
@@ -270,7 +274,6 @@ button.aa-DetachedSearchButton:hover .aa-SubmitIcon {
 }
 
 .nav-item:hover {
-  transform: scale(0.9);
   color: $navb-fg;
 }
 

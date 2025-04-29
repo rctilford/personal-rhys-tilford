@@ -25,7 +25,7 @@ website:
   page-footer: 
     center: "<svg class='footer' viewbox='-790 -1245 1600 1245'><path></path></svg>"
     left: "<span class='name'>Rhys Tilford</span>"
-    right: "<span id='copyright'>© 2023 - </span>"
+    right: "<span class='copyright'>© 2023 - <script type='text/javascript'>document.write( new Date().getFullYear() );</script></span>"
 
   favicon: images/embosser.png
   back-to-top-navigation: true
@@ -33,9 +33,6 @@ website:
 
 format:
   html:
-    include-in-header:
-      - text: |
-          <script src="./js/getYear.js"></script>
     theme:
       - custom.scss
       - pulse

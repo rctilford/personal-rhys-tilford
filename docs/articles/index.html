@@ -107,7 +107,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-5R6TTB9D5X', { 'anonymize_ip': true});
 </script>
-<script src="./js/getYear.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -942,8 +941,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </svg>
 </div>
     <div class="nav-footer-right">
-<p><span id="copyright">© 2023 - </span></p>
-</div>
+<span class="copyright">© 2023 -
+<script type="text/javascript">document.write( new Date().getFullYear() );</script>
+<p></p>
+</span></div>
   </div>
 </footer>
 
