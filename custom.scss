@@ -384,6 +384,7 @@ footer.footer {
 
 input::-webkit-file-upload-button {
     border-radius: 0.9rem;
+    border-style: solid;
     border-color: $primary;
     color: $primary;
     background-color: white;
@@ -397,6 +398,7 @@ input::-webkit-file-upload-button:hover {
 
 button {
   border-radius: 0.9rem;
+  border-style: solid;
   border-color: $primary;
   color: white;
   background-color: $primary;

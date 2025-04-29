@@ -13,19 +13,21 @@ about:
 
 ### About Me
 
-I am a proud nerd as evidenced by my adoration for the show Doctor Who. In my spare time, I love catching up with my friends and hearing about their lives on long meandering walks around town. I also enjoy practicing my many hobbies. Ask me about my record player refurbishment project if we ever get to meet.
+Rhys describes himself as a proud nerd and gives his adoration for the show Doctor Who as evidence. In his spare time, he loves catching up with his friends and hearing about their lives on long meandering walks around town. Rhys also enjoys picking up new hobbies. His hobbies include ceramics, home-improvement, refurbishing vintage mechanical devices, and cooking.
 
 ### Education
 
-I was homeschooled in grades K-12 by my parents who have both worked in higher-education. (*2009-2022*)
+Rhys was home schooled in grades K-12 by my parents who have both worked in higher-education. (*2009-2022*)
 
-I study Mathematics, Computer Science, and Communication at Georgetown College in Kentucky. (*2022-2025*)
+Rhys studied Mathematics and Computer Science at Georgetown College in Kentucky. (*2022-2024*)
+
+Rhys studies Data Analytics at Georgia Tech. (*2025-present*)
 
 ### Experience
 
-I work as a Resident Advisor at Georgetown College. In this role, I facilitate a smooth transition to college life for all residents. (*2023-present*)
+Rhys worked as a Resident Adviser at Georgetown College. In this role, he facilitated a smooth transition to college life for all residents. Rhys was promoted to a roll as Residence Hall Coordinator in May of 2024. In the new role, Rhys managed a first year male dorm of 250 occupants and directed a team of 10 Resident Advisers. (*2023-2024*)
 
-I have worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, I organized lesson plans and led review sessions. (*2022-2023*)
+Rhys has worked as a Mathematics Tutor both privately and in affiliation with Georgetown College. In this role, he organized lesson plans and led review sessions. (*2022-2023*)
 :::
 
 <div class="callToAction"><a href="/contactMe.html"><button type="button">Contact Me</button></a></div>
